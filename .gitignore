@@ -41,7 +41,7 @@ deploy/.pantheon
 # Logs and databases #
 ######################
 *.log
-*.sql
+#*.sql
 
 # OS generated files #
 ######################
