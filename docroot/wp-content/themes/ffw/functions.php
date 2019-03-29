@@ -202,6 +202,7 @@ add_action('acf/init', function() {
   acf_update_setting('google_api_key', $google_api_key);
 });
 
+// Theme support Woocommerce
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 function timber_set_product( $post ) {

@@ -3,6 +3,10 @@ $context            = Timber::context();
 $context['sidebar'] = Timber::get_widgets( 'shop-sidebar' );
 
 if ( is_singular( 'product' ) ) {
+  remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+  remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+  add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 11);
+
   $context['post']    = Timber::get_post();
   $product            = wc_get_product( $context['post']->ID );
   $context['product'] = $product;
