@@ -3,7 +3,7 @@
     "title": "Footer Components",
     "fields": [
         {
-            "key": "field_5be26c55a9c80",
+            "key": "field_5c9da19913872",
             "label": "Footer Components",
             "name": "footer_components",
             "type": "flexible_content",
@@ -12,12 +12,12 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "layouts": {
-                "5be26c61da116": {
-                    "key": "5be26c61da116",
+                "layout_5c9da1b0c13ba": {
+                    "key": "layout_5c9da1b0c13ba",
                     "name": "footer_text",
                     "label": "Footer Text",
                     "display": "block",
@@ -83,8 +83,8 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5be26cc9a9c84": {
-                    "key": "layout_5be26cc9a9c84",
+                "layout_5c9da22151d5e": {
+                    "key": "layout_5c9da22151d5e",
                     "name": "footer_menu",
                     "label": "Footer Menu",
                     "display": "block",
@@ -149,7 +149,7 @@
                     "max": ""
                 }
             },
-            "button_label": "Add Footer Components",
+            "button_label": "Add Footer Compnents",
             "min": "",
             "max": ""
         },
@@ -918,7 +918,8 @@
                                 "fa-youtube": "&#xf167; youtube",
                                 "fa-youtube-play": "&#xf16a; youtube-play",
                                 "fa-youtube-square": "&#xf166; youtube-square"
-                            }
+                            },
+                            "default_label": ""
                         },
                         {
                             "key": "field_5bffa89684e30",
@@ -976,5 +977,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1553315964
+    "modified": 1553834603
 }

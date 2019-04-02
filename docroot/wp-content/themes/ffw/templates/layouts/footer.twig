@@ -4,10 +4,10 @@
       <div class="container">
         <div class="row">
           {% for key, footer in fn('array_unset', footer_widget, '_multiwidget') %}
-            <div class="col-md-8">
-                {{ function('acfwidget', 'footer_components', 'footer_widget-' ~ key ) }}
+            <div class="col-md-9">
+                {{ fn('acfwidget', 'footer_components', 'footer_widget-' ~ key ) }}
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               {% if fn('get_field', 'footer_social', 'widget_footer_widget-' ~ key ) %}
                 {% set footer_social = fn('get_field', 'footer_social', 'widget_footer_widget-' ~ key ) %}
                 {% include 'footer-social.twig' with {'facebook_fanpage': footer_social.facebook_fanpage_url, 'social_list': footer_social.social_list} %}
@@ -20,9 +20,11 @@
 
     <div class="footer-bottom">
       <div class="container">
+        <div class="block-copyright">
         {% for key, footer in fn('array_unset', footer_widget, '_multiwidget') %}
           {{ fn('get_field', 'footer_copyright', 'widget_footer_widget-' ~ key ) }}
         {% endfor %}
+        </div>
       </div>
     </div>
 

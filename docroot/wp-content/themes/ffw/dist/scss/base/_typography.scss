@@ -1,11 +1,11 @@
 html {
-  @include lato;
+  @include opensans;
   font-size: $base-font-size;
   line-height: 1.5;
 }
 
 body {
-  @include lato;
+  @include opensans;
   color: $color-base;
   font-size: inherit;
   line-height: inherit;

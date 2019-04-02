@@ -7,22 +7,24 @@
         </div>
       </div>
 
-      <div id="header-navigation" class="header--navigation">
+      <div id="header-navigation" class="header-navigation">
         <div class="container">
-          <div class="header-logo">
-            <a href="{{ site.url }}" class="logo">
-              <img alt="{{ site.name }}" src="{{ site_logo }}" alt="{{ site.name }}">
-            </a>
+          <div class="header-navigation-inner">
+            <div class="header-logo">
+              <a href="{{ site.url }}" class="logo">
+                <img alt="{{ site.name }}" src="{{ site_logo }}" alt="{{ site.name }}">
+              </a>
+            </div>
+
+            {% block navigation %}
+              <div class="block-navigation">{% include 'navigation.twig' %}</div>
+            {% endblock %}
+
+            {#% if global_ppl %}
+            {% include 'custom-ppl.twig' %}
+            {% endif %#}
           </div>
-
-          {% block navigation %}
-            <div class="block-navigation">{% include 'navigation.twig' %}</div>
-          {% endblock %}
         </div>
-
-        {#% if global_ppl %}
-        {% include 'custom-ppl.twig' %}
-        {% endif %#}
       </div>
     </div>
   </header>

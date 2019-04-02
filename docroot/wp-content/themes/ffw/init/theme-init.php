@@ -130,18 +130,20 @@ function acfwidget($name, $widgetid) {
     //print_r($acffield);
 
     if ( !empty( $acffield ) ) {
-      $index = 1;
+
+      $grouped_types = array();
       foreach ($acffield as $field) {
-        $layout = $field['acf_fc_layout'];
-        
+        $grouped_types[$field['acf_fc_layout']][] = $field;
+      }
+
+      foreach ($grouped_types as $key => $field) {
+        $layout = $key;
+
         switch ($layout) {
           default:
-            $field['index'] = $index;
 
-            if ( strpos($field['component_class'], 'col-') === false ) {
-              $field['layout'] = 12 / $acffield_count;
-            }
-            //print_r($field);
+            $field[$key] = $field;
+
             try {
               Timber::render($layout . '.twig', $field);
             } catch (Exception $e) {
@@ -149,7 +151,6 @@ function acfwidget($name, $widgetid) {
             }
             break;
         }
-        $index++;
       }
     }
   }
@@ -604,8 +605,10 @@ function ffw_twig_data($data){
   // Theme option
   $theme_options                = get_option('ffw_board_settings');
   $google_api_key               = $theme_options['ffw_google_api_key'];
+  $post_banner_default          = $theme_options['ffw_post_banner_image'];
 
   $data['google_api_key']       = $google_api_key;
+  $data['post_banner_default']  = $post_banner_default;
 
   // Get PPL Plugin
   if ( !empty($GLOBALS["polylang"]) ) {
