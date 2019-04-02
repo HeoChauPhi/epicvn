@@ -367,6 +367,16 @@ function flexible_content($name) {
       $field['component_id'] = $key + 1;
 
       switch ($layout) {
+        case 'block_service':
+          //print_r($field);
+
+          try {
+            Timber::render($layout . '.twig', $field);
+          } catch (Exception $e) {
+            echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+          }
+          break;
+
         case 'block_products':
 
           $args_products = array(

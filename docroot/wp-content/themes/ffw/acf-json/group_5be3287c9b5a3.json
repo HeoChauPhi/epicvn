@@ -30,9 +30,9 @@
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "page_template",
                 "operator": "!=",
-                "value": "front_page"
+                "value": "page-templates\/template-landing-page.php"
             },
             {
                 "param": "post_type",
@@ -63,5 +63,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554144038
+    "modified": 1554181396
 }

@@ -9603,6 +9603,9 @@ main .block-title {
       border: 0.07143rem solid transparent;
       cursor: pointer; }
       .block-products .product-item-inner:hover {
+        -webkit-box-shadow: #d3d3d3 0rem 0.21429rem 0.35714rem;
+        -moz-box-shadow: #d3d3d3 0rem 0.21429rem 0.35714rem;
+        box-shadow: #d3d3d3 0rem 0.21429rem 0.35714rem;
         border: 0.07143rem solid #d3d3d3; }
         .block-products .product-item-inner:hover .product-image {
           border-color: transparent; }
@@ -9639,3 +9642,61 @@ main .block-title {
     margin-bottom: 1.07143rem; }
   .block-products .product-price {
     color: #b8374b; }
+
+.block-service {
+  padding: 2.85714rem 0rem 4.64286rem;
+  position: relative; }
+  .block-service .block-title {
+    margin-bottom: 3.57143rem;
+    position: relative;
+    text-align: center; }
+    .block-service .block-title:after, .block-service .block-title:before {
+      background-color: #d3d3d3;
+      content: "";
+      display: block;
+      height: 0.07143rem;
+      margin: 0 auto;
+      width: 50%; }
+    .block-service .block-title:before {
+      margin-bottom: 2.14286rem; }
+    .block-service .block-title:after {
+      margin-top: 1.78571rem; }
+  .block-service-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .block-service-list .service-item {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 35.71429rem;
+      border: 0.14286rem solid #ed1c24;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 10.71429rem;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      margin: 0rem 2.14286rem;
+      overflow: hidden;
+      width: 10.71429rem; }
+      .block-service-list .service-item-inner {
+        text-align: center;
+        width: 100%; }
+    .block-service-list .service-icon {
+      margin-bottom: 1.07143rem; }
+      .block-service-list .service-icon > i {
+        font-size: 4rem; }
+    .block-service-list .service-title {
+      font-size: 1.14286rem;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      margin: 0; }

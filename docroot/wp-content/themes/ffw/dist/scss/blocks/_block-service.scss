@@ -1,0 +1,67 @@
+.block-service {
+  padding: rem(40px 0 65px);
+  position: relative;
+
+  .block-title {
+    margin-bottom: rem(50px);
+    position: relative;
+    text-align: center;
+
+    &:after,
+    &:before {
+      background-color: $color-line;
+      content: "";
+      display: block;
+      height: rem(1px);
+      margin: 0 auto;
+      width: 50%;
+    }
+
+    &:before {
+      margin-bottom: rem(30px);
+    }
+
+    &:after {
+      margin-top: rem(25px);
+    }
+  }
+
+  &-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .service-item {
+      align-items: center;
+      background-color: $white;
+      border-radius: rem(500px);
+      border: rem(2px) solid $color-link;
+      display: flex;
+      height: rem(150px);
+      justify-content: center;
+      margin: rem(0 30px);
+      overflow: hidden;
+      width: rem(150px);
+
+      &-inner {
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+    .service-icon {
+      margin-bottom: rem(15px);
+
+      > i {
+        font-size: rem(56px);
+      }
+    }
+
+    .service-title {
+      font-size: rem(16px);
+      color: $color-base;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+}

@@ -174,13 +174,80 @@
                             "button_label": "Add Service Item",
                             "sub_fields": [
                                 {
-                                    "key": "field_5ca2d5b9a0abb",
-                                    "label": "Service Icon",
-                                    "name": "service_icon",
-                                    "type": "font-awesome",
+                                    "key": "field_5ca34374e5b71",
+                                    "label": "Service Type",
+                                    "name": "service_type",
+                                    "type": "select",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "image": "Image",
+                                        "fa": "Font Awesome"
+                                    },
+                                    "default_value": [
+                                        "image"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5ca343f2e5b72",
+                                    "label": "Service Icon Image",
+                                    "name": "service_icon_image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5ca34374e5b71",
+                                                "operator": "==",
+                                                "value": "image"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5ca2d5b9a0abb",
+                                    "label": "Service Icon Font Awesome",
+                                    "name": "service_icon_fa",
+                                    "type": "font-awesome",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5ca34374e5b71",
+                                                "operator": "==",
+                                                "value": "fa"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -402,5 +469,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554176107
+    "modified": 1554203667
 }
