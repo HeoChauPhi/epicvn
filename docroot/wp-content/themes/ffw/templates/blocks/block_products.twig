@@ -1,0 +1,15 @@
+<div class="block-products {{ component_class }}">
+  <div class="container">
+    <div class="block-component-header">
+      <h2 class="block-title">{{ block_title }}</h2>
+      <div class="block-description">{{ block_description }}</div>
+    </div>
+    <div class="block-component-body">
+      <div class="row">
+      {% for product in products %}
+        {% include 'block_products-item.twig' with {'product': product} only %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

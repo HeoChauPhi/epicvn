@@ -18,12 +18,290 @@
             "layouts": {
                 "layout_5b8372f2dae72": {
                     "key": "layout_5b8372f2dae72",
+                    "name": "block_products",
+                    "label": "Block Products",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b8372f2dae73",
+                            "label": "Block Title",
+                            "name": "block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5b8372f3dae74",
+                            "label": "Block Description",
+                            "name": "block_description",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 3,
+                            "new_lines": "br"
+                        },
+                        {
+                            "key": "field_5b8372f3dae75",
+                            "label": "Products Select",
+                            "name": "products_select",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "product"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 1,
+                            "return_format": "id",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_5b8372f3dae76",
+                            "label": "Component Class",
+                            "name": "component_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ca2d5038515c": {
+                    "key": "layout_5ca2d5038515c",
+                    "name": "block_service",
+                    "label": "Block Service",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ca2d588a0aba",
+                            "label": "Block Image Banner",
+                            "name": "block_image_banner",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5ca2d5038515d",
+                            "label": "Block Title",
+                            "name": "block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ca2d5038515f",
+                            "label": "Service List",
+                            "name": "service_list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Service Item",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ca2d5b9a0abb",
+                                    "label": "Service Icon",
+                                    "name": "service_icon",
+                                    "type": "font-awesome",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "icon_sets": [
+                                        "far"
+                                    ],
+                                    "custom_icon_set": "",
+                                    "default_label": "",
+                                    "default_value": "",
+                                    "save_format": "element",
+                                    "allow_null": 0,
+                                    "show_preview": 1,
+                                    "enqueue_fa": 0,
+                                    "fa_live_preview": "",
+                                    "choices": []
+                                },
+                                {
+                                    "key": "field_5ca2d5eda0abc",
+                                    "label": "Service Title",
+                                    "name": "service_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5ca2d50385160",
+                            "label": "Component Class",
+                            "name": "component_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ca2d56aa0ab5": {
+                    "key": "layout_5ca2d56aa0ab5",
+                    "name": "block_category",
+                    "label": "Block Category",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ca2d56aa0ab6",
+                            "label": "Category Select",
+                            "name": "category_select",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "category",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "multiple": 0
+                        },
+                        {
+                            "key": "field_5ca2d56aa0ab9",
+                            "label": "Component Class",
+                            "name": "component_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ca2d63fa0abd": {
+                    "key": "layout_5ca2d63fa0abd",
                     "name": "map_block",
                     "label": "Map Block",
                     "display": "row",
                     "sub_fields": [
                         {
-                            "key": "field_5b8372f2dae73",
+                            "key": "field_5ca2d63fa0abe",
                             "label": "Map Title",
                             "name": "map_title",
                             "type": "text",
@@ -42,7 +320,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5b8372f3dae74",
+                            "key": "field_5ca2d63fa0abf",
                             "label": "Map Description",
                             "name": "map_description",
                             "type": "textarea",
@@ -61,7 +339,7 @@
                             "new_lines": ""
                         },
                         {
-                            "key": "field_5b8372f3dae75",
+                            "key": "field_5ca2d63fa0ac0",
                             "label": "Map Embed",
                             "name": "map_embed",
                             "type": "google_map",
@@ -79,7 +357,7 @@
                             "height": 300
                         },
                         {
-                            "key": "field_5b8372f3dae76",
+                            "key": "field_5ca2d63fa0ac1",
                             "label": "Component Class",
                             "name": "component_class",
                             "type": "text",
@@ -124,5 +402,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1553315252
+    "modified": 1554176107
 }

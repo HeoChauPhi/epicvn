@@ -9408,16 +9408,17 @@ img {
     padding: 0.71429rem 0rem 0.35714rem; }
 
 .feature {
-  background-color: #efecec;
-  color: #747474;
-  padding-bottom: 2.85714rem; }
+  color: #747474; }
   .feature.front-banner .feature-media {
-    margin-bottom: 3.21429rem;
     min-height: 47.85714rem; }
 
 .feature-media {
   height: 22.14286rem;
   position: relative; }
+
+.feature-content {
+  background-color: #efecec;
+  padding: 3.21429rem 0rem 2.85714rem; }
 
 .feature-content-header {
   border-bottom: 0.07143rem solid #ccc;
@@ -9564,6 +9565,13 @@ img {
   .back-to-top:hover {
     opacity: 1; }
 
+main .block-title {
+  color: #817c7d;
+  font-size: 2.57143rem;
+  font-weight: 300;
+  margin: 0rem 0rem 1.07143rem;
+  text-transform: uppercase; }
+
 .block-user-login ul {
   list-style: none;
   margin: 0;
@@ -9578,3 +9586,56 @@ img {
       color: #747474; }
       .block-user-login ul li a:hover {
         color: #ed1c24; }
+
+.block-products {
+  padding: 2.85714rem 0rem 1.42857rem; }
+  .block-products .block-component-header {
+    margin-bottom: 4.28571rem;
+    text-align: center; }
+  .block-products .block-component-body > .row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem; }
+  .block-products .block-title {
+    margin-bottom: 1.42857rem; }
+  .block-products .product-item {
+    padding: 0rem 0.5rem; }
+    .block-products .product-item-inner {
+      border: 0.07143rem solid transparent;
+      cursor: pointer; }
+      .block-products .product-item-inner:hover {
+        border: 0.07143rem solid #d3d3d3; }
+        .block-products .product-item-inner:hover .product-image {
+          border-color: transparent; }
+  .block-products .product-image {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 0.07143rem solid #d3d3d3;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 21rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: -0.07143rem -0.07143rem 1.07143rem -0.07143rem;
+    line-height: 0; }
+    .block-products .product-image img {
+      height: auto;
+      width: 100%; }
+  .block-products .product-info {
+    font-size: 1rem;
+    padding: 0rem 1.42857rem 1.42857rem;
+    text-align: center; }
+  .block-products .product-title {
+    margin: 0rem 0rem 1.07143rem;
+    font-size: 1.14286rem;
+    text-transform: uppercase; }
+    .block-products .product-title a {
+      color: #3a3a3a; }
+      .block-products .product-title a:hover {
+        color: #ed1c24; }
+  .block-products .product-short-desc {
+    margin-bottom: 1.07143rem; }
+  .block-products .product-price {
+    color: #b8374b; }

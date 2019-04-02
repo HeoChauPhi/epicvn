@@ -1,11 +1,8 @@
 .feature {
-  background-color: $bg-feature;
   color: $color-font-light;
-  padding-bottom: rem(40px);
 
   &.front-banner {
     .feature-media {
-      margin-bottom: rem(45px);
       min-height: rem(670px);
     }
   }
@@ -17,7 +14,8 @@
 }
 
 .feature-content {
-  
+  background-color: $bg-feature;
+  padding: rem(45px 0 40px);
 }
 
 .feature-content-header {
@@ -27,7 +25,7 @@
 }
 
 .feature-big-title {
-  color: $color-title-feature;
+  color: $color-title-main;
   font-size: rem(36px);
   font-weight: 300;
   margin: rem(0 0 15px);

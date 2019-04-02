@@ -367,8 +367,15 @@ function flexible_content($name) {
       $field['component_id'] = $key + 1;
 
       switch ($layout) {
-        case 'test':
-          print_r($field);
+        case 'block_products':
+
+          $args_products = array(
+            'post_type' => 'product',
+            'post__in'  => $field['products_select'],
+            'orderby' => 'post__in'
+          );
+          query_posts($args_products);
+          $field['products'] = Timber::get_posts($args_products);
 
           try {
             Timber::render($layout . '.twig', $field);
