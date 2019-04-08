@@ -367,8 +367,15 @@ function flexible_content($name) {
       $field['component_id'] = $key + 1;
 
       switch ($layout) {
-        case 'block_service':
-          //print_r($field);
+        case 'block_category':
+          $args = array(
+            'parent' => $field['category_select'],
+            'hide_empty' => false
+          );
+          $child_terms = Timber::get_terms($args);
+
+          $field['terms'] = $child_terms;
+          $field['term_parent'] = new TimberTerm($field['category_select']);
 
           try {
             Timber::render($layout . '.twig', $field);

@@ -1,0 +1,107 @@
+<div class="block-category {{ component_class }}">
+  <div class="container">
+    {% if block_title %}
+    <h2 class="block-title">{{ block_title }}</h2>
+    {% else %}
+    <h2 class="block-title">{{ term_parent.name }}</h2>
+    {% endif %}
+    
+    <div class="block-content">
+      {% if terms %}
+        <div class="js-quicktab">
+
+          <ul class="term-list js-tabs-list">
+          {% for term in terms %}
+            <li><a href="#tab-component-{{ component_id ~ '-' ~ term.slug }}">{{ term.name }}</a></li>
+          {% endfor %}
+          </ul>
+
+          <div class="term-posts js-tabs-contents">
+          {% for term in terms %}
+            <div id="tab-component-{{ component_id ~ '-' ~ term.slug }}" class="js-tabs-content">
+              {% if term.get_posts() %}
+                {% if term.slug == 'images' or term.slug == 'images-vi' or term.slug == 'videos' or term.slug == 'videos-vi' %}
+                {% set per_page = 8 %}
+                {% set post_class = 'post-medias' %}
+                {% else %}
+                {% set per_page = 4 %}
+                {% set post_class = '' %}
+                {% endif %}
+
+                <div class="row term-posts-inner">
+                {% for post in term.get_posts({'posts_per_page': per_page}) %}
+                  <div class="post-item {{ post_class }} col-md-3">
+                    <div class="post-item-inner">
+                      {# Check category is Image #}
+                      {% if term.slug == 'images' or term.slug == 'images-vi' %}
+                        <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ post.get_field('post_gallery')[0].url }}" style="background-image: url({{ post.get_field('post_gallery')[0].url }});"><img src="{{ post.get_field('post_gallery')[0].url }}"></a>
+                        
+                        <div class="media-hidden">
+                        {% for item in post.get_field('post_gallery') %}
+                          {% if loop.first != true %}
+                          <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ item.url }}"><img src="{{ item.url }}"></a>
+                          {% endif %}
+                        {% endfor %}
+                        </div>
+
+                      {# Check category is Video #}
+                      {% elseif term.slug == 'videos' or term.slug == 'videos-vi' %}
+
+                        {% set video_arr = fn('get_id_embed', post.get_field('post_videos')[0].video_embed) %}
+
+                        {% if video_arr.video_type == 'youtube' %}
+                          {% set video_url = '//www.youtube.com/embed/' ~ video_arr.video_id ~ '?autoplay=1' %}
+                        {% else %}
+                          {% set video_url = '//player.vimeo.com/video/' ~ video_arr.video_id ~ '?autoplay=1' %}
+                        {% endif %}
+
+                        <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_url }}" style="background-image: url({{ video_arr.video_thumb }});"><img src="{{ video_arr.video_thumb }}"></a>
+
+                        <div class="media-hidden">
+                        {% for item in post.get_field('post_videos') %}
+                          {% if loop.first != true %}
+                          {% set video_item_arr = fn('get_id_embed', item.video_embed) %}
+
+                          {% if video_item_arr.video_type == 'youtube' %}
+                            {% set video_item_url = '//www.youtube.com/embed/' ~ video_item_arr.video_id ~ '?autoplay=1' %}
+                          {% else %}
+                            {% set video_item_url = '//player.vimeo.com/video/' ~ video_item_arr.video_id ~ '?autoplay=1' %}
+                          {% endif %}
+
+                          <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_item_url }}"><img src="{{ video_item_arr.video_thumb }}"></a>
+                          {% endif %}
+                        {% endfor %}
+                        </div>
+
+                      {# Check category is default post #}
+                      {% else %}
+                        <div class="post-media" style="background-image: url({{ fn('get_the_post_thumbnail_url', post.ID) }});">
+                          <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}">
+                        </div>
+                        <div class="post-body">
+                          <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+                          <div class="post-summary">
+                            <span class="post-date">{{ post.date|date() }}</span>
+                            <span class="post-author">{{ post.author }}</span>
+                          </div>
+                          <div class="post-content">{{ post.content|shortcodes|excerpt(15) }}</div>
+                        </div>
+                      {% endif %}
+
+                    </div>
+                  </div>
+                {% endfor %}
+                </div>
+                <div class="read-more-wrapper"><a href="{{ term.link }}" class="read-more-link">{{ pll_e('read more') }}</a></div>
+              {% else %}
+                <div class="post-item">{{ pll_e('no post here') }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+          </div>
+
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -317,6 +317,25 @@
                     "display": "row",
                     "sub_fields": [
                         {
+                            "key": "field_5ca5d5c0d6f28",
+                            "label": "Block Title",
+                            "name": "block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_5ca2d56aa0ab6",
                             "label": "Category Select",
                             "name": "category_select",
@@ -469,5 +488,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554203667
+    "modified": 1554654037
 }

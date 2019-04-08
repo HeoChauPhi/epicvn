@@ -21,6 +21,9 @@
 @import 'base/fonts';
 @import 'base/typography';
 @import 'base/helper';
+
+// Base style and base libs
+@import 'libs/jquery-ui-tabs';
 @import 'base/navigation';
 
 @import 'layout/header';

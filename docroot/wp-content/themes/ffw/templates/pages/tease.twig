@@ -6,7 +6,7 @@
         {% if post.get_field('summary') %}
         <div class="sub-page-title">{{ post.get_field('summary') }}</div>
         {% endif %}
-        {{ function('shortcode', '[share_buttons]') }}
+        {{ fn('shortcode', '[share_buttons]') }}
         <div class="block-content__body">{{ post.content|shortcodes }}</div>
       </div>
     </div>

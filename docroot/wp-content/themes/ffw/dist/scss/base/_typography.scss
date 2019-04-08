@@ -19,6 +19,13 @@ a {
     cursor: pointer;
     text-decoration: none;
   }
+
+  &:focus,
+  &:active,
+  &:visited {
+    outline: none !important;
+    text-decoration: none;
+  }
 }
 
 img {
