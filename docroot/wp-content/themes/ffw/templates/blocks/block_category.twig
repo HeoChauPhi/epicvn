@@ -23,12 +23,14 @@
                 {% if term.slug == 'images' or term.slug == 'images-vi' or term.slug == 'videos' or term.slug == 'videos-vi' %}
                 {% set per_page = 8 %}
                 {% set post_class = 'post-medias' %}
+                {% set post_inner_class = 'term-post-medias-inner' %}
                 {% else %}
                 {% set per_page = 4 %}
                 {% set post_class = '' %}
+                {% set post_inner_class = '' %}
                 {% endif %}
 
-                <div class="row term-posts-inner">
+                <div class="row term-posts-inner {{ post_inner_class }}">
                 {% for post in term.get_posts({'posts_per_page': per_page}) %}
                   <div class="post-item {{ post_class }} col-md-3">
                     <div class="post-item-inner">

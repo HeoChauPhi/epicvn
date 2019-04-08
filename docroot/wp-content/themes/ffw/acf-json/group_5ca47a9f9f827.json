@@ -84,14 +84,14 @@
             {
                 "param": "post_category",
                 "operator": "==",
-                "value": "category:uncategorized"
+                "value": "category:images-vi"
             }
         ],
         [
             {
                 "param": "post_category",
                 "operator": "==",
-                "value": "category:uncategorized"
+                "value": "category:videos-vi"
             }
         ]
     ],
@@ -103,5 +103,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554369253
+    "modified": 1554746700
 }
