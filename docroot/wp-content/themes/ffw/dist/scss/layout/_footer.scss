@@ -1,0 +1,137 @@
+.footer {
+  color: $color-footer;
+
+  &-wrapper {
+    background-color: $bg-footer;
+  }
+
+  .block-title {
+    color: $white;
+    font-size: rem(14px);
+    margin: rem(0 0 15px);
+    text-transform: uppercase;
+  }
+
+  a {
+    color: $color-footer;
+
+    &:hover {
+      color: $color-link;
+    }
+  }
+
+  &-bottom {
+    background-color: $bg-footer-bottom;
+    padding: rem(30px 0);
+  }
+}
+
+// Footer pannel
+.footer-pannel {
+  padding: rem(30px 0 45px);
+}
+
+.footer-menu-inner,
+.footer-text-inner {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin: rem(0 -15px);
+
+  .block-footer-menu,
+  .block-footer-text {
+    flex: 1;
+    padding: rem(0 15px);
+  }
+}
+
+.footer-menu-wrapper {
+  border-bottom: rem(1px) solid $color-line-footer;
+  margin-bottom: rem(30px);
+  padding-bottom: rem(25px);
+}
+
+.block-footer-menu {
+  ul.footer-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .menu-item {
+      font-size: rem(12px);
+      list-style: none;
+      margin: rem(0 0 10px);
+    }
+  }
+}
+
+// Block footer social
+.block-footer-social {
+  .block-facebook-fanpage {
+    max-width: 100%;
+    //min-height: rem(230px);
+    margin-bottom: rem(30px);
+  }
+
+  .social-list {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .social-item {
+      margin-right: rem(20px);
+
+      a {
+        align-items: center;
+        border-radius: 500px;
+        color: $white;
+        display: block;
+        display: flex;
+        font-size: rem(25px);
+        height: rem(50px);
+        justify-content: center;
+        text-align: center;
+        width: rem(50px);
+      }
+    }
+  }
+}
+
+// Block copyright
+.block-copyright {
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $color-link;
+    }
+  }
+}
+
+// Block back to top
+.back-to-top {
+  @include transition(opacity 0.3s ease-in-out);
+  position: fixed;
+  bottom: rem(10px);
+  right: rem(10px);
+  background-image: url('../images/icons/backtotop.png');
+  background-size: cover;
+  width: rem(50px);
+  height: rem(50px);
+  text-indent: -999em;
+  cursor: pointer;
+  opacity: .4;
+
+  &:hover {
+    opacity: 1;
+  }
+}

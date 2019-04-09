@@ -1,4 +1,4 @@
-# Copyright (C) 2018 stops-core-theme-and-plugin-updates
+# Copyright (C) 2019 stops-core-theme-and-plugin-updates
 # This file is distributed under the same license as the stops-core-theme-and-plugin-updates package.
 msgid ""
 msgstr ""
@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Team Updraft <mail@example.com>\n"
 "Language-Team: Team Updraft <mail@example.com>\n"
 "X-Poedit-Basepath: ..\n"
@@ -89,89 +89,169 @@ msgstr ""
 msgid "Summer sale - 20% off Easy Updates Manager Premium until July 31st"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:786
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:35
+msgid "Automatic backup"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:36
+msgid "Takes a automatic backup before your website is updated via an integration with UpdraftPlus"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:40
+msgid "Automatic update scheduling"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:41
+msgid "Choose the most convenient time of day to run your automatic updates."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:45
+msgid "Delay automatic updates"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:46
+msgid "Delays the deployment of available automatic updates by a set time, to prevent installing short-lived (e.g. buggy) updates."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:50
+msgid "Anonymize updates"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:51
+msgid "Controls what is sent to the WordPress.org API; stop sending unnecessary/personal/analytics data."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:55, src/templates/advanced-premium.php:37
+msgid "Webhook"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:56
+msgid "Integrates with third-party services to allow automatic updates to be triggered via cron or tools like Zapier."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:60
+msgid "Plugin safe mode"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:61, src/templates/advanced-premium.php:25
+msgid "Prevent updates that are not compatible with your current WordPress version or your server's PHP version."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:65
+msgid "Export / import settings"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:66, src/templates/advanced-premium.php:33
+msgid "Export your settings from one site to another for quicker setup."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:70
+msgid "Dead plugins"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:71
+msgid "Runs a check and alerts you about plugins that have been removed from the WordPress directory."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:75
+msgid "White-label"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:76
+msgid "Customize what branding and notices your clients see in the plugin."
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:91
+msgid "$item[label]"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Advanced_Preview.php:91, src/includes/MPSUM_Admin.php:519, src/includes/MPSUM_Admin.php:620, src/templates/advanced-premium-preview.php:9
+msgid "Premium"
+msgstr ""
+
+#: src/includes/MPSUM_Admin_Ajax.php:804
 msgid "The exclusion of users option has been updated."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:805
+#: src/includes/MPSUM_Admin_Ajax.php:825
 msgid "This plugin is not installed on any sites."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:842
+#: src/includes/MPSUM_Admin_Ajax.php:862
 msgid "This plugin is not installed on any sites. Consider removing it."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:847
+#: src/includes/MPSUM_Admin_Ajax.php:867
 msgid "The following sites have this plugin installed"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:867
+#: src/includes/MPSUM_Admin_Ajax.php:889
 msgid "This theme is not installed on any sites."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:906
+#: src/includes/MPSUM_Admin_Ajax.php:928
 msgid "This theme is not active on any sites. Consider removing it."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:911
+#: src/includes/MPSUM_Admin_Ajax.php:933
 msgid "The following sites have this theme activated."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:925
+#: src/includes/MPSUM_Admin_Ajax.php:948
 msgid "The admin bar has been disabled."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:937
+#: src/includes/MPSUM_Admin_Ajax.php:961
 msgid "The admin bar has been enabled. Please refresh to see the admn bar menu."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1008, src/templates/admin-tab-advanced.php:8
+#: src/includes/MPSUM_Admin_Ajax.php:1032, src/templates/admin-tab-advanced.php:8
 msgid "The plugin settings have now been reset."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1048
+#: src/includes/MPSUM_Admin_Ajax.php:1072
 msgid "Force update checks have been initialized."
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1066, src/includes/MPSUM_Admin.php:473
+#: src/includes/MPSUM_Admin_Ajax.php:1091, src/includes/MPSUM_Admin.php:473
 msgid "Updates"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1067, src/includes/MPSUM_Admin_Help.php:48, src/includes/MPSUM_Admin.php:488, src/includes/MPSUM_Admin.php:595
+#: src/includes/MPSUM_Admin_Ajax.php:1092, src/includes/MPSUM_Admin_Help.php:48, src/includes/MPSUM_Admin.php:488, src/includes/MPSUM_Admin.php:595
 msgid "Plugins"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1068, src/includes/MPSUM_Admin_Help.php:49, src/includes/MPSUM_Admin.php:496, src/includes/MPSUM_Admin.php:601
+#: src/includes/MPSUM_Admin_Ajax.php:1093, src/includes/MPSUM_Admin_Help.php:49, src/includes/MPSUM_Admin.php:496, src/includes/MPSUM_Admin.php:601
 msgid "Themes"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1084
+#: src/includes/MPSUM_Admin_Ajax.php:1109
 msgid "%s WordPress Update"
 msgid_plural "%s WordPress Updates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1087
+#: src/includes/MPSUM_Admin_Ajax.php:1112
 msgid "%s Plugin Update"
 msgid_plural "%s Plugin Updates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1090
+#: src/includes/MPSUM_Admin_Ajax.php:1115
 msgid "%s Theme Update"
 msgid_plural "%s Theme Updates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1093, src/includes/MPSUM_Admin_Core.php:273, src/includes/MPSUM_Admin.php:410
+#: src/includes/MPSUM_Admin_Ajax.php:1118, src/includes/MPSUM_Admin_Core.php:273, src/includes/MPSUM_Admin.php:410
 msgid "Translation Updates"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1130
+#: src/includes/MPSUM_Admin_Ajax.php:1155
 msgid "Logs are now enabled"
 msgstr ""
 
-#: src/includes/MPSUM_Admin_Ajax.php:1142
+#: src/includes/MPSUM_Admin_Ajax.php:1167
 msgid "Logs have been emptied"
 msgstr ""
 
@@ -882,10 +962,6 @@ msgstr ""
 msgid "Working..."
 msgstr ""
 
-#: src/includes/MPSUM_Admin.php:519, src/includes/MPSUM_Admin.php:620
-msgid "Premium"
-msgstr ""
-
 #: src/includes/MPSUM_Admin.php:538, src/includes/MPSUM_Admin.php:538, src/includes/MPSUM_Admin.php:555, src/includes/MPSUM_Admin.php:555
 msgid "Updates Options"
 msgstr ""
@@ -1452,12 +1528,31 @@ msgstr ""
 msgid "All theme updates have been disabled."
 msgstr ""
 
-#: src/templates/advanced-premium.php:9
-msgid "Get Easy Updates Manager Premium"
+#: src/templates/advanced-premium-preview.php:10
+msgid "Interested in this feature?"
 msgstr ""
 
-#: src/templates/advanced-premium.php:12
+#: src/templates/advanced-premium-preview.php:17, src/templates/advanced-premium.php:12
 msgid "Get many more features with Easy Updates Manager Premium."
+msgstr ""
+
+#: src/templates/advanced-premium-preview.php:19
+msgctxt "Full text is: \"Check out the video and feature list here, or go to our store\", but with links added."
+msgid "Check out the video and feature list %s, or %s"
+msgstr ""
+
+#: src/templates/advanced-premium-preview.php:19
+msgctxt " is included in the sentence: Check out the video and feature list here, or go to our store"
+msgid "here"
+msgstr ""
+
+#: src/templates/advanced-premium-preview.php:19
+msgctxt " is included in the sentence: Check out the video and feature list here, or go to our store"
+msgid "go to our store."
+msgstr ""
+
+#: src/templates/advanced-premium.php:9
+msgid "Get Easy Updates Manager Premium"
 msgstr ""
 
 #: src/templates/advanced-premium.php:14
@@ -1482,10 +1577,6 @@ msgstr ""
 
 #: src/templates/advanced-premium.php:25
 msgid "Safe mode"
-msgstr ""
-
-#: src/templates/advanced-premium.php:25
-msgid "Prevent updates that are not compatible with your current WordPress version or your server's PHP version."
 msgstr ""
 
 #: src/templates/advanced-premium.php:26
@@ -1544,10 +1635,6 @@ msgstr ""
 msgid "Import/export"
 msgstr ""
 
-#: src/templates/advanced-premium.php:33
-msgid "Export your settings from one site to another for quicker setup."
-msgstr ""
-
 #: src/templates/advanced-premium.php:34
 msgid "Email notifications"
 msgstr ""
@@ -1570,10 +1657,6 @@ msgstr ""
 
 #: src/templates/advanced-premium.php:36
 msgid "Runs a check for plugins that have been removed from the WordPress directory."
-msgstr ""
-
-#: src/templates/advanced-premium.php:37
-msgid "Webhook"
 msgstr ""
 
 #: src/templates/advanced-premium.php:37

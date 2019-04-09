@@ -17,40 +17,52 @@ $mobile: 480px;
 
 // Set the proper directory for the Bootstrap Glyphicon font.
 $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
-$container-large-desktop: 1170px !default;
+$container-large-desktop: 1200px !default;
 
 // Fonts.
 @mixin opensans {
   font-family: 'Open Sans', sans-serif;
 }
 
-@mixin lato {
-  font-family: 'Lato', sans-serif;
-}
-
-@mixin myriadProBold {
-  font-family: 'MyriadProBold', sans-serif;
+@mixin opensansconde {
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 $base-font-size: 14px;
 
 // Color.
-$red: #26baff;
-$red-dark: #232044;
+$red: #ed1c24;
+$red-dark: #b8374b;
 $black: #000000;
 $white: #ffffff;
 
 $color-primary: $red;
 $color-second: $red-dark;
 
-$gray-3b: #3b3b3b;
+$gray-3a: #3a3a3a;
+$gray-3e: #3e3e3e;
+$gray-33: #333333;
+$gray-2b: #2b2b2b;
+$gray-d3: #d3d3d3;
+$gray-f9: #f9f9f9;
+$gray-ec: #efecec;
+$gray-74: #747474;
+$gray-81: #817c7d;
+$gray-cc: #ccc;
 
 // Text color
-$color-base: $gray-3b;
+$color-base: $gray-3a;
+$color-footer: $gray-cc;
+$color-font-light: $gray-74;
 $color-link: $color-primary;
 $color-link-hover: $color-primary;
 $color-title: $color-second;
+$color-title-main: $gray-81;
 
 // bg color
-$color-line: $color-second;
-$bg-footer: $color-second;
+$color-line: $gray-d3;
+$color-line-footer: $gray-2b;
+$bg-header: $gray-f9;
+$bg-feature: $gray-ec;
+$bg-footer: $gray-3e;
+$bg-footer-bottom: $gray-2b;

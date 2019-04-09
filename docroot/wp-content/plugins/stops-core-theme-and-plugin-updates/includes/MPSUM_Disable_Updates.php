@@ -81,41 +81,41 @@ class MPSUM_Disable_Updates {
 		
 		// Enable Development Updates
 		if (isset($core_options['automatic_development_updates']) && 'on' == $core_options['automatic_development_updates']) {
-			add_filter('allow_dev_auto_core_updates', '__return_true', 50);
+			add_filter('allow_dev_auto_core_updates', '__return_true', PHP_INT_MAX - 10);
 		} elseif (isset($core_options['automatic_development_updates']) && 'off' == $core_options['automatic_development_updates']) {
-			add_filter('allow_dev_auto_core_updates', '__return_false', 50);
+			add_filter('allow_dev_auto_core_updates', '__return_false', PHP_INT_MAX - 10);
 		}
 		
 		// Enable Core Major Updates
 		if (isset($core_options['automatic_major_updates']) && 'on' == $core_options['automatic_major_updates']) {
-			add_filter('allow_major_auto_core_updates', '__return_true', 50);
+			add_filter('allow_major_auto_core_updates', '__return_true', PHP_INT_MAX - 10);
 		} elseif (isset($core_options['automatic_major_updates']) && 'off' == $core_options['automatic_major_updates']) {
-			add_filter('allow_major_auto_core_updates', '__return_false', 50);
+			add_filter('allow_major_auto_core_updates', '__return_false', PHP_INT_MAX - 10);
 		}
 		
 		// Enable Core Minor Updates
 		if (isset($core_options['automatic_minor_updates']) && 'on' == $core_options['automatic_minor_updates']) {
-			add_filter('allow_minor_auto_core_updates', '__return_true', 50);
+			add_filter('allow_minor_auto_core_updates', '__return_true', PHP_INT_MAX - 10);
 		} elseif (isset($core_options['automatic_minor_updates']) && 'off' == $core_options['automatic_minor_updates']) {
-			add_filter('allow_minor_auto_core_updates', '__return_false', 50);
+			add_filter('allow_minor_auto_core_updates', '__return_false', PHP_INT_MAX - 10);
 		}
 		
 		// Enable Translation Updates
 		if (isset($core_options['automatic_translation_updates']) && 'on' == $core_options['automatic_translation_updates']) {
-			add_filter('auto_update_translation', '__return_true', 50);
+			add_filter('auto_update_translation', '__return_true', PHP_INT_MAX - 10);
 		} elseif (isset($core_options['automatic_translation_updates']) && 'off' == $core_options['automatic_translation_updates']) {
-			add_filter('auto_update_translation', '__return_false', 50);
+			add_filter('auto_update_translation', '__return_false', PHP_INT_MAX - 10);
 		}
 		
 		// Disable the Update Notification
 		if (isset($core_options['notification_core_update_emails']) && 'on' == $core_options['notification_core_update_emails']) {
-			add_filter('auto_core_update_send_email', '__return_true', 50);
-			add_filter('send_core_update_notification_email', '__return_true', 50);
-			add_filter('automatic_updates_send_debug_email', '__return_true', 50);
+			add_filter('auto_core_update_send_email', '__return_true', PHP_INT_MAX - 10);
+			add_filter('send_core_update_notification_email', '__return_true', PHP_INT_MAX - 10);
+			add_filter('automatic_updates_send_debug_email', '__return_true', PHP_INT_MAX - 10);
 		} elseif (isset($core_options['notification_core_update_emails']) && 'off' == $core_options['notification_core_update_emails']) {
-			add_filter('auto_core_update_send_email', '__return_false', 50);
-			add_filter('send_core_update_notification_email', '__return_false', 50);
-			add_filter('automatic_updates_send_debug_email', '__return_false', 50);
+			add_filter('auto_core_update_send_email', '__return_false', PHP_INT_MAX - 10);
+			add_filter('send_core_update_notification_email', '__return_false', PHP_INT_MAX - 10);
+			add_filter('automatic_updates_send_debug_email', '__return_false', PHP_INT_MAX - 10);
 		}
 		if (isset($core_options['notification_core_update_emails_plugins']) && 'off' == $core_options['notification_core_update_emails_plugins']) {
 			add_filter('send_update_notification_email', array( $this, 'maybe_disable_emails' ), 10, 3);
@@ -131,11 +131,11 @@ class MPSUM_Disable_Updates {
 		// Enable Plugin Auto-updates
 		if (isset($core_options['plugin_updates']) && 'on' == $core_options['plugin_updates']) {
 			if (isset($core_options['automatic_plugin_updates']) && 'on' == $core_options['automatic_plugin_updates']) {
-				add_filter('auto_update_plugin',  '__return_true', 50, 2);
+				add_filter('auto_update_plugin',  '__return_true', PHP_INT_MAX - 10, 2);
 			} elseif (isset($core_options['automatic_plugin_updates']) && 'off' == $core_options['automatic_plugin_updates']) {
-				add_filter('auto_update_plugin',  '__return_false', 50, 2);
+				add_filter('auto_update_plugin',  '__return_false', PHP_INT_MAX - 10, 2);
 			} elseif (isset($core_options['automatic_plugin_updates']) && 'individual' == $core_options['automatic_plugin_updates']) {
-				add_filter('auto_update_plugin',  array( $this, 'automatic_updates_plugins' ), 50, 2);
+				add_filter('auto_update_plugin',  array( $this, 'automatic_updates_plugins' ), PHP_INT_MAX - 10, 2);
 			}
 		}
 		
@@ -143,22 +143,22 @@ class MPSUM_Disable_Updates {
 		// Enable Theme Auto-updates
 		if (isset($core_options['theme_updates']) && 'on' == $core_options['theme_updates']) {
 			if (isset($core_options['automatic_theme_updates']) && 'on' == $core_options['automatic_theme_updates']) {
-				add_filter('auto_update_theme',  '__return_true', 50, 2);
+				add_filter('auto_update_theme',  '__return_true', PHP_INT_MAX - 10, 2);
 			} elseif (isset($core_options['automatic_theme_updates']) && 'off' == $core_options['automatic_theme_updates']) {
-				add_filter('auto_update_theme',  '__return_false', 50, 2);
+				add_filter('auto_update_theme',  '__return_false', PHP_INT_MAX - 10, 2);
 			} elseif (isset($core_options['automatic_theme_updates']) && 'individual' == $core_options['automatic_theme_updates']) {
-				add_filter('auto_update_theme',  array( $this, 'automatic_updates_theme' ), 50, 2);
+				add_filter('auto_update_theme',  array( $this, 'automatic_updates_theme' ), PHP_INT_MAX - 10, 2);
 			}
 		}
 		
 		// Automatic Updates E-mail Address
-		add_filter('automatic_updates_debug_email', array( $this, 'maybe_change_automatic_update_email' ), 50);
-		add_filter('auto_core_update_email', array( $this, 'maybe_change_automatic_update_email' ), 50);
+		add_filter('automatic_updates_debug_email', array( $this, 'maybe_change_automatic_update_email' ), PHP_INT_MAX - 10);
+		add_filter('auto_core_update_email', array( $this, 'maybe_change_automatic_update_email' ), PHP_INT_MAX - 10);
 		
 						
 		// Prevent updates on themes/plugins
-		add_filter('site_transient_update_plugins', array( $this, 'disable_plugin_notifications' ), 50);
-		add_filter('site_transient_update_themes', array( $this, 'disable_theme_notifications' ), 50);
+		add_filter('site_transient_update_plugins', array( $this, 'disable_plugin_notifications' ), PHP_INT_MAX - 10);
+		add_filter('site_transient_update_themes', array( $this, 'disable_theme_notifications' ), PHP_INT_MAX - 10);
 		add_filter('http_request_args', array( $this, 'http_request_args_remove_plugins_themes' ), 5, 2);
 
 	} //end constructor

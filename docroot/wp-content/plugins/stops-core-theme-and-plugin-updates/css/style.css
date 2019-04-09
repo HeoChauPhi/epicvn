@@ -239,6 +239,25 @@ input[type=email].eum-input-email {
   .mpsum-advanced-premium-features h3 {
     text-align: center; }
 
+.premium-only-desc {
+  padding: 1.4em;
+  border: 1px solid #DEDEDE;
+  border-radius: 4px;
+  margin-top: 2em;
+  background: #f7f7f7; }
+
+.premium-only-desc h4 {
+  margin-top: .4em; }
+
+.eum-advanced-menu-premium-only {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  background: #dcdcdc;
+  padding: 4px 6px;
+  line-height: 1;
+  border-radius: 3px; }
+
 .mpsum-advanced-premium-list {
   list-style-type: none;
   margin-left: 0; }
@@ -522,7 +541,8 @@ body .plugins .inactive th.check-column {
   #eum-adv-settings-menu > div > div {
     padding: 5px 0 5px 10px;
     cursor: pointer;
-    color: #797979; }
+    color: #797979;
+    position: relative; }
     @media screen and (max-width: 768px) {
       #eum-adv-settings-menu > div > div {
         position: relative; }
@@ -550,6 +570,17 @@ body .plugins .inactive th.check-column {
       @media screen and (max-width: 768px) {
         #eum-adv-settings-menu > div > div .material-icons {
           font-size: 22px; } }
+    #eum-adv-settings-menu > div > div .eum-advanced-menu-premium-only {
+      position: absolute;
+      display: block;
+      right: 6px;
+      top: 6px;
+      box-shadow: -20px 0 15px rgba(241, 241, 241, 0.73); }
+      @media screen and (max-width: 768px) {
+        #eum-adv-settings-menu > div > div .eum-advanced-menu-premium-only {
+          top: 11px; } }
+    #eum-adv-settings-menu > div > div.premium-only {
+      color: #b3b3b3; }
   #eum-adv-settings-menu > div .anonymize-updates label {
     display: block;
     margin: 10px 0; }

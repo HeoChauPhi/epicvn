@@ -1,0 +1,50 @@
+.feature {
+  color: $color-font-light;
+
+  &.front-banner {
+    .feature-media {
+      min-height: rem(670px);
+    }
+  }
+}
+
+.feature-media {
+  height: rem(310px);
+  position: relative;
+}
+
+.feature-content {
+  background-color: $bg-feature;
+  padding: rem(45px 0 40px);
+}
+
+.feature-content-header {
+  border-bottom: rem(1px) solid $color-footer;
+  margin: 0 20% rem(40px) 20%;
+  text-align: center;
+}
+
+.feature-big-title {
+  color: $color-title-main;
+  font-size: rem(36px);
+  font-weight: 300;
+  margin: rem(0 0 15px);
+  text-transform: uppercase;
+}
+
+.feature-small-title {
+  color: $color-font-light;
+  font-size: rem(18px);
+  margin: rem(0 0 10px);
+}
+
+.feature-info-title {
+  @include opensansconde;
+  font-size: rem(16px);
+  font-weight: 700;
+  margin: rem(0 0 20px);
+}
+
+.feature-info-content {
+  line-height: $base-font-size;
+}

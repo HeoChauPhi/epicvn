@@ -60,6 +60,8 @@
     //$('.js-toogle--menu').on('click', mobileMenu);
     $('.js-back-top').on('click', backToTop);
     $('.js-scroll-down').on('click', scrollDown);
+    $('.block-products .product-item-inner').matchHeight();
+    $('.js-quicktab').tabs();
   });
 
   $(window).scroll(function() {

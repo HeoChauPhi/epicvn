@@ -1,11 +1,11 @@
 === Easy Updates Manager ===
 Contributors: davidanderson, kidsguide, ronalfy, roary86, bigwing, webulous
 Tags: updates manager, easy updates manager, disable updates manager, disable updates, update control, plugin updates, theme updates, core updates, automatic updates, multisite, logs
-Requires at least: 4.5
+Requires at least: 4.6
 Requires PHP: 5.3
 Donate link: https://easyupdatesmanager.com
-Tested up to: 5.0
-Stable tag: 8.0.3
+Tested up to: 5.1
+Stable tag: 8.0.5
 License: GPLv2 or later
 
 Manage all your WordPress updates, including individual updates, automatic updates, logs, and loads more. This also works very well with WordPress Multisite.
@@ -125,6 +125,19 @@ For additional information and FAQs for Easy Updates Manager <a href="https://ea
 
 == Changelog ==
 
+= 8.0.5 - 2019-03-28 =
+
+* SECURITY: Correct an erroneous nonce (intent) check. The impact of this is that a logged-in user with access to the WP dashboard was able to change some (but not all, as some were protected by further checks) options (e.g. disable unattended theme updates).
+* TWEAK: Add site URL in slack message
+* TWEAK: Preview the premium features in the advanced tab
+* TWEAK: Lengthen the dismiss time on the "Thank you for installing" notice
+* TWEAK: Change filter priorities to minimise the chance that something else over-rides EUM's settings when WP inquires about running an auto-update
+
+= 8.0.4 - 2019-01-18 =
+
+* FIX: Prevent a conflict between EUM Premium and UpdraftPlus Premium when backing up WordPress core
+* TWEAK: No longer use WP_DEBUG constant to indicate rapid refresh of updates when in admin area; instead, use EASY_UPDATES_MANAGER_DEBUG
+
 = 8.0.3 - 2018-12-04 =
 
 * TWEAK: Added seasonal notices
@@ -226,6 +239,4 @@ For additional information and FAQs for Easy Updates Manager <a href="https://ea
 For past changelogs, <a href="https://easyupdatesmanager.com/blog/">please visit our blog</a>.
 
 == Upgrade Notice ==
-* 8.0.3: Seasonal notices. Logs are on by default.
-* 8.0.2: Removing error logs for developers. Faster loading time for General options. 8.0.1: Numerous bug fixes, features, and UX enhancements.
-
+* 8.0.5: Various small tweaks and improvements, plus a security fix. A recommended update for all.

@@ -1,0 +1,38 @@
+.js-quicktab {
+  .js-tabs-list {
+    align-items: center;
+    border-bottom: rem(1px) solid $color-second;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: rem(0 0 30px);
+    padding: rem(0 0 10px);
+
+    li {
+      margin: rem(0 5px);
+      list-style: none;
+
+      a {
+        background-color: $bg-feature;
+        border: rem(1px) solid $color-line;
+        color: $color-base;
+        display: block;
+        padding: rem(8px 25px);
+
+        &:hover {
+          background-color: $color-link;
+          border: rem(1px) solid $color-link;
+          color: $white;
+        }
+      }
+
+      &.ui-tabs-active {
+        a {
+          background-color: $color-link;
+          border: rem(1px) solid $color-link;
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -25,9 +25,10 @@ input[type=email].eum-input-email{background:#FFF;box-shadow:none;font-size:14px
 .mpsum-clear{clear:both}.mpsum-small{font-size:1em;line-height:1.1}.mpsum-medium{font-size:1.3em;line-height:1.3}
 .mpsum-large{font-size:1.8em;line-height:1.4}.mpsum-caption{text-align:center;font-weight:700}
 .mpsum-advanced-premium-features{background:#FFF;border:1px solid #aeaeae;position:relative;color:#24282d;box-shadow:0 3px 11px rgba(0,0,0,0.1);padding:20px}
-.mpsum-advanced-premium-features h3{text-align:center}.mpsum-advanced-premium-list{list-style-type:none;margin-left:0}
-.mpsum-advanced-premium-list:before{display:none}.mpsum-advanced-premium-list:after{display:none}
-.mpsum-advanced-premium-list li{clear:left;float:none;font-size:1.3em;line-height:1.3;padding:10px;margin-bottom:10px}
+.mpsum-advanced-premium-features h3{text-align:center}.premium-only-desc{padding:1.4em;border:1px solid #dedede;border-radius:4px;margin-top:2em;background:#f7f7f7}
+.premium-only-desc h4{margin-top:.4em}.eum-advanced-menu-premium-only{display:inline-block;font-size:11px;text-transform:uppercase;background:#dcdcdc;padding:4px 6px;line-height:1;border-radius:3px}
+.mpsum-advanced-premium-list{list-style-type:none;margin-left:0}.mpsum-advanced-premium-list:before{display:none}
+.mpsum-advanced-premium-list:after{display:none}.mpsum-advanced-premium-list li{clear:left;float:none;font-size:1.3em;line-height:1.3;padding:10px;margin-bottom:10px}
 .mpsum-advanced-premium-list li:after{content:"";display:table;clear:both}
 .mpsum-advanced-premium-list li strong{clear:left;float:left;display:block;min-width:25%}
 @media only screen and (max-width:700px){.mpsum-advanced-premium-list li strong{float:none;min-width:100%}
@@ -67,13 +68,15 @@ body .plugins .inactive th.check-column{border-left:4px solid #d44e1c}#footer-th
 .warning p{margin:0}#result{margin-top:20px}#result:empty{display:none}#result .updated p{font-weight:bold}
 #logs-filter{clear:left}#eum-adv-settings-container{display:flex;padding-top:20px}
 #eum-adv-settings-menu>div{width:280px;font-size:.9rem}@media screen and (min-width:767px){#eum-adv-settings-menu>div{border-right:1px solid #aeaeae}
-}#eum-adv-settings-menu>div>div{padding:5px 0 5px 10px;cursor:pointer;color:#797979}
+}#eum-adv-settings-menu>div>div{padding:5px 0 5px 10px;cursor:pointer;color:#797979;position:relative}
 @media screen and (max-width:768px){#eum-adv-settings-menu>div>div{position:relative}
 #eum-adv-settings-menu>div>div:not(.active-menu):not(.eum-advanced-settings-container)::before{content:'';display:block;width:10px;height:10px;position:absolute;top:calc(50% - 2px);right:15px;border-right:1px solid #CCC;border-bottom:1px solid #CCC;transform:translateY(-50%) rotate(45deg)}
 #eum-adv-settings-menu>div>div.active-menu .eum-advanced-menu-text{font-weight:700}
 #eum-adv-settings-menu>div>div .eum-advanced-menu-text{font-size:22px}}#eum-adv-settings-menu>div>div .material-icons{font-size:16px;color:#cecece;margin-right:5px;line-height:20px;vertical-align:bottom}
 @media screen and (max-width:768px){#eum-adv-settings-menu>div>div .material-icons{font-size:22px}
-}#eum-adv-settings-menu>div .anonymize-updates label{display:block;margin:10px 0}
+}#eum-adv-settings-menu>div>div .eum-advanced-menu-premium-only{position:absolute;display:block;right:6px;top:6px;box-shadow:-20px 0 15px rgba(241,241,241,0.73)}
+@media screen and (max-width:768px){#eum-adv-settings-menu>div>div .eum-advanced-menu-premium-only{top:11px}
+}#eum-adv-settings-menu>div>div.premium-only{color:#b3b3b3}#eum-adv-settings-menu>div .anonymize-updates label{display:block;margin:10px 0}
 #eum-adv-settings-menu>div .active-menu{border:1px solid #aeaeae;position:relative;color:#24282d;box-shadow:0 3px 11px rgba(0,0,0,0.1)}
 @media screen and (min-width:767px){#eum-adv-settings-menu>div .active-menu{background:#f1f1f1;border-right:1px solid #f1f1f1;box-shadow:-2px 1px 2px rgba(0,0,0,0.11);left:1px}
 }#eum-adv-settings-menu>div .active-menu .material-icons{color:#dd600e}@media screen and (max-width:768px){#eum-adv-settings-menu>div{float:none;width:100%}

@@ -1,20 +1,45 @@
 {% if fn('is_front_page') %}
   <div id="feature" class="feature front-banner">
-    <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
-    <div class="container">
-      <div class="feature-content">
-        {% if post.get_field('feature_small_title') %}
-        <h3 class="feature-small-title">{{ post.get_field('feature_small_title') }}</h3>
-        {% endif %}
-        {% if post.get_field('feature_title') %}
-        <h2 class="feature-big-title">{{ post.get_field('feature_title') }}</h2>
-        {% endif %}
+    <div class="feature-media">
+      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
+    </div>
+    <div class="feature-content">
+      <div class="container">
+        <div class="feature-content-header">
+          {% if post.get_field('feature_title') %}
+          <h2 class="feature-big-title">{{ post.get_field('feature_title') }}</h2>
+          {% endif %}
+          {% if post.get_field('feature_small_title') %}
+          <h3 class="feature-small-title">{{ post.get_field('feature_small_title') }}</h3>
+          {% endif %}
+        </div>
+        <div class="feature-content-info">
+
+          <div class="row">
+            <div class="col-md-6 feature-info-image"><img src="{{ post.get_field('feature_info').image.url }}"></div>
+            <div class="col-md-6 feature-info-body">
+              <h4 class="feature-info-title">{{ post.get_field('feature_info').title }}</h4>
+              <div class="feature-info-content">{{ post.get_field('feature_info').content }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 {% else %}
-    <div id="feature" class="feature">
-      <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
+  {% if post.get_field('feature_banner') %}
+    {% set feature_media = post.get_field('feature_banner').url %}
+    {% set feature_media_title = post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) %}
+  {% else %}
+    {% set feature_media = post_banner_default %}
+    {% set feature_media_title = '' %}
+  {% endif %}
+
+  <div id="feature" class="feature">
+    <div class="feature-media">
+      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ feature_media }}" title="{{ feature_media_title }}"></div>
+    </div>
+    <div class="feature-navigation">
       <div class="container">
 
       {% if fn('is_page') %}
@@ -28,4 +53,5 @@
       {% include 'breadcrumb.twig' %}
       </div>
     </div>
+  </div>
 {% endif %}

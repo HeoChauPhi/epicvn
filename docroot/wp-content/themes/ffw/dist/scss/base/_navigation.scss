@@ -1,0 +1,36 @@
+.block-navigation {
+  font-size: rem(16px);
+
+  > .main-menu {
+    > ul {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .menu-item {
+        > a {
+          color: $color-font-light;
+          display: block;
+          padding: rem(10px 5px);
+
+          &:hover {
+            color: $color-link;
+          }
+        }
+      }
+
+      > .menu-item {
+        list-style: none;
+        margin-left: rem(70px);
+
+        > a {
+          text-transform: uppercase;
+          padding: rem(19px 0);
+        }
+      }
+    }
+  }
+}

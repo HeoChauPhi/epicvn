@@ -1,0 +1,23 @@
+.block-user-login {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: rem(10px 0);
+    text-align: right;
+
+    li {
+      display: inline;
+      list-style: none;
+      margin-left: rem(15px);
+      text-transform: capitalize;
+
+      a {
+        color: $color-font-light;
+
+        &:hover {
+          color: $color-link;
+        }
+      }
+    }
+  }
+}
