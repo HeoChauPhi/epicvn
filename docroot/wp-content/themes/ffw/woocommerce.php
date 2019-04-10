@@ -21,7 +21,9 @@ if ( is_singular( 'product' ) ) {
 
   Timber::render( 'templates/woo/single-product.twig', $context );
 } else {
+  $page = new TimberPost(get_option( 'woocommerce_shop_page_id' ));
   $posts = Timber::get_posts();
+  $context['post'] = $page;
   $context['products'] = $posts;
 
   if ( is_product_category() ) {

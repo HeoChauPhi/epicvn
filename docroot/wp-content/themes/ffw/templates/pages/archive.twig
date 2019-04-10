@@ -1,9 +1,9 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-  {% if title is defined %}
+  {#% if title is defined %}
     <h2 id="page-title">{{title}}</h2>
-  {% endif %}
+  {% endif %#}
   {% for post in term.get_posts({'posts_per_page': count, 'paged': paged}) %}
     {% if function('is_tag') %}
       {% include ['tags.twig', 'archive-tease.twig'] %}
