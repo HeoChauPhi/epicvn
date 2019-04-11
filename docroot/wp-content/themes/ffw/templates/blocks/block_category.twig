@@ -33,9 +33,9 @@
                 <div class="row term-posts-inner {{ post_inner_class }}">
                 {% for post in term.get_posts({'posts_per_page': per_page}) %}
                   <div class="post-item {{ post_class }} col-md-3">
-                    <div class="post-item-inner">
-                      {# Check category is Image #}
-                      {% if term.slug == 'images' or term.slug == 'images-vi' %}
+                    {# Check category is Image #}
+                    {% if term.slug == 'images' or term.slug == 'images-vi' %}
+                      <div class="post-item-inner">
                         <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ post.get_field('post_gallery')[0].url }}" style="background-image: url({{ post.get_field('post_gallery')[0].url }});"><img src="{{ post.get_field('post_gallery')[0].url }}"></a>
                         
                         <div class="media-hidden">
@@ -45,18 +45,20 @@
                           {% endif %}
                         {% endfor %}
                         </div>
+                      </div>
 
-                      {# Check category is Video #}
-                      {% elseif term.slug == 'videos' or term.slug == 'videos-vi' %}
+                    {# Check category is Video #}
+                    {% elseif term.slug == 'videos' or term.slug == 'videos-vi' %}
 
-                        {% set video_arr = fn('get_id_embed', post.get_field('post_videos')[0].video_embed) %}
+                      {% set video_arr = fn('get_id_embed', post.get_field('post_videos')[0].video_embed) %}
 
-                        {% if video_arr.video_type == 'youtube' %}
-                          {% set video_url = '//www.youtube.com/embed/' ~ video_arr.video_id ~ '?autoplay=1' %}
-                        {% else %}
-                          {% set video_url = '//player.vimeo.com/video/' ~ video_arr.video_id ~ '?autoplay=1' %}
-                        {% endif %}
-
+                      {% if video_arr.video_type == 'youtube' %}
+                        {% set video_url = '//www.youtube.com/embed/' ~ video_arr.video_id ~ '?autoplay=1' %}
+                      {% else %}
+                        {% set video_url = '//player.vimeo.com/video/' ~ video_arr.video_id ~ '?autoplay=1' %}
+                      {% endif %}
+                      
+                      <div class="post-item-inner">
                         <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_url }}" style="background-image: url({{ video_arr.video_thumb }});"><img src="{{ video_arr.video_thumb }}"></a>
 
                         <div class="media-hidden">
@@ -74,23 +76,13 @@
                           {% endif %}
                         {% endfor %}
                         </div>
+                      </div>
 
-                      {# Check category is default post #}
-                      {% else %}
-                        <div class="post-media" style="background-image: url({{ fn('get_the_post_thumbnail_url', post.ID) }});">
-                          <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}">
-                        </div>
-                        <div class="post-body">
-                          <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
-                          <div class="post-summary">
-                            <span class="post-date">{{ post.date|date() }}</span>
-                            <span class="post-author">{{ post.author }}</span>
-                          </div>
-                          <div class="post-content">{{ post.content|shortcodes|excerpt(15) }}</div>
-                        </div>
-                      {% endif %}
+                    {# Check category is default post #}
+                    {% else %}
+                      {% include 'post-item.twig' with {'post': post} only %}
+                    {% endif %}
 
-                    </div>
                   </div>
                 {% endfor %}
                 </div>

@@ -48,3 +48,54 @@
 .feature-info-content {
   line-height: $base-font-size;
 }
+
+.feature-navigation {
+  border-bottom: rem(1px) solid $color-line;
+  margin-bottom: rem(30px);
+  padding: rem(15px 0 20px);
+
+  &-inner {
+    align-items: flex-end;
+    display: flex;
+  }
+}
+
+#page-title {
+  color: $color-link;
+  flex: 1;
+  font-size: rem(30px);
+  font-weight: 300;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.breadcrumb {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+
+  .breadcrumb-connor {
+    margin: rem(0 20px);
+  }
+
+  .breadcrumb-item {
+    text-transform: capitalize;
+
+    &:before {
+      content: '';
+      display: none;
+    }
+
+    a {
+      color: $color-font-light;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+
+    &.active {
+      color: $color-font-light;
+    }
+  }
+}

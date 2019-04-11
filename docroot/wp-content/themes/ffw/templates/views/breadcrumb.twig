@@ -3,6 +3,7 @@
     <li class="breadcrumb-item">
       <a href="{{ site.url }}">{{ __('home', 'pdj_theme') }}</a>
     </li>
+    <i class="fas fa-angle-right breadcrumb-connor"></i>
 
     {% if fn('is_archive') %}
     <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
@@ -14,7 +15,14 @@
     <li class="breadcrumb-item active" aria-current="page">
       {{ post.title|length > 100 ? post.title|slice(0, 100) ~ '...' : post.title }}
     </li>
+    <i class="fas fa-angle-right breadcrumb-connor"></i>
     {% else %}
+    {% if fn('is_page') is empty %}
+    <li class="breadcrumb-item active" aria-current="page">
+      <a href="{{ parent_cat_link }}">{{ parent_cat_name }}</a>
+    </li>
+    <i class="fas fa-angle-right breadcrumb-connor"></i>
+    {% endif %}
     <li class="breadcrumb-item active" aria-current="page">
       {{ post.title|length > 100 ? post.title|slice(0, 100) ~ '...' : post.title }}
     </li>

@@ -25,6 +25,7 @@ if ( is_singular( 'product' ) ) {
   $posts = Timber::get_posts();
   $context['post'] = $page;
   $context['products'] = $posts;
+  $context['title'] = $page->title;
 
   if ( is_product_category() ) {
       $queried_object = get_queried_object();
