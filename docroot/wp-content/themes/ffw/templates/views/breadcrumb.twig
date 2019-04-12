@@ -12,10 +12,10 @@
     <li class="breadcrumb-item">
       <a href="{{ fn('get_permalink', shop_id) }}">{{ fn('get_the_title', shop_id) }}</a>
     </li>
+    <i class="fas fa-angle-right breadcrumb-connor"></i>
     <li class="breadcrumb-item active" aria-current="page">
       {{ post.title|length > 100 ? post.title|slice(0, 100) ~ '...' : post.title }}
     </li>
-    <i class="fas fa-angle-right breadcrumb-connor"></i>
     {% else %}
     {% if fn('is_page') is empty %}
     <li class="breadcrumb-item active" aria-current="page">

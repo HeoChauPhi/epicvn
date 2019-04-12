@@ -1,20 +1,28 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 sidebar-left">
+        {% include ["woo/sidebar-product.twig"] %}
+      </div>
 
-    {% do action('woocommerce_before_main_content') %}
+      <div class="col-md-9 main-content">
+        {% do action('woocommerce_before_main_content') %}
 
-    <div class="before-shop-loop">
-        {% do action('woocommerce_before_shop_loop') %}
-    </div>
+        <div class="before-shop-loop">
+            {% do action('woocommerce_before_shop_loop') %}
+        </div>
 
-    <div class="loop">
-        {% for post in products %}
+        <div class="loop">
+          {% for post in products %}
             {% include ["woo/tease-product.twig"] %}
-        {% endfor %}
+          {% endfor %}
+        </div>
+
+        {% do action('woocommerce_after_shop_loop') %}
+        {% do action('woocommerce_after_main_content') %}
+      </div>
     </div>
-
-    {% do action('woocommerce_after_shop_loop') %}
-    {% do action('woocommerce_after_main_content') %}
-
+  </div>
 {% endblock  %}

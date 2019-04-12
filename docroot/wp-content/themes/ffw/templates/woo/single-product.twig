@@ -30,8 +30,6 @@
 
         </article>
 
-        {% include ["woo/tease-product.twig"] with { products: related_products } %}
-
         {% do action('woocommerce_after_single_product') %}
       </div>
     </div>

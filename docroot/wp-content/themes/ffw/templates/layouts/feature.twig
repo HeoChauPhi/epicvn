@@ -52,6 +52,9 @@
           {% endif %}
         {% elseif fn('is_singular', 'post') %}
           <h1 id="page-title">{{ parent_cat_name }}</h1>
+        {% elseif fn('is_singular', 'product') %}
+        {% set shop_id = fn('get_option', 'woocommerce_shop_page_id') %}
+          <h1 id="page-title">{{ fn('get_the_title', shop_id) }}</h1>
         {% else %}
           <h1 id="page-title">{{ post.title }}</h1>
         {% endif %}
