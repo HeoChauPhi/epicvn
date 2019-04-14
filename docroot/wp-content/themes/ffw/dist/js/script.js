@@ -58,10 +58,18 @@
   $(document).ready(function() {
     // Call to function
     //$('.js-toogle--menu').on('click', mobileMenu);
+    //$('select').selectmenu();
     $('.js-back-top').on('click', backToTop);
     $('.js-scroll-down').on('click', scrollDown);
     $('.block-products .product-item-inner').matchHeight();
     $('.js-quicktab').tabs();
+    $('.woocommerce-product-gallery__image > a').on('click', function() {
+      $.fancybox.open( $('.woocommerce-product-gallery__image > a'), {
+        touch: false,
+        infobar: false
+      });
+      return false;
+    });
   });
 
   $(window).scroll(function() {

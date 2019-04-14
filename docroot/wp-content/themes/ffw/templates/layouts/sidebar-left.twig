@@ -6,13 +6,15 @@
 
 {% if term %}
 <div class="block-categories">
-  <ul class="term-list">
   {% if term.parent == 0 %}
-    {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [1, 7]}) }}
+    <ul class="term-list term-parent-list">
+      {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'depth': 2, 'exclude': [1, 7]}) }}
+    </ul>    
   {% else %}
-    {{ fn('wp_list_categories', {'child_of': term.parent, 'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [1, 7]}) }}
+    <ul class="term-list">
+      {{ fn('wp_list_categories', {'child_of': term.parent, 'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [1, 7]}) }}
+    </ul>
   {% endif %}
-  </ul>
 </div>
 {% endif %}
 {% if fn('is_singular', 'post') %}
@@ -34,7 +36,7 @@
 {% endfor %}
 <div class="block-categories">
   <ul class="term-list">
-  {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [1, 7], 'taxonomy': 'product_cat', 'current_category': product_terms_id}) }}
+  {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [24], 'taxonomy': 'product_cat', 'current_category': product_terms_id}) }}
   </ul>
 </div>
 {% endif %}

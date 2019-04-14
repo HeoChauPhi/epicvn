@@ -1,0 +1,124 @@
+.single-product {
+  .single-product-details {
+    .single-product-header {
+      margin-bottom: rem(60px);
+    }
+
+    .product_title {
+      border-bottom: rem(1px) solid $color-line;
+      color: $color-link;
+      display: inline-block;
+      font-size: rem(24px);
+      margin: rem(0 0 20px);
+      padding-bottom: rem(20px);
+      text-transform: uppercase;
+    }
+
+    .entry-images {
+      position: relative;
+
+      @include breakpoint(colmdDown) {
+        float: none !important;
+      }
+    }
+
+    .woocommerce-product-gallery__image {
+      float: left;
+      text-align: center;
+      width: 33.333%;
+
+      &:first-of-type {
+        border: rem(1px) solid $color-line;
+        float: none;
+        margin: rem(0 0 10px);
+        width: 100%;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+    .entry-summary {
+      color: $color-font-light;
+
+      @include breakpoint(colmdDown) {
+        float: none !important;
+      }
+
+      .price {
+        color: $color-link;
+        font-size: rem(18px);
+        font-weight: 700;
+        margin-bottom: rem(20px);
+
+        label {
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    .product-information {
+      margin-bottom: rem(20px);
+
+      &-item {
+        margin-bottom: rem(20px);
+      }
+
+      label {
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+    }
+
+    .single-product-fullcontent {
+      .product-fullcontent-images,
+      .product-fullcontent-videos {
+        > .row {
+          margin-left: rem(-2px);
+          margin-right: rem(-2px);
+        }
+
+        .product-fullcontent-image-item,
+        .product-fullcontent-video-item {
+          margin-bottom: rem(4px);
+          padding: rem(0 2px);
+
+          a {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+            height: rem(168px);
+
+            img {
+              visibility: hidden;
+            }
+          }
+        }
+      }
+
+      .product-fullcontent-tech {
+        .list-attributes {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+
+          li {
+            border-bottom: rem(1px) solid $color-line;
+            list-style: none;
+            padding: rem(10px 0);
+
+            &:first-of-type {
+              padding-top: 0;
+            }
+
+            label {
+              text-transform: capitalize;
+            }
+          }
+        }
+      }
+    }
+  }
+}

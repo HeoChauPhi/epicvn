@@ -1,36 +1,97 @@
 {% extends "layout.twig" %}
 
 {% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 sidebar-left">
-        {% include 'sidebar-left.twig' %}
-      </div>
+  <div class="sidebar-content">
+    <div class="container">
+      <div class="row layout-mobile">
+        <div class="col-md-3 sidebar-left">
+          {% include 'sidebar-left.twig' %}
+        </div>
 
-      <div class="col-md-9 main-content">
-        {% do action('woocommerce_before_single_product') %}
+        <div class="col-md-9 main-content">
+          {% do action('woocommerce_before_single_product') %}
 
-        <article itemscope itemtype="http://schema.org/Product" class="single-product-details {{ post.class }}">
+          <article itemscope itemtype="http://schema.org/Product" class="single-product-details {{ post.class }}">
+            <div class="single-product-header">
+              <div class="row">
 
-          <div class="entry-images">
-              {% do action('woocommerce_before_single_product_summary') %}
+                <div class="entry-images col-md-4 pull-right">
+                  {% do action('woocommerce_before_single_product_summary') %}
 
-              {#<img src="{{ post.thumbnail.src('shop_single') }}" />#}
-          </div>
+                  {#<img src="{{ post.thumbnail.src('shop_single') }}" />#}
+                </div>
 
-          <div class="summary entry-summary">
+                <div class="summary entry-summary col-md-8 pull-left">
 
-            {% do action('woocommerce_single_product_summary') %}
+                  {% do action('woocommerce_single_product_summary') %}
 
-          </div>
+                </div>
 
-          {% do action('woocommerce_after_single_product_summary') %}
+                {% do action('woocommerce_after_single_product_summary') %}
+              </div>
+            </div>
+            <div class="single-product-fullcontent">
+              <div class="js-quicktab">
+                <ul class="product-fullcontent-list js-tabs-list">
+                  <li><a href="#product{{ post.ID }}-fullcontent-content">{{ pll_e('Specifications') }}</a></li>
+                  <li><a href="#product{{ post.ID }}-fullcontent-images">{{ pll_e('Images') }}</a></li>
+                  <li><a href="#product{{ post.ID }}-fullcontent-videos">{{ pll_e('Videos') }}</a></li>
+                  <li><a href="#product{{ post.ID }}-fullcontent-tech">{{ pll_e('Other technology') }}</a></li>
+                </ul>
 
-          <meta itemprop="url" content="{{ post.link }}" />
+                <div class="term-posts js-tabs-contents">
+                  <div id="product{{ post.ID }}-fullcontent-content" class="product-fullcontent-content">
+                    {{ post.content|shortcodes }}
+                  </div>
+                  <div id="product{{ post.ID }}-fullcontent-images" class="product-fullcontent-images">
+                    {% if product_gallery %}
+                      <div class="row">
+                      {% for item in product_gallery %}
+                        {% set image_url = fn('wp_get_attachment_url', item) %}
+                        <div class="product-fullcontent-image-item col-md-4">
+                          <a class="js-fancybox" data-fancybox="product{{ post.ID }}-tab-image" href="{{ image_url }}" style="background-image: url({{ image_url }});"><img src="{{ image_url }}"></a>
+                        </div>
+                      {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div id="product{{ post.ID }}-fullcontent-videos" class="product-fullcontent-videos">
+                  {% if post.get_field('product_videos') %}
+                    <div class="row">
+                    {% for item in post.get_field('product_videos') %}
+                      {% set video_arr = fn('get_id_embed', item.product_video_url) %}
 
-        </article>
+                      {% if video_arr.video_type == 'youtube' %}
+                        {% set video_url = '//www.youtube.com/embed/' ~ video_arr.video_id ~ '?autoplay=1' %}
+                      {% else %}
+                        {% set video_url = '//player.vimeo.com/video/' ~ video_arr.video_id ~ '?autoplay=1' %}
+                      {% endif %}
 
-        {% do action('woocommerce_after_single_product') %}
+                      <div class="product-fullcontent-video-item col-md-4">
+                        <a class="js-fancybox" data-fancybox="product{{ post.ID }}-tab-video" href="{{ video_url }}" style="background-image: url({{ video_arr.video_thumb }});"><img src="{{ video_arr.video_thumb }}"></a>
+                      </div>
+                    {% endfor %}
+                    </div>
+                  {% endif %}
+                  </div>
+                  <div id="product{{ post.ID }}-fullcontent-tech" class="product-fullcontent-tech">
+                  {% if product_attributes %}
+                    <ul class="list-attributes">
+                    {% for item in product_attributes %}
+                      <li><label>{{ item.get_name }}:</label> {{ fn('esc_html', fn('implode', ', ', item.get_options)) }}</li>
+                    {% endfor %}
+                    </ul>
+                  {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <meta itemprop="url" content="{{ post.link }}" />
+          </article>
+
+          {% do action('woocommerce_after_single_product') %}
+        </div>
       </div>
     </div>
   </div>
