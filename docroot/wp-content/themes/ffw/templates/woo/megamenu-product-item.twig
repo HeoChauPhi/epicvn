@@ -4,8 +4,11 @@
     <ul class="product-code-list js-tabs-list">
     {% for post in fn('get_posts', {'post__in': product_ids, 'post_type': 'product'}) %}
       {% set product_code = fn('get_post_meta', post.ID, '_product_code', true) %}
-      <li><a href="#megamenu-{{ menu_index }}-{{ fn('sanitize_title', product_code) }}">{{ product_code }}</a></li>
+      {% if product_code %}
+        <li><a href="#megamenu-{{ menu_index }}-{{ fn('sanitize_title', product_code) }}">{{ product_code }}</a></li>
+      {% endif %}
     {% endfor %}
+      <li><a href="#megamenu-{{ menu_index }}-other">{{ pll_e('Other Product') }}</a></li>
     </ul>
     <div class="product-content-list js-tabs-contents">
       {% for post in fn('get_posts', {'post__in': product_ids, 'post_type': 'product'}) %}
@@ -13,7 +16,7 @@
         {% set product_branch = fn('get_post_meta', post.ID, '_product_branch', true) %}
         {% set product_origin = fn('get_post_meta', post.ID, '_product_origin', true) %}
         {% set product_guarantee = fn('get_post_meta', post.ID, '_product_guarantee', true) %}
-        <div id="megamenu-{{ menu_index }}-{{ fn('sanitize_title', product_code) }}" class="product-item">
+        <div id="{% if product_code %}megamenu-{{ menu_index }}-{{ fn('sanitize_title', product_code) }}{% else %}megamenu-{{ menu_index }}-other{% endif %}" class="product-item">
 
           <div class="product-content">
             <h3 class="product-title"><a href="{{ fn('get_permalink', post.ID) }}">{{ fn('get_the_title', post.ID) }}</a></h3>
