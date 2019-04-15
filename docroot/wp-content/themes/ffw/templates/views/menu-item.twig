@@ -1,4 +1,4 @@
-<li class="nav-main-item {{item.classes | join(' ')}} {% if item.current %} active{% endif %}{% if item.get_children %} expanded-menu{% endif %}{% if item_class %}{{ ' ' ~ item_class }}{% endif %}{% if item.mega_menu_options %}mega-menu-item{% endif %}">
+<li class="nav-main-item {{item.classes | join(' ')}} {% if item.current %} active{% endif %}{% if item.get_children %} expanded-menu{% endif %}{% if item_class %}{{ ' ' ~ item_class }}{% endif %}{% if item.mega_menu_options %} mega-menu-item{% endif %}">
   <a class="nav-main-link {% if item_class %}{{ item_class }}{% endif %}" href="{{item.get_link}}">{{item.title}}</a>
   {#{ item|print_r }#}
   {% if item.mega_menu_options %}
