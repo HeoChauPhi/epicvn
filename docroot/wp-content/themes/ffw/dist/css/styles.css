@@ -15986,7 +15986,6 @@ select {
         .js-quicktab.tab-verticle .js-tabs-list li a:hover {
           background-color: #ed1c24;
           border-color: #ed1c24;
-          border: none;
           color: #ffffff; }
       .js-quicktab.tab-verticle .js-tabs-list li.ui-tabs-active a {
         background-color: #ed1c24;
