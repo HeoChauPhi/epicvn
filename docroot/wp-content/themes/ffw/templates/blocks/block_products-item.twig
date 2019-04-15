@@ -1,7 +1,11 @@
 <div class="product-item col-md-3">
   <div class="product-item-inner">
     <div class="product-image">
+      {% if product.thumbnail.src('shop_single') %}
       <img src="{{ product.thumbnail.src('shop_single') }}">
+      {% else %}
+      <img src="{{ fn('wc_placeholder_img_src') }}">
+      {% endif %}
     </div>
     <div class="product-info">
       <h3 class="product-title"><a href="{{ product.link }}">{{ product.title }}</a></h3>

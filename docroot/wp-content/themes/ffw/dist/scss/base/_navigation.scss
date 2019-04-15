@@ -34,10 +34,25 @@
       > .menu-item {
         list-style: none;
         margin-left: rem(70px);
+        white-space: nowrap;
 
         > a {
           text-transform: uppercase;
           padding: rem(19px 0);
+        }
+
+        &.menu-link-button {
+          > a {
+            background-color: $color-second;
+            border-radius: rem(4px);
+            color: $white;
+            padding: rem(8px 45px);
+            text-transform: capitalize;
+
+            &:hover {
+              background-color: darken($color-second, 7%);
+            }
+          }
         }
 
         &:hover {
@@ -70,6 +85,38 @@
             }
           }
         }
+
+        &.mega-menu-item {
+          position: static;
+
+          > .mega-menu {
+            @include box-shadow(rem(0px 3px 5px 0px) $color-line);
+            @include transition(all 0.5s ease);
+            background-color: $white;
+            border-top: rem(1px) solid $color-second;
+            color: $color-font-light;
+            font-size: rem(14px);
+            left: 0;
+            opacity: 0;
+            padding: rem(30px 15px);
+            position: absolute;
+            right: 0;
+            text-align: left;
+            top: 80%;
+            visibility: hidden;
+            white-space: normal;
+            z-index: 9;
+          }
+
+          &:hover {
+            > .mega-menu {
+              opacity: 1;
+              top: 100%;
+              visibility: visible;
+              z-index: 10;
+            }
+          }
+        }
       }
     }
 
@@ -78,7 +125,7 @@
         @include box-shadow(rem(0px 3px 5px 0px) $color-line);
         @include transition(all 0.5s ease);
         background: $white;
-        border-top: rem(1px) solid $color-title;
+        border-top: rem(1px) solid $color-second;
         list-style: none;
         margin: 0;
         min-width: rem(156px);
