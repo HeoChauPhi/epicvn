@@ -141,19 +141,19 @@ if ( ! class_exists( 'WooCommerce' ) ) {
   function product_custom_field_display_fields() {
     ?>
     <div class="product-information">
-      <div class="product-code">
+      <div class="product-information-item product-code">
         <label><?php echo pll_e('product code'); ?>:</label>
         <?php echo get_post_meta(get_the_ID(), "_product_code", true); ?>
       </div>
-      <div>
+      <div class="product-information-item product-branch">
         <label><?php echo pll_e('product branch'); ?>:</label>
         <?php echo get_post_meta(get_the_ID(), "_product_branch", true); ?>
       </div>
-      <div>
+      <div class="product-information-item product-origin">
         <label><?php echo pll_e('product origin'); ?>:</label>
         <?php echo get_post_meta(get_the_ID(), "_product_origin", true); ?>
       </div>
-      <div>
+      <div class="product-information-item product-guarantee">
         <label><?php echo pll_e('product guarantee'); ?>:</label>
         <?php echo get_post_meta(get_the_ID(), "_product_guarantee", true); ?>
       </div>
@@ -161,4 +161,10 @@ if ( ! class_exists( 'WooCommerce' ) ) {
     <?php
   }
   add_action( 'woocommerce_single_product_summary', 'product_custom_field_display_fields', 6 );
+
+  function product_custom_field_call_for_price() {
+    return '<label>' . pll__('price') . ':</label>' . ' ' . pll__('Contact');
+  }
+  add_filter( 'woocommerce_get_price_html', 'product_custom_field_call_for_price' );
+  add_filter( 'woocommerce_cart_item_price', 'product_custom_field_call_for_price' );
 }

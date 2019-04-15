@@ -1,0 +1,13 @@
+<div class="post-item-inner">
+  <div class="post-media" style="background-image: url({{ fn('get_the_post_thumbnail_url', post.ID) }});">
+    <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}">
+  </div>
+  <div class="post-body">
+    <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+    <div class="post-summary">
+      <span class="post-date">{{ post.date|date('d-m-Y') }}</span>
+      <span class="post-author">{{ post.author }}</span>
+    </div>
+    <div class="post-content">{{ post.content|shortcodes|excerpt(15) }}</div>
+  </div>
+</div>

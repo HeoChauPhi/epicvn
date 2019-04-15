@@ -3,7 +3,9 @@
 {% block content %}
   {% for post in posts %}
     {% if post.content %}
-    <div class="block-content__body">{{ post.content|shortcodes }}</div>
+    <div class="container">
+      <div class="block-content__body">{{ post.content|shortcodes }}</div>
+    </div>
     {% endif %}
 
     {{ function('flexible_content', 'group_component') }}

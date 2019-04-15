@@ -1,0 +1,36 @@
+.page-product-list {
+  .before-shop-loop {
+    display: inline-block;
+    margin-bottom: rem(30px);
+    width: 100%;
+
+    .woocommerce-result-count,
+    .woocommerce-ordering {
+      margin: 0;
+    }
+
+    .woocommerce-result-count {
+      color: $color-base;
+      font-size: rem(18px);
+      font-weight: 300;
+      margin: 0;
+      text-transform: capitalize;
+    }
+  }
+
+  .product-list {
+    clear: both;
+  }
+
+  .post-item {
+    .post-body {
+      .price {
+        color: $color-link;
+
+        label {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}

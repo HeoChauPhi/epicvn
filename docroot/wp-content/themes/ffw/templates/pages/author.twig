@@ -1,5 +1,7 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
+  <div class="container">
   {% include ["author-"~author.user_nicename~".twig", "author-"~author.ID~".twig", 'author-tease.twig'] %}
+  </div>
 {% endblock %}

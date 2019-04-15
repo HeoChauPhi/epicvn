@@ -41,16 +41,26 @@
     </div>
     <div class="feature-navigation">
       <div class="container">
-
-      {% if fn('is_page') %}
-        {% if title_option != "on" %}
+        <div class="feature-navigation-inner">
+        {% if fn('is_page') %}
+          {% if title_option != "on" %}
+            <h1 id="page-title">{{ post.title }}</h1>
+          {% endif %}
+        {% elseif fn('is_archive') %}
+          {% if title is defined %}
+            <h1 id="page-title">{{title}}</h1>
+          {% endif %}
+        {% elseif fn('is_singular', 'post') %}
+          <h1 id="page-title">{{ parent_cat_name }}</h1>
+        {% elseif fn('is_singular', 'product') %}
+        {% set shop_id = fn('get_option', 'woocommerce_shop_page_id') %}
+          <h1 id="page-title">{{ fn('get_the_title', shop_id) }}</h1>
+        {% else %}
           <h1 id="page-title">{{ post.title }}</h1>
         {% endif %}
-      {% else %}
-        <h1 id="page-title">{{ post.title }}</h1>
-      {% endif %}
-      
-      {% include 'breadcrumb.twig' %}
+        
+        {% include 'breadcrumb.twig' %}
+        </div>
       </div>
     </div>
   </div>

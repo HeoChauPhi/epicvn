@@ -1,1 +1,42 @@
 {#{ function('flexible_content', 'group_sidebar_fields') }#}
+{#{ term|print_r }}
+{{ fn('get_term_children', term.parent, term.taxonomy)|print_r }}
+{{ fn('get_terms', 'category', {'hide_empty': false, 'parent': 0})|print_r }#}
+{#{ fn('taxvalue', 'category') }#}
+
+{% if term %}
+<div class="block-categories">
+  {% if term.parent == 0 %}
+    <ul class="term-list term-parent-list">
+      {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'depth': 2, 'exclude': [1, 7]}) }}
+    </ul>    
+  {% else %}
+    <ul class="term-list">
+      {{ fn('wp_list_categories', {'child_of': term.parent, 'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [1, 7]}) }}
+    </ul>
+  {% endif %}
+</div>
+{% endif %}
+{% if fn('is_singular', 'post') %}
+  {% if post_term %}
+  <div class="block-categories">
+    <ul class="term-list">
+    {% for item in post_term %}
+      <li class="cat-item cat-item-{{ item.term_id }}"><a href="{{ fn('get_category_link', item.term_id) }}">{{ item.name }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+{% endif %}
+{% if fn('is_singular', 'product') %}
+{% set product_terms_id = [] %}
+{% set product_terms = fn('get_the_terms', post.ID, 'product_cat') %}
+{% for item in product_terms %}
+  {% set product_terms_id = product_terms_id|merge([item.term_id]) %}
+{% endfor %}
+<div class="block-categories">
+  <ul class="term-list">
+  {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [24], 'taxonomy': 'product_cat', 'current_category': product_terms_id}) }}
+  </ul>
+</div>
+{% endif %}

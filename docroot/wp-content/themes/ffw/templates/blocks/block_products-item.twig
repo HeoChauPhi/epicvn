@@ -6,7 +6,8 @@
     <div class="product-info">
       <h3 class="product-title"><a href="{{ product.link }}">{{ product.title }}</a></h3>
       <div class="product-short-desc">{{ fn('wc_get_product', product.ID).get_short_description }}</div>
-      <div class="product-price">{{ fn('wc_get_product', product.ID).get_price ~ fn('get_woocommerce_currency_symbol') }}</div>
+      {#<div class="product-price">{{ fn('wc_get_product', product.ID).get_price ~ fn('get_woocommerce_currency_symbol') }}</div>#}
+      <div class="product-price">{{ pll_e('Price') }}: {{ pll_e('Contact') }}</div>
     </div>
   </div>
 </div>
