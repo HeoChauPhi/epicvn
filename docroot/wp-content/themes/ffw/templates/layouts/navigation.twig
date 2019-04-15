@@ -1,7 +1,11 @@
 <nav class="nav main-menu {% if menu_scroll %}menu-scroll{% endif %}">
   <ul>
     {% for item in menu.main.get_items %}
-      {% include 'menu-item.twig' with {'item': item} %}
+      {% if loop.last or loop.revindex == 2 %}
+        {% set item_class = 'nav-drop-left' %}
+      {% endif %}
+
+      {% include 'menu-item.twig' with {'item': item, 'item_class': item_class} %}
     {% endfor %}
   </ul>
 </nav>

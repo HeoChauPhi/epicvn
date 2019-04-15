@@ -1,0 +1,6 @@
+<div class="mega-menu mega-menu-products">
+{#{ fn('get_posts', {'post__in': product_ids, 'post_type': 'product'})|print_r }#}
+{% for post in fn('get_posts', {'post__in': product_ids, 'post_type': 'product'}) %}
+   {{ fn('get_post_meta', post.ID, '_product_code', true) }} 
+{% endfor %}
+</div>

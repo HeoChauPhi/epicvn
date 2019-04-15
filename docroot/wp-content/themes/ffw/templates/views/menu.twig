@@ -1,3 +1,7 @@
 {% for item in menu.get_items %}
-  {% include 'menu-item.twig' with {'item': item} %}
+  {% if loop.last or loop.revindex == 2 %}
+    {% set item_class = 'nav-drop-left' %}
+  {% endif %}
+
+  {% include 'menu-item.twig' with {'item': item, 'item_class': item_class} %}
 {% endfor %}
