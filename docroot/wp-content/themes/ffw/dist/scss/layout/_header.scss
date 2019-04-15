@@ -8,8 +8,9 @@
     border-bottom: rem(1px) solid $color-line;
 
     &-inner {
-      display: flex;
       align-items: center;
+      display: flex;
+      position: relative;
     }
 
     .block-navigation {

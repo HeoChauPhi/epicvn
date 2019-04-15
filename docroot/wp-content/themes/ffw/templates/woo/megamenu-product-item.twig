@@ -1,0 +1,47 @@
+<div class="mega-menu mega-menu-products">
+  {#{ fn('get_posts', {'post__in': product_ids, 'post_type': 'product'})|print_r }#}
+  <div class="js-quicktab tab-verticle">
+    <ul class="product-code-list js-tabs-list">
+    {% for post in fn('get_posts', {'post__in': product_ids, 'post_type': 'product'}) %}
+      {% set product_code = fn('get_post_meta', post.ID, '_product_code', true) %}
+      {% if product_code %}
+        <li><a href="#megamenu-{{ menu_index }}-{{ fn('sanitize_title', product_code) }}">{{ product_code }}</a></li>
+      {% endif %}
+    {% endfor %}
+      <li><a href="#megamenu-{{ menu_index }}-other">{{ pll_e('Other Product') }}</a></li>
+    </ul>
+    <div class="product-content-list js-tabs-contents">
+      {% for post in fn('get_posts', {'post__in': product_ids, 'post_type': 'product'}) %}
+        {% set product_code = fn('get_post_meta', post.ID, '_product_code', true) %}
+        {% set product_branch = fn('get_post_meta', post.ID, '_product_branch', true) %}
+        {% set product_origin = fn('get_post_meta', post.ID, '_product_origin', true) %}
+        {% set product_guarantee = fn('get_post_meta', post.ID, '_product_guarantee', true) %}
+        <div id="{% if product_code %}megamenu-{{ menu_index }}-{{ fn('sanitize_title', product_code) }}{% else %}megamenu-{{ menu_index }}-other{% endif %}" class="product-item">
+
+          <div class="product-content">
+            <h3 class="product-title"><a href="{{ fn('get_permalink', post.ID) }}">{{ fn('get_the_title', post.ID) }}</a></h3>
+            <div class="product-infomation">
+              <div class="product-infomation-item product-code"><label>{{ pll_e('product code') }}:</label> {{ product_code }}</div>
+              <div class="product-infomation-item product-branch"><label>{{ pll_e('product branch') }}:</label> {{ product_branch }}</div>
+              <div class="product-infomation-item product-origin"><label>{{ pll_e('product origin') }}:</label> {{ product_origin }}</div>
+              <div class="product-infomation-item product-short-desc">{{ fn('wc_get_product', post.ID).get_short_description }}</div>
+              <div class="product-infomation-item product-guarantee"><label>{{ pll_e('product guarantee') }}:</label> {{ product_guarantee }}</div>
+              <div class="product-price">{{ pll_e('Price') }}: {{ pll_e('Contact') }}</div>
+            </div>
+          </div>
+
+          <div class="product-image">
+            <div class="product-image-thumb">
+              {% if fn('get_the_post_thumbnail_url', post.ID) %}
+              <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}">
+              {% else %}
+              <img src="{{ fn('wc_placeholder_img_src') }}">
+              {% endif %}
+            </div>
+            <div class="post-link"><a href="{{ fn('get_permalink', post.ID) }}">{{ pll_e('Read more') }}</a></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

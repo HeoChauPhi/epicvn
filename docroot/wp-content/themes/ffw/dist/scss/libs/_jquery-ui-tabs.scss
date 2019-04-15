@@ -35,4 +35,54 @@
       }
     }
   }
+
+  &.tab-verticle {
+    align-items: flex-start;
+    display: flex;
+
+    .js-tabs-list {
+      align-items: unset;
+      border: none;
+      display: block;
+      justify-content: unset;
+      margin: rem(0 50px 0 0);
+      padding: 0;
+      width: rem(255px);
+
+      li {
+        margin: 0;
+
+        a {
+          background-color: transparent;
+          border-color: $color-line;
+          border-style: solid;
+          border-width: rem(1px 0 0 0);
+          padding: rem(15px 20px);
+
+          &:hover {
+            background-color: $color-link;
+            border-color: $color-link;
+            color: $white;
+          }
+        }
+
+        &.ui-tabs-active {
+          a {
+            @extend .fa-chevron-right;
+            background-color: $color-link;
+            border-color: $color-link;
+            border-style: solid;
+            border-width: rem(1px 0 0 0);
+            color: $white;
+
+            &:before {
+              float: right;
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+            }
+          }
+        }
+      }
+    }
+  }
 }
