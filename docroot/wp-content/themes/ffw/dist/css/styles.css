@@ -16167,6 +16167,8 @@ select {
   font-weight: 300;
   margin: 0rem 0rem 1.07143rem;
   text-transform: uppercase; }
+  .feature-big-title-color {
+    color: #b8374b; }
 
 .feature-small-title {
   color: #747474;
@@ -16175,12 +16177,14 @@ select {
 
 .feature-info-title {
   font-family: 'Open Sans Condensed', sans-serif;
+  color: #3a3a3a;
   font-size: 1.14286rem;
   font-weight: 700;
+  line-height: 1.28571rem;
   margin: 0rem 0rem 1.42857rem; }
 
 .feature-info-content {
-  line-height: 14px; }
+  line-height: 1.28571rem; }
 
 .feature-navigation {
   border-bottom: 0.07143rem solid #d3d3d3;

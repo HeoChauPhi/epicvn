@@ -46,6 +46,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5cbb06fe97a96",
+            "label": "Feature End Title",
+            "name": "feature_end_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5be327dc57bba",
             "label": "Feature Small TItle",
             "name": "feature_small_title",
@@ -163,5 +182,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1554181366
+    "modified": 1555761008
 }
