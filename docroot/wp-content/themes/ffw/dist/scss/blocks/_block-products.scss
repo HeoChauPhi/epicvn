@@ -20,6 +20,10 @@
   .product-item {
     padding: rem(0 7px);
 
+    @include breakpoint(colmdDown) {
+      margin-bottom: rem(20px);
+    }
+
     &-inner {
       border: rem(1px) solid transparent;
       cursor: pointer;
@@ -47,6 +51,11 @@
     img {
       height: auto;
       width: 100%;
+
+      @include breakpoint(colmdDown) {
+        height: 100%;
+        width: auto;
+      }
     }
   }
 

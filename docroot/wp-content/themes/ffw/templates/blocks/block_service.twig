@@ -6,6 +6,7 @@
     {% for item in service_list %}
       <div class="service-item">
         <div class="service-item-inner">
+          {% if item.service_url %}<a class="service-link" href="{{ item.service_url.url }}" {% if item.service_url.target %}target="_blank"{% endif %}></a>{% endif %}
           <div class="service-icon">
           {% if item.service_type == "image" %}
             <img src="{{ item.service_icon_image.url }}">

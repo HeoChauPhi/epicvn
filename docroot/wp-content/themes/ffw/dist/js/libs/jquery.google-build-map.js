@@ -1,4 +1,4 @@
-(function($) {
+(function ($, window, document) {
   /*
   *  new_map
   *
@@ -123,5 +123,19 @@
       // create map
       map = new_map( $(this) );
     });
+
+    $('.block-map-page').each(function(){
+      var $this = $(this);
+      $(this).find('.js_showmap').on('click', function(){
+        var lat = $(this).data('lat');
+        var lng = $(this).data('lng');
+        var icon = $(this).data('icon');
+        var address = $(this).data('address');
+
+        $this.find('.google-build-map').empty();
+        $this.find('.google-build-map').append('<div class="marker" data-lat="' + lat + '" data-lng="' + lng + '" data-icon="' + icon + '"><div class="address">' + address + '</div></div>');
+        map = new_map( $this.find('.google-build-map') );
+      });
+    });
   });
-})(jQuery);
+})(jQuery, window, document);

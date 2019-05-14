@@ -43,6 +43,9 @@ if(!is_admin()) {
 
     wp_register_script('lib-google-build-map', get_stylesheet_directory_uri() . '/dist/js/libs/jquery.google-build-map.js', array('jquery'), '1.0.0', TRUE);
     wp_enqueue_script('lib-google-build-map');
+
+    /*wp_register_script('lib-gmap3', get_stylesheet_directory_uri() . '/dist/js/libs/gmap3.js', array('jquery'), '7.2', TRUE);
+    wp_enqueue_script('lib-gmap3');*/
     
     wp_register_script('jquery-ui', get_stylesheet_directory_uri() . '/dist/js/libs/jquery-ui.js', array('jquery'), '1.12.1', TRUE);
     wp_enqueue_script('jquery-ui');
@@ -53,7 +56,7 @@ if(!is_admin()) {
     wp_register_script('lib-counterup', get_stylesheet_directory_uri() . '/dist/js/libs/jquery.counterup.min.js', array('jquery'), '1.0', TRUE);
     wp_enqueue_script('lib-counterup');
 
-    wp_register_script('script', get_stylesheet_directory_uri() . '/dist/js/script.js', '1.0.0', TRUE);
+    wp_register_script('script', get_stylesheet_directory_uri() . '/dist/js/script.js', array('jquery'), '1.0.0', TRUE);
     wp_localize_script( 'script', 'customAjax', array( 'ajaxurl' => admin_url('admin-ajax.php' )));
     wp_enqueue_script('script');
   }

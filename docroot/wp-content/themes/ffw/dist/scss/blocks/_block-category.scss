@@ -17,12 +17,16 @@
   }
 
   .read-more-link {
-    background-color: $color-second;
+    background-color: $color-link;
     border-radius: rem(5px);
     color: $white;
     display: inline-block; 
     padding: rem(10px 50px);
     text-transform: capitalize;
+
+    &:hover {
+      background-color: $color-second;
+    }
   }
 
   .post-item {

@@ -3,7 +3,9 @@
     <div class="header-wrapper">
       <div class="header-top">
         <div class="container">
-          {% include 'block-user.twig' %}
+          {% block user %}
+          {% include 'block-user.twig' with {'block_class': 'hidden-on-mobile'} %}
+          {% endblock %}
         </div>
       </div>
 
@@ -18,6 +20,10 @@
 
             {% block navigation %}
               <div class="block-navigation">{% include 'navigation.twig' %}</div>
+            {% endblock %}
+
+            {% block user_mobile %}
+            {% include 'block-user.twig' with {'block_class': 'hidden-on-desktop block-user-login-mobile'} %}
             {% endblock %}
 
             {#% if global_ppl %}

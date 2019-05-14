@@ -55,6 +55,13 @@
   line-height: rem(18px);
 }
 
+.feature-info-image {
+  @include breakpoint(colmdDown) {
+    margin-bottom: rem(20px);
+    text-align: center;
+  }
+}
+
 .feature-navigation {
   border-bottom: rem(1px) solid $color-line;
   margin-bottom: rem(30px);

@@ -7,22 +7,27 @@
   // Swich when web loading on mobile or small device
   function mobileMenu() {
     if( $(this).hasClass('menu-responsive') ) {
-      //$('.user-menu-responsive').removeClass('active');
-      //$('.block-user-menu').removeClass('menu-show');
+      $('.block-user-login-mobile').hide();
+      $('.block-navigation .main-menu').slideToggle();
+      $('.block-user-menu').removeClass('active');
       $(this).toggleClass('active');
-      $('.main-menu:not(.menu-scroll)').toggleClass('menu-show');
     }
-    /*if( $(this).hasClass('user-menu-responsive') ) {
+    if( $(this).hasClass('block-user-menu') ) {
+      $('.block-navigation .main-menu').hide();
+      $('.block-user-login-mobile').slideToggle();
       $('.menu-responsive').removeClass('active');
-      $('.main-menu').removeClass('menu-show');
       $(this).toggleClass('active');
-      $('.block-user-menu').toggleClass('menu-show');
-    }*/
+    }
+  }
+
+  function mobileMenuExpand() {
+    $(this).next('.nav-drop, .mega-menu').slideToggle();
+    $(this).find('> .fas').toggleClass('fa-angle-down fa-angle-up');
   }
 
   // Back to Top
   function backToTopShow() {
-    var height_show = $('.header-full').outerHeight(true);
+    var height_show = $('.header').outerHeight(true) + $('.feature').outerHeight(true);
 
     if ($(this).scrollTop() > height_show) {
       $('.js-back-top').addClass('btn-show');
@@ -57,12 +62,17 @@
    ================================================================== */
   $(document).ready(function() {
     // Call to function
-    //$('.js-toogle--menu').on('click', mobileMenu);
+    $('.js-toogle--menu').on('click', mobileMenu);
+    $('.js-toggle-menu-expanded').on('click', mobileMenuExpand);
     //$('select').selectmenu();
     $('.js-back-top').on('click', backToTop);
     $('.js-scroll-down').on('click', scrollDown);
     $('.block-products .product-item-inner').matchHeight();
     $('.js-quicktab').tabs();
+    $( ".js-accordion" ).accordion({
+      heightStyle: "content",
+      header: '> .accordion-item > .accordion-title'
+    });
     $('.woocommerce-product-gallery__image > a').on('click', function() {
       $.fancybox.open( $('.woocommerce-product-gallery__image > a'), {
         touch: false,

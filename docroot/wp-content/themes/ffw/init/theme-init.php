@@ -367,6 +367,17 @@ function flexible_content($name) {
       $field['component_id'] = $key + 1;
 
       switch ($layout) {
+        case 'map_page':
+          $google_icon = get_template_directory_uri().'/dist/images/icons/google-map-icon.png';
+          $field['google_icon'] = new TimberImage($google_icon);
+
+          try {
+            Timber::render($layout . '.twig', $field);
+          } catch (Exception $e) {
+            echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+          }
+          break;
+
         case 'block_category':
           $args = array(
             'parent' => $field['category_select'],

@@ -1,0 +1,32 @@
+<div class="block-map-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 block-map-list-location">
+        <div class="block-map-list-inner js-accordion">
+        {% for item in list_address %}
+          <div class="block-map-item accordion-item">
+            <h3 class="accordion-title js_showmap" data-lat="{{ item.latitude }}" data-lng="{{ item.longitude }}" data-icon="{{ google_icon }}" data-address="{{ item.location }}">{{ item.address_title }}</h3>
+            <div class="accordion-content">
+              <ul>
+                <li>{{ item.location }}</li>
+                <li>{{ item.phone }}</li>
+                <li>{{ item.time }}</li>
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-md-7 block-map-embed">
+        <div class="google-build-map" style="width: 100%; height: 600px;">
+          {% for item in list_address %}
+            <div class="marker" data-lat="{{ item.latitude }}" data-lng="{{ item.longitude }}" data-icon="{{ google_icon }}">
+              <div class="address">{{ item.location }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

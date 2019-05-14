@@ -1,3 +1,10 @@
+<div class="block-nav-mobile hidden-on-desktop">
+  <div class="js-toogle--menu menu-responsive" data-target="main-menu"><i class="fas fa-ellipsis-v"></i></div>
+  {% if block("user", "header.twig") is defined or block("user_mobile", "header.twig") is defined %}
+  <div class="js-toogle--menu block-user-menu" data-target="block-user-login"><i class="fas fa-user"></i></div>
+  {% endif %}
+</div>
+
 <nav class="nav main-menu {% if menu_scroll %}menu-scroll{% endif %}">
   <ul>
     {% for item in menu.main.get_items %}
