@@ -110,14 +110,9 @@ msgstr "WordPress 5.2 cung cấp cho bạn các công cụ mạnh mẽ hơn nữ
 msgid "Keeping Your Site Safe"
 msgstr "Giữ an toàn cho trang web của bạn"
 
-#: wp-admin/credits.php:23 wp-admin/freedoms.php:33 wp-admin/about.php:27
+#: wp-admin/credits.php:28 wp-admin/freedoms.php:42 wp-admin/about.php:27
 msgid "Congratulations on updating to WordPress 5.2! This update makes it easier than ever to fix your site if something goes wrong."
 msgstr "Chúc mừng bạn đã cập nhật lên WordPress 5.2! Bản cập nhật này giúp việc sửa chữa trang web của bạn trở nên dễ dàng hơn bao giờ hết."
-
-#. translators: 1: The filename of the package.
-#: wp-admin/includes/file.php:1191
-msgid "The authenticity of %1$s could not be verified as signature verification is unavailable on this system."
-msgstr "Không thể xác thực %1$s vì xác minh chữ ký không có sẵn trên hệ thống này."
 
 #. translators: tab heading for Site Health Status page
 #: wp-admin/site-health-info.php:52
@@ -184,6 +179,7 @@ msgid "PHP modules perform most of the tasks on the server that make your site r
 msgstr "Các module PHP thực hiện hầu hết các thao tác trên máy chủ để đảm bảo trang web của bạn hoạt động bình thường. Bất cứ sự thay đổi nào đều phải được thực hiện bởi người quản trị máy chủ."
 
 #: wp-admin/includes/class-wp-site-health.php:652
+#: wp-admin/includes/dashboard.php:1631
 msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance."
 msgstr "PHP là ngôn ngữ lập trình mà chúng tôi sử dụng để xây dựng và duy trì WordPress. Các phiên bản mới hơn của PHP đều nhanh và an toàn hơn, do đó, việc cập nhật sẽ có tác động tích cực đến hiệu suất của trang web của bạn."
 
@@ -337,7 +333,7 @@ msgid "The authenticity of %s could not be verified as no signature was found."
 msgstr "Việc xác thực %s không thành công vì không có chữ ký."
 
 #. translators: %s: The filename of the package.
-#: wp-admin/includes/file.php:1171
+#: wp-admin/includes/file.php:1171 wp-admin/includes/file.php:1191
 msgid "The authenticity of %s could not be verified as signature verification is unavailable on this system."
 msgstr "Không thể xác thực %s vì chứng thực chữ ký không có sẵn trên hệ thống."
 
@@ -479,7 +475,7 @@ msgstr "Có một phiên bản mới của %1$s, nhưng nó không hoạt độn
 msgid "This plugin failed to load properly and is paused during recovery mode."
 msgstr "Plugin này không hoạt động đúng cách và bị tạm dừng trong chế độ khôi phục."
 
-#: wp-admin/includes/theme.php:905
+#: wp-admin/includes/theme.php:910
 msgid "Go to the Themes screen"
 msgstr "Chuyển tới phần Giao diện "
 
@@ -494,11 +490,6 @@ msgstr "Gặp lỗi khi xác định kích thước bản cài của bạn. Tổ
 #: wp-admin/includes/class-wp-debug-data.php:1180
 msgid "The size cannot be calculated. The directory is not accessible. Usually caused by invalid permissions."
 msgstr "Không thể tính được kích thước. Thư mục không thể truy cập. Thường do quyền không hợp lệ của thư mục."
-
-#. translators: %s: number of ratings
-#: wp-admin/includes/theme.php:727
-msgid "(%s ratings) <span class=\"screen-reader-text\">link to view ratings opens in a new tab</span>"
-msgstr "(%s đánh giá) <span class=\"screen-reader-text\">liên kết để xem tỷ lệ đánh giá trong tab mới</span>"
 
 #: wp-admin/includes/class-wp-debug-data.php:218
 msgid "These settings alter where and how parts of WordPress are loaded."
@@ -532,9 +523,9 @@ msgstr "Mọi thứ đều hoạt động tốt."
 msgid "Great job!"
 msgstr "Tuyệt vời!"
 
-#: wp-admin/credits.php:27 wp-admin/includes/ms.php:1137
-#: wp-admin/nav-menus.php:630 wp-admin/site-health-info.php:48
-#: wp-admin/freedoms.php:37 wp-admin/about.php:36 wp-admin/site-health.php:53
+#: wp-admin/credits.php:37 wp-admin/includes/ms.php:1141
+#: wp-admin/nav-menus.php:632 wp-admin/site-health-info.php:48
+#: wp-admin/freedoms.php:51 wp-admin/about.php:36 wp-admin/site-health.php:53
 msgid "Secondary menu"
 msgstr "Menu thứ hai"
 
@@ -1630,27 +1621,27 @@ msgstr "Bạn không thể cập nhật bởi vì <a href=\"%1$s\">WordPress %2$
 msgid "You cannot update because <a href=\"%1$s\">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s."
 msgstr "Bạn không thể cập nhật bởi vì <a href=\"%1$s\">WordPress %2$s</a> cần phiên bản PHP %3$s hoặc cao hơn. Bạn đang chạy phiên bản %4$s."
 
-#: wp-admin/nav-menus.php:848
+#: wp-admin/nav-menus.php:852
 msgid "Add menu items"
 msgstr "Thêm liên kết"
 
-#: wp-admin/nav-menus.php:815
+#: wp-admin/nav-menus.php:819
 msgid "or <a href=\"%s\">create a new menu</a>. Don&#8217;t forget to save your changes!"
 msgstr "hoặc <a href=\"%s\">tạo menu mới</a>. Đừng quên lưu thay đổi!"
 
-#: wp-admin/nav-menus.php:766 wp-admin/nav-menus.php:827
+#: wp-admin/nav-menus.php:770 wp-admin/nav-menus.php:831
 msgid "Click the Save Menu button to save your changes."
 msgstr "Bấm vào nút Lưu menu để lưu các thay đổi."
 
-#: wp-admin/nav-menus.php:754
+#: wp-admin/nav-menus.php:758
 msgid "Edit your menu below, or <a href=\"%s\">create a new menu</a>. Don&#8217;t forget to save your changes!"
 msgstr "Sửa menu ở bên dưới, hoặc <a href=\"%s\">tạo menu mới</a>. Đừng quên lưu thay đổi!"
 
-#: wp-admin/nav-menus.php:748
+#: wp-admin/nav-menus.php:752
 msgid "Fill in the Menu Name and click the Create Menu button to create your first menu."
 msgstr "Điền vào Tên menu và bấm nút Tạo menu để tạo menu đầu tiên của bạn."
 
-#: wp-admin/nav-menus.php:747
+#: wp-admin/nav-menus.php:751
 msgid "Create your first menu below."
 msgstr "Tạo menu đầu tiên bên dưới."
 
@@ -1674,10 +1665,6 @@ msgstr "Cài đặt trang chủ"
 #: wp-admin/includes/dashboard.php:1638
 msgid "Learn more about updating PHP"
 msgstr "Tìm hiểu cách cập nhật PHP"
-
-#: wp-admin/includes/dashboard.php:1631
-msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site’s performance."
-msgstr "PHP là ngôn ngữ lập trình chúng tôi sử dụng để xây dựng và phát triển WordPress. Phiên bản mới của PHP nhanh và bảo mật hơn, nên việc cập nhật sẽ ảnh hưởng tích cực đến hiệu suất trang web của bạn."
 
 #: wp-admin/includes/dashboard.php:1630
 msgid "What is PHP and how does it affect my site?"
@@ -1817,11 +1804,11 @@ msgctxt "plugin"
 msgid "Resume %s"
 msgstr "Tiếp tục %s"
 
-#: wp-admin/includes/theme.php:903
+#: wp-admin/includes/theme.php:908
 msgid "You can find more details and make changes on the Themes screen."
 msgstr "Bạn có thể xem chi tiết và thay đổi ở màn hình Giao diện."
 
-#: wp-admin/includes/theme.php:902
+#: wp-admin/includes/theme.php:907
 msgid "One or more themes failed to load properly."
 msgstr "Một hoặc nhiều giao diện không thể tải được."
 
@@ -1830,7 +1817,7 @@ msgstr "Một hoặc nhiều giao diện không thể tải được."
 msgid "Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted."
 msgstr "Xóa chuyên mục sẽ không xóa bài viết trong chuyên mục đó. Thay vì thế, bài viết sẽ được chuyển đến chuyên mục mặc định %s. Chuyên mục mặc định không thể xóa."
 
-#: wp-admin/includes/theme.php:875
+#: wp-admin/includes/theme.php:880
 msgid "Could not resume the theme."
 msgstr "Không thể trở lại giao diện."
 
@@ -1866,35 +1853,35 @@ msgstr "Vui lòng cài đặt plugin <a href=\"%s\">Classic Editor</a> để s�
 msgid "This meta box isn't compatible with the block editor."
 msgstr "Meta box này không tương thích với trình soạn thảo block."
 
-#: wp-admin/freedoms.php:80
+#: wp-admin/freedoms.php:109
 msgid "To distribute copies of your modified versions to others."
 msgstr "Để tái phân phối bản sửa chữa của bạn tới người khác."
 
-#: wp-admin/freedoms.php:79
+#: wp-admin/freedoms.php:108
 msgid "The 4th Freedom"
 msgstr "Quyền tự do thứ tư"
 
-#: wp-admin/freedoms.php:75
+#: wp-admin/freedoms.php:104
 msgid "To redistribute."
 msgstr "Để tái phân phối lại."
 
-#: wp-admin/freedoms.php:74
+#: wp-admin/freedoms.php:103
 msgid "The 3rd Freedom"
 msgstr "Quyền tự do thứ ba"
 
-#: wp-admin/freedoms.php:70
+#: wp-admin/freedoms.php:99
 msgid "To study how the program works and change it to make it do what you wish."
 msgstr "Để học cách chương trình hoạt động và thay đổi nó theo ý bạn muốn."
 
-#: wp-admin/freedoms.php:69
+#: wp-admin/freedoms.php:98
 msgid "The 2nd Freedom"
 msgstr "Quyền tự do thứ hai"
 
-#: wp-admin/freedoms.php:65
+#: wp-admin/freedoms.php:94
 msgid "To run the program for any purpose."
 msgstr "Để chạy bất kỳ chương trình nào cho bất kỳ mục đích gì."
 
-#: wp-admin/freedoms.php:64
+#: wp-admin/freedoms.php:93
 msgid "The 1st Freedom"
 msgstr "Quyền tự do đầu tiên"
 
@@ -2849,7 +2836,8 @@ msgstr "Yêu cầu phiên bản PHP:"
 msgid "This changeset cannot be further modified."
 msgstr "Lần sửa đổi này không thể thực thi."
 
-#: wp-admin/freedoms.php:49
+#. translators: %s: https://wordpress.org/about/stats
+#: wp-admin/freedoms.php:66
 msgid "This data is used to provide general enhancements to WordPress, which includes helping to protect your site by finding and automatically installing new updates. It is also used to calculate statistics, such as those shown on the <a href=\"%s\">WordPress.org stats page</a>."
 msgstr "Dữ liệu này được sử dụng để cải tiến chung dành cho WordPress, bao gồm bảo vệ website của bạn bằng cách tìm và cài các bản nâng cấp mới. Nó cũng được dùng cho việc thống kê, như hiển thị trong <a href=\"%s\">trang thống kê của WordPress.org</a>."
 
@@ -2862,7 +2850,7 @@ msgstr "Bạn không cần thay đổi CSS ở đây. Hãy sửa nó và xem cá
 msgid "Did you know?"
 msgstr "Bạn có biết"
 
-#: wp-admin/credits.php:127
+#: wp-admin/credits.php:138
 msgid "Noteworthy Contributors"
 msgstr "Những người đóng góp tận tâm"
 
@@ -2929,11 +2917,12 @@ msgstr "Nhập địa chỉ nếu bạn <a href=\"%s\">muốn địa chỉ websi
 msgid "Developer Happiness"
 msgstr "Cải tiến cho nhà phát triển"
 
-#: wp-admin/freedoms.php:51
+#. translators: %s: https://wordpress.org/about/privacy
+#: wp-admin/freedoms.php:73
 msgid "We take privacy and transparency very seriously. To learn more about what data we collect, and how we use it, please visit <a href=\"%s\">WordPress.org/about/privacy</a>."
 msgstr "Chúng tôi rất coi trọng sự riêng tư và minh bạch. Để tìm hiểu thêm về những gì chúng tôi thu thập, và cách chúng tôi sử dụng các dữ liệu này, xin vui lòng truy cập <a href=\"%s\">Quyền riêng tư</a>."
 
-#: wp-admin/freedoms.php:47
+#: wp-admin/freedoms.php:61
 msgid "From time to time, your WordPress site may send data to WordPress.org &#8212; including, but not limited to &#8212; the version of WordPress you are using, and a list of installed plugins and themes."
 msgstr "Đôi khi website WordPress của bạn có thể gửi dữ liệu tới WordPress, bao gồm, nhưng không giới hạn, phiên bản bạn đang sử dụng, và danh sách các giao diện và plugin đã cài."
 
@@ -3139,7 +3128,7 @@ msgstr "%s đang sửa bài viết này."
 msgid "%s is already editing this post. Do you want to take over?"
 msgstr "%s đang sửa bài viết này. Bạn muốn thay thế?"
 
-#: wp-admin/includes/ms.php:1171
+#: wp-admin/includes/ms.php:1175
 msgid "<a href=\"https://codex.wordpress.org/Network_Admin_Sites_Screen\">Documentation on Site Management</a>"
 msgstr "<a href=\"https://codex.wordpress.org/Network_Admin_Sites_Screen\">Tài liệu về quản lý Multi-site</a>"
 
@@ -3155,23 +3144,23 @@ msgstr "Mã cài đặt riêng."
 msgid "Active Installations:"
 msgstr "Lượt kích hoạt:"
 
-#: wp-admin/includes/ms.php:1158
+#: wp-admin/includes/ms.php:1162
 msgid "<strong>Settings</strong> &mdash; This page shows a list of all settings associated with this site. Some are created by WordPress and others are created by plugins you activate. Note that some fields are grayed out and say Serialized Data. You cannot modify these values due to the way the setting is stored in the database."
 msgstr "<strong>Cài đặt</strong> &mdash; Trang này hiển thị danh sách các thiết lập của website. Một vài thiết lập là của WordPress, và số còn lại của plugin mở rộng bạn đã kích hoạt. Một vài mục có thể không sẵn sàng để cập nhật tuỳ theo cách dữ liệu được quy chuẩn lưu trên hệ thống."
 
-#: wp-admin/includes/ms.php:1157
+#: wp-admin/includes/ms.php:1161
 msgid "<strong>Themes</strong> &mdash; This area shows themes that are not already enabled across the network. Enabling a theme in this menu makes it accessible to this site. It does not activate the theme, but allows it to show in the site&#8217;s Appearance menu. To enable a theme for the entire network, see the <a href=\"%s\">Network Themes</a> screen."
 msgstr "<strong>Giao diện</strong> &mdash; Mục này hiển thị các giao diện chưa được kích hoạt trên toàn Mạng lưới. Bật một giao diện trong menu này làm chúng có thể được sử dụng trong website này. Nó không có nghĩa giao diện được kích hoạt, nhưng hiển thị trong mục Menu. Để kích hoạt cho toàn Mạng lưới, truy cập <a href=\"%s\">Giao diện Mạng lưới</a>."
 
-#: wp-admin/includes/ms.php:1156
+#: wp-admin/includes/ms.php:1160
 msgid "<strong>Users</strong> &mdash; This displays the users associated with this site. You can also change their role, reset their password, or remove them from the site. Removing the user from the site does not remove the user from the network."
 msgstr "<strong>Thành viên</strong> &mdash; Mục này hiển thị danh sách người dùng của website. Bạn có thể thay đổi quyền của mỗi tài khoản, khởi tạo lại mật khẩu, hoặc xoá khỏi website. Xoá khỏi website không có nghĩa bị xoá khỏi Mạng lưới."
 
-#: wp-admin/includes/ms.php:1155
+#: wp-admin/includes/ms.php:1159
 msgid "<strong>Info</strong> &mdash; The site URL is rarely edited as this can cause the site to not work properly. The Registered date and Last Updated date are displayed. Network admins can mark a site as archived, spam, deleted and mature, to remove from public listings or disable."
 msgstr "<strong>Thông tin</strong> &mdash; Địa chỉ website thường nên hạn chế sửa vì có thể ảnh hưởng tới các website hoạt động. Mục Ngày khởi tạo và Lần cập nhật gần nhất sẽ hiển thị. Quản trị Mạng lưới có thể đánh dấu các website như là Lưu trữ, Spam, Xoá, Gỡ bỏ khỏi danh sách công bố hoặc Tắt."
 
-#: wp-admin/includes/ms.php:1154
+#: wp-admin/includes/ms.php:1158
 msgid "The menu is for editing information specific to individual sites, particularly if the admin area of a site is unavailable."
 msgstr "Menu là nơi bạn sửa các thông tin cụ thể cho từng website, hữu ích nếu khu vực Quản trị của website không sẵn có."
 
@@ -3327,7 +3316,7 @@ msgstr "Ẩn tùy chọn"
 msgid "Expand Sidebar"
 msgstr "Mở rộng Sidebar"
 
-#: wp-admin/nav-menus.php:951
+#: wp-admin/nav-menus.php:955
 msgid "Display location"
 msgstr "Hiển thị vị trí"
 
@@ -3370,7 +3359,7 @@ msgid "Choose either a city in the same timezone as you or a UTC timezone offset
 msgstr "Chọn tên thành phố hoặc múi giờ."
 
 #. translators: %s: number of ratings
-#: wp-admin/theme-install.php:341
+#: wp-admin/includes/theme.php:729 wp-admin/theme-install.php:341
 msgid "(%s ratings)"
 msgstr "(%s đánh giá)"
 
@@ -3406,7 +3395,7 @@ msgid "Sorry, you are not allowed to attach files to this post."
 msgstr "Xin lỗi, bạn không được quyền đính kèm tập tin vào bài viết này."
 
 #: wp-admin/includes/plugin-install.php:262
-#: wp-admin/includes/plugin-install.php:679 wp-admin/freedoms.php:89
+#: wp-admin/includes/plugin-install.php:679 wp-admin/freedoms.php:123
 #: wp-admin/plugins.php:444 wp-admin/plugin-install.php:86
 msgid "https://wordpress.org/plugins/"
 msgstr "https://vi.wordpress.org/plugins/"
@@ -3851,11 +3840,11 @@ msgstr "Xin lỗi, bạn không được phép tùy chỉnh đầu trang."
 msgid "Sorry, you are not allowed to import content."
 msgstr "Xin lỗi, bạn không được phép nhập nội dung."
 
-#: wp-admin/credits.php:132
+#: wp-admin/credits.php:143
 msgid "Release Deputy"
 msgstr "Phó phát hành"
 
-#: wp-admin/credits.php:131
+#: wp-admin/credits.php:142
 msgid "Release Design Lead"
 msgstr "Chỉ huy phát hành thiết kế"
 
@@ -3989,7 +3978,7 @@ msgstr "Giao diện mới đã được kích hoạt"
 msgid "Settings saved and theme activated."
 msgstr "Cài đặt đã lưu và giao diện đã kích hoạt."
 
-#: wp-admin/freedoms.php:90 wp-admin/themes.php:114
+#: wp-admin/freedoms.php:124 wp-admin/themes.php:114
 #: wp-admin/theme-install.php:97
 msgid "https://wordpress.org/themes/"
 msgstr "https://wordpress.org/themes/"
@@ -4304,7 +4293,8 @@ msgstr "Gửi cho thành viên mới đăng kí một email chứa thông tin t�
 msgid "Send User Notification"
 msgstr "Gửi thông báo đến thành viên"
 
-#: wp-admin/nav-menus.php:961
+#. translators: %s: menu name
+#: wp-admin/nav-menus.php:965
 msgctxt "menu location"
 msgid "(Currently set to: %s)"
 msgstr "(Hiện tại: %s)"
@@ -4974,7 +4964,7 @@ msgstr "Trong khi bạn đang chỉnh sửa tập tin %1$s của bạn, mất m�
 msgid "Show more details"
 msgstr "Hiển thị chi tiết"
 
-#: wp-admin/nav-menus.php:654
+#: wp-admin/nav-menus.php:658
 msgid "Your theme supports %s menu. Select which menu appears in each location."
 msgid_plural "Your theme supports %s menus. Select which menu appears in each location."
 msgstr[0] "Giao diện của bạn hỗ trợ %s Menu. Hãy chọn Menu cho từng vị trí."
@@ -5694,7 +5684,7 @@ msgstr "Xin chào"
 msgid "If you like, you may enter custom structures for your category and tag URLs here. For example, using <code>topics</code> as your category base would make your category links like <code>%s/topics/uncategorized/</code>. If you leave these blank the defaults will be used."
 msgstr "Nếu bạn thích, bạn có thể nhập chuỗi địa chỉ tuỳ biến cho chuyên mục và thẻ tại đây. Ví dụ, sử dụng <code>chuyen-muc</code> sẽ thay đổi các liên kết tới từng chuyên mục thành <code>%s/chuyen-muc/tin-tuc/</code>. Bỏ trống sẽ sử dụng thiết lập mặc định."
 
-#: wp-admin/credits.php:130
+#: wp-admin/credits.php:141
 msgid "Release Lead"
 msgstr "Người đứng đầu phiên bản"
 
@@ -6002,11 +5992,11 @@ msgstr "Quản lý Menu"
 msgid "Manage widgets"
 msgstr "Quản lý widget"
 
-#: wp-admin/credits.php:45 wp-admin/credits.php:59
+#: wp-admin/credits.php:55 wp-admin/credits.php:69
 msgid "https://make.wordpress.org/"
 msgstr "https://make.wordpress.org/"
 
-#: wp-admin/includes/ms.php:1172
+#: wp-admin/includes/ms.php:1176
 msgid "<a href=\"https://wordpress.org/support/forum/multisite/\">Support Forums</a>"
 msgstr "<a href=\"https://wordpress.org/support/forum/multisite/\">Forum hỗ trợ</a>"
 
@@ -6047,7 +6037,7 @@ msgid "On this screen, you can update to the latest version of WordPress, as wel
 msgstr "Tại màn hình này, bạn có thể nâng cấp WordPress lên phiên bản mới nhất, cũng như cập nhật các giao diện và gói mở rộng từ kho ứng dụng của WordPress.org."
 
 #. translators: %s: The current WordPress version number
-#: wp-admin/about.php:23
+#: wp-admin/credits.php:24 wp-admin/freedoms.php:38 wp-admin/about.php:23
 msgid "Welcome to WordPress&nbsp;%s"
 msgstr "Chào mừng bạn tới với WordPress&nbsp;%s"
 
@@ -6093,7 +6083,7 @@ msgstr "Khi cài đặt này hoạt động, một thông báo sẽ hiển thị
 msgid "Accessibility Ready"
 msgstr "Truy Cập Sẵn Sàng"
 
-#: wp-admin/includes/theme.php:741 wp-admin/themes.php:559
+#: wp-admin/includes/theme.php:746 wp-admin/themes.php:559
 msgid "This is a child theme of %s."
 msgstr "Đây là giao diện con của %s."
 
@@ -6197,7 +6187,7 @@ msgstr "Xem giao diện tiếp theo"
 msgid "Show previous theme"
 msgstr "Xem giao diện trước"
 
-#: wp-admin/includes/theme.php:735 wp-admin/themes.php:552
+#: wp-admin/includes/theme.php:740 wp-admin/themes.php:552
 msgid "Update Available"
 msgstr "Phiên bản mới sẵn sàng cập nhật"
 
@@ -6773,7 +6763,7 @@ msgstr "Bài viết bạn muốn khôi phục sau khi xóa không còn tồn t�
 msgid "The item you are trying to move to the Trash no longer exists."
 msgstr "Bài viết bạn muốn xóa không còn tồn tại."
 
-#: wp-admin/nav-menus.php:900
+#: wp-admin/nav-menus.php:904
 msgid "Drag each item into the order you prefer. Click the arrow on the right of the item to reveal additional configuration options."
 msgstr "Kéo các mục tới vị trí bạn mong muốn. Nhấp chuột vào mũi tên bên phải để thiết lập tuỳ chỉnh cho mỗi mục."
 
@@ -6817,33 +6807,33 @@ msgctxt "Followed by post revision info"
 msgid "From:"
 msgstr "Từ:"
 
-#: wp-admin/nav-menus.php:721
+#: wp-admin/nav-menus.php:725
 msgctxt "menu"
 msgid "Use new menu"
 msgstr "Sử dụng menu mới"
 
-#: wp-admin/nav-menus.php:702
+#: wp-admin/nav-menus.php:706
 msgctxt "menu"
 msgid "Edit"
 msgstr "Sửa"
 
-#: wp-admin/nav-menus.php:672
+#: wp-admin/nav-menus.php:676
 msgid "Select a Menu"
 msgstr "Chọn menu"
 
-#: wp-admin/nav-menus.php:663
+#: wp-admin/nav-menus.php:667
 msgid "Assigned Menu"
 msgstr "Menu đã gán"
 
-#: wp-admin/nav-menus.php:662
+#: wp-admin/nav-menus.php:666
 msgid "Theme Location"
 msgstr "Vị trí trong giao diện"
 
-#: wp-admin/nav-menus.php:639
+#: wp-admin/nav-menus.php:643
 msgid "Manage Locations"
 msgstr "Quản lý vị trí menu"
 
-#: wp-admin/nav-menus.php:631
+#: wp-admin/nav-menus.php:633
 msgid "Edit Menus"
 msgstr "Sửa menu"
 
@@ -6964,11 +6954,11 @@ msgstr "Đã bị chặn: %s"
 msgid "Capabilities"
 msgstr "Khả năng"
 
-#: wp-admin/nav-menus.php:927
+#: wp-admin/nav-menus.php:931
 msgid "Menu Settings"
 msgstr "Thiết lập menu"
 
-#: wp-admin/nav-menus.php:862
+#: wp-admin/nav-menus.php:866
 msgid "Menu structure"
 msgstr "Cấu trúc menu"
 
@@ -7009,7 +6999,7 @@ msgstr "Bạn không thể chuyển mục này vào Thùng Rác. %s đang biên 
 msgid "%s has taken over and is currently editing."
 msgstr "%s đã truy cập và đang biên tập bài viết."
 
-#: wp-admin/nav-menus.php:771
+#: wp-admin/nav-menus.php:775
 msgid "Select a menu to edit:"
 msgstr "Chọn menu để sửa:"
 
@@ -7025,15 +7015,15 @@ msgstr "Rất tốt! Bạn đã hoàn thành phần lớn quá trình cài đặ
 msgid "Client version"
 msgstr "Phiên bản khách"
 
-#: wp-admin/nav-menus.php:942
+#: wp-admin/nav-menus.php:946
 msgid "Auto add pages"
 msgstr "Tự động thêm trang tĩnh"
 
-#: wp-admin/nav-menus.php:914
+#: wp-admin/nav-menus.php:918
 msgid "Give your menu a name, then click Create Menu."
 msgstr "Đặt tên cho menu, sau đó nhấp chuột vào tạo menu."
 
-#: wp-admin/nav-menus.php:900
+#: wp-admin/nav-menus.php:904
 msgid "Edit your default menu by adding or removing items. Drag each item into the order you prefer. Click Create Menu to save your changes."
 msgstr "Chỉnh sửa Menu mặc định bởi thêm hoặc bớt các mục. Kéo rê các mục theo thứ tự bạn muốn. Nhấp chuột vào Tạo Menu để lưu thay đổi."
 
@@ -8053,7 +8043,7 @@ msgstr "Các bản Bảo Trì"
 msgid "Security Release"
 msgstr "Các bản Bảo Mật"
 
-#: wp-admin/credits.php:28 wp-admin/freedoms.php:38 wp-admin/about.php:37
+#: wp-admin/credits.php:38 wp-admin/freedoms.php:52 wp-admin/about.php:37
 msgid "What&#8217;s New"
 msgstr "Có gì mới"
 
@@ -8337,10 +8327,6 @@ msgstr "Quản Lý Trang Tĩnh"
 msgid "Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users."
 msgstr "Do đây là một bản cài đặt đa mạng, bạn có thể thêm tài khoản đã tồn tại trong Mạng Lưới bằng cách chỉ định tên truy cập hoặc địa chỉ thư điện tử, và lựa chọn một vai trò người dùng. Để có thêm lựa chọn, như chỉ định mật khẩu, bạn phải là Quản Trị Viên Mạng Lưới và sử dụng liên kết hiển thị phía dưới tên người dùng khi di chuột lên để Biên Tập hồ sơ người dùng tại Quản Trị Mạng Lưới > Tất Cả Người Dùng."
 
-#: wp-admin/credits.php:21 wp-admin/freedoms.php:31
-msgid "Welcome to WordPress %s"
-msgstr "Chào mừng tới %s của WordPress"
-
 #: wp-admin/about.php:150
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Quay lại Bảng tin &rarr; Cập nhật"
@@ -8349,7 +8335,7 @@ msgstr "Quay lại Bảng tin &rarr; Cập nhật"
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Đến Bảng tin &rarr; Trang chủ"
 
-#: wp-admin/credits.php:54
+#: wp-admin/credits.php:64
 msgid "WordPress is created by a worldwide team of passionate individuals."
 msgstr "WordPress được tạo bởi một nhóm toàn cầu của những cá nhân có cùng đam mê."
 
@@ -8380,7 +8366,7 @@ msgstr ""
 "Hãy bấm vào liên kết dưới đây để xác nhận lời mời:\n"
 "%4$s"
 
-#: wp-admin/credits.php:133
+#: wp-admin/credits.php:144
 msgid "Core Developer"
 msgstr "Nhà Phát Triển Lõi"
 
@@ -8487,7 +8473,7 @@ msgstr "LỖI: bạn đang trả lời một bình luận tại bài viết nhá
 
 #: wp-admin/options-reading.php:24 wp-admin/edit-tags.php:261
 #: wp-admin/link-manager.php:53 wp-admin/options-writing.php:22
-#: wp-admin/includes/ms.php:1152 wp-admin/includes/class-wp-screen.php:816
+#: wp-admin/includes/ms.php:1156 wp-admin/includes/class-wp-screen.php:816
 #: wp-admin/my-sites.php:43 wp-admin/options-general.php:41
 #: wp-admin/comment.php:47 wp-admin/theme-editor.php:27
 #: wp-admin/plugin-editor.php:123 wp-admin/nav-menus.php:546
@@ -8532,7 +8518,7 @@ msgid "Plugins %s"
 msgstr "Plugin %s"
 
 #. translators: %s: plugin name
-#: wp-admin/includes/theme.php:763
+#: wp-admin/includes/theme.php:768
 #: wp-admin/includes/class-wp-theme-install-list-table.php:478
 #: wp-admin/includes/deprecated.php:1381 wp-admin/theme-install.php:299
 #: wp-admin/theme-install.php:319
@@ -8547,7 +8533,7 @@ msgstr "Tất cả người dùng"
 #: wp-admin/includes/class-wp-links-list-table.php:88
 #: wp-admin/includes/class-wp-links-list-table.php:323
 #: wp-admin/includes/class-wp-themes-list-table.php:200
-#: wp-admin/includes/theme.php:758
+#: wp-admin/includes/theme.php:763
 #: wp-admin/includes/class-wp-plugins-list-table.php:500
 #: wp-admin/includes/class-wp-plugins-list-table.php:654
 #: wp-admin/includes/class-wp-plugins-list-table.php:683
@@ -8571,7 +8557,7 @@ msgstr "Thêm mới"
 
 #: wp-admin/options-reading.php:42 wp-admin/edit-tags.php:297
 #: wp-admin/link-manager.php:70 wp-admin/options-writing.php:51
-#: wp-admin/includes/ms.php:1170 wp-admin/my-sites.php:50
+#: wp-admin/includes/ms.php:1174 wp-admin/my-sites.php:50
 #: wp-admin/options-general.php:47 wp-admin/comment.php:55
 #: wp-admin/theme-editor.php:50 wp-admin/plugin-editor.php:140
 #: wp-admin/nav-menus.php:594 wp-admin/update-core.php:648
@@ -8660,18 +8646,18 @@ msgstr "Đã thêm người dùng."
 msgid "By %s"
 msgstr "Bởi %s"
 
+#. translators: %s: The current WordPress version number
 #. translators: %s: Plugin version number.
 #. translators: %s: Theme version number.
 #. translators: %s: plugin version number
 #. translators: %s: Plugin version
-#. translators: %s: The current WordPress version number
-#: wp-admin/credits.php:25 wp-admin/includes/class-wp-debug-data.php:789
+#: wp-admin/credits.php:33 wp-admin/includes/class-wp-debug-data.php:789
 #: wp-admin/includes/class-wp-debug-data.php:827
 #: wp-admin/includes/class-wp-debug-data.php:940
 #: wp-admin/includes/class-wp-plugins-list-table.php:825
 #: wp-admin/includes/update.php:210 wp-admin/includes/update.php:240
 #: wp-admin/includes/ajax-actions.php:4182
-#: wp-admin/includes/ajax-actions.php:4225 wp-admin/freedoms.php:35
+#: wp-admin/includes/ajax-actions.php:4225 wp-admin/freedoms.php:47
 #: wp-admin/about.php:32
 msgid "Version %s"
 msgstr "Phiên bản %s"
@@ -8850,7 +8836,7 @@ msgstr "Tập tin được tải lên có dung lượng vượt quá hạn mức
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr "Tập tin được tải lên có dung lượng vượt quá hạn mức quy định bởi cài đặt upload_max_filesize trong tập tin php.ini."
 
-#: wp-admin/credits.php:134
+#: wp-admin/credits.php:145
 msgid "External Libraries"
 msgstr "Các thư viện ngoài"
 
@@ -8862,28 +8848,32 @@ msgstr "Cài đặt mạng"
 msgid "Available Tools"
 msgstr "Các công cụ"
 
-#: wp-admin/credits.php:66
+#: wp-admin/credits.php:76
 msgctxt "Translate this to be the equivalent of English Translators in your language for the credits page Translators section"
 msgid "Translators"
 msgstr "Dịch giả"
 
-#: wp-admin/freedoms.php:92
+#. translators: %s: https://wordpress.org/about/license
+#: wp-admin/freedoms.php:126
 msgid "Every plugin and theme in WordPress.org&#8217;s directory is 100%% GPL or a similarly free and compatible license, so you can feel safe finding <a href=\"%1$s\">plugins</a> and <a href=\"%2$s\">themes</a> there. If you get a plugin or theme from another source, make sure to <a href=\"%3$s\">ask them if it&#8217;s GPL</a> first. If they don&#8217;t respect the WordPress license, we don&#8217;t recommend them."
 msgstr "Mỗi plugin hoặc giao diện tại Thư viện của WordPress.org đều phát hành theo giấy phép bản quyền 100%% GPL hoặc tương đương, vì vậy bạn có thể hoàn toàn yên tâm sử dụng <a href=\"%1$s\">plugin</a> và <a href=\"%2$s\">giao diện</a> tại đây. Nếu bạn sử dụng từ các nguồn khác, hãy chắc chắn <a href=\"%3$s\">hỏi giấy phép phát hành</a> trước. Nếu họ không sử dụng giấy phép tương tự WordPress, hãy cân nhắc không sử dụng chúng."
 
-#: wp-admin/freedoms.php:85
+#. translators: %s: https://wordpressfoundation.org/trademark-policy
+#: wp-admin/freedoms.php:117
 msgid "WordPress grows when people like you tell their friends about it, and the thousands of businesses and services that are built on and around WordPress share that fact with their users. We&#8217;re flattered every time someone spreads the good word, just make sure to <a href=\"%s\">check out our trademark guidelines</a> first."
 msgstr "WordPress trưởng thành khi những người như bạn nói với bạn bè về nó, và hàng nghìn công việc kinh doanh và dịch vụ được xây dựng dựa trên WordPress chia sẻ điều đó với người sử dụng của họ. Chúng tôi hãnh diện mỗi khi được ai đó giới thiệu, chỉ cần đảm bảo sẽ làm theo <a href=\"%s\">những hướng dẫn về sử dụng nhãn hiệu của chúng tôi</a> ngay từ đầu."
 
-#: wp-admin/freedoms.php:58
+#. translators: %s: https://wordpress.org/about/license
+#: wp-admin/freedoms.php:85
 msgid "WordPress is Free and open source software, built by a distributed community of mostly volunteer developers from around the world. WordPress comes with some awesome, worldview-changing rights courtesy of its <a href=\"%s\">license</a>, the GPL."
 msgstr "WordPress là phần mềm Miễn Phí và mã nguồn mở, được xây dựng bởi một cộng đồng các nhà phát triển tình nguyện rải rác khắp thế giới. WordPress cung cấp cho người dùng một số quyền hữu ích từ <a href=\"%s\">giấy phép sử dụng</a> của nó, giấy phép GPL."
 
-#: wp-admin/credits.php:125
+#: wp-admin/credits.php:135
 msgid "Project Leaders"
 msgstr "Lãnh đạo dự án"
 
-#: wp-admin/credits.php:43
+#. translators: 1: https://wordpress.org/about/, 2: https://make.wordpress.org
+#: wp-admin/credits.php:53
 msgid "WordPress is created by a <a href=\"%1$s\">worldwide team</a> of passionate individuals. <a href=\"%2$s\">Get involved in WordPress</a>."
 msgstr "WordPress được tạo bởi một <a href=\"%1$s\">nhóm toàn cầu</a> của những người có chung đam mê. <a href=\"%2$s\">Dồn tâm trí cho WordPress</a>."
 
@@ -8891,11 +8881,12 @@ msgstr "WordPress được tạo bởi một <a href=\"%1$s\">nhóm toàn cầu<
 msgid "All Comments"
 msgstr "Tất cả phản hồi"
 
-#: wp-admin/credits.php:126
+#. translators: %s: The current WordPress version number
+#: wp-admin/credits.php:137
 msgid "Core Contributors to WordPress %s"
 msgstr "Công Tác Viên Lõi Cho WordPress %s"
 
-#: wp-admin/credits.php:128
+#: wp-admin/credits.php:139
 msgid "Cofounder, Project Lead"
 msgstr "Đồng Sáng Lập, Trưởng Nhóm Dự Án"
 
@@ -8904,26 +8895,26 @@ msgctxt "removing-widget"
 msgid "Deactivate"
 msgstr "Dừng kích hoạt"
 
-#: wp-admin/credits.php:13 wp-admin/credits.php:29 wp-admin/freedoms.php:39
+#: wp-admin/credits.php:13 wp-admin/credits.php:39 wp-admin/freedoms.php:53
 #: wp-admin/about.php:38
 msgid "Credits"
 msgstr "Công trạng"
 
 #. translators: %s: https://make.wordpress.org
-#: wp-admin/credits.php:58
+#: wp-admin/credits.php:68
 msgid "Want to see your name in lights on this page? <a href=\"%s\">Get involved in WordPress</a>."
 msgstr "Bạn có muốn tên bạn được liệt kê tại trang này? <a href=\"%s\">Dồn tâm trí cho WordPress</a>."
 
-#: wp-admin/credits.php:129
+#: wp-admin/credits.php:140
 msgid "Lead Developer"
 msgstr "Trưởng Nhóm Phát Triển"
 
-#: wp-admin/credits.php:30 wp-admin/freedoms.php:12 wp-admin/freedoms.php:40
-#: wp-admin/freedoms.php:57 wp-admin/about.php:39
+#: wp-admin/credits.php:40 wp-admin/freedoms.php:12 wp-admin/freedoms.php:54
+#: wp-admin/freedoms.php:81 wp-admin/about.php:39
 msgid "Freedoms"
 msgstr "Quyền tự do"
 
-#: wp-admin/freedoms.php:96
+#: wp-admin/freedoms.php:130
 msgid "Don&#8217;t you wish all software came with these freedoms? So do we! For more information, check out the <a href=\"https://www.fsf.org/\">Free Software Foundation</a>."
 msgstr "Bạn không hy vọng tất cả phần mềm đều được phát hành với những quyền tự do này? Chúng tôi cũng vậy! Để biết thêm thông tin, hãy khám phá <a href=\"http://www.fsf.org/\">Tổ Chức Phần Mềm Miễn Phí</a>."
 
@@ -9715,7 +9706,7 @@ msgstr "Bạn có thể lọc danh sách để chỉ hiển thị bài viết th
 msgid "Search Installed Plugins"
 msgstr "Tìm gói mở rộng đã cài đặt"
 
-#: wp-admin/nav-menus.php:652
+#: wp-admin/nav-menus.php:656
 msgid "Your theme supports one menu. Select which menu you would like to use."
 msgstr "Giao diện này hỗ trợ một menu. Chọn menu bạn muốn sử dụng."
 
@@ -10046,7 +10037,7 @@ msgstr "Hiển thị trang"
 msgid "In a few words, explain what this site is about."
 msgstr "Trong một vài từ, giải thích về trang này viết về gì."
 
-#: wp-admin/nav-menus.php:888 wp-admin/nav-menus.php:999
+#: wp-admin/nav-menus.php:892 wp-admin/nav-menus.php:1003
 msgid "Save Menu"
 msgstr "Lưu menu"
 
@@ -10590,7 +10581,7 @@ msgstr "Chọn giao diện để chỉnh sửa:"
 msgid "Edit Themes"
 msgstr "Chỉnh sửa Giao diện"
 
-#: wp-admin/includes/theme.php:747 wp-admin/themes.php:563
+#: wp-admin/includes/theme.php:752 wp-admin/themes.php:563
 msgid "Tags:"
 msgstr "Thẻ:"
 
@@ -11175,7 +11166,7 @@ msgstr "Hỗ trợ Đa Mạng chưa được bật."
 msgid "Permalinks"
 msgstr "Đường dẫn tĩnh"
 
-#: wp-admin/credits.php:31 wp-admin/freedoms.php:41 wp-admin/about.php:40
+#: wp-admin/credits.php:41 wp-admin/freedoms.php:55 wp-admin/about.php:40
 #: wp-admin/menu.php:281
 msgid "Privacy"
 msgstr "Riêng tư"
@@ -13187,7 +13178,7 @@ msgstr "Header đã được cập nhật. <a href=\"%s\">Xem trang của bạn<
 msgid "Custom Header"
 msgstr "Tùy biến Header"
 
-#: wp-admin/includes/template.php:2289 wp-admin/nav-menus.php:730
+#: wp-admin/includes/template.php:2289 wp-admin/nav-menus.php:734
 #: wp-admin/options.php:364
 msgid "Save Changes"
 msgstr "Lưu thay đổi"
