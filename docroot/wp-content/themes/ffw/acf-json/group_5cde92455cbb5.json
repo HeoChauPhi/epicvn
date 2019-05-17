@@ -1,9 +1,9 @@
 {
-    "key": "group_5be3222719959",
+    "key": "group_5cde92455cbb5",
     "title": "Feature for Front page",
     "fields": [
         {
-            "key": "field_5be3277457bb9",
+            "key": "field_5cde92567c27d",
             "label": "Feature Banner",
             "name": "feature_banner",
             "type": "image",
@@ -27,7 +27,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_5be327f357bbb",
+            "key": "field_5cde94e6ebb4e",
             "label": "Feature TItle",
             "name": "feature_title",
             "type": "text",
@@ -46,7 +46,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5cbb06fe97a96",
+            "key": "field_5cde94f1ebb4f",
             "label": "Feature End Title",
             "name": "feature_end_title",
             "type": "text",
@@ -65,7 +65,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5be327dc57bba",
+            "key": "field_5cde94feebb50",
             "label": "Feature Small TItle",
             "name": "feature_small_title",
             "type": "text",
@@ -84,7 +84,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5c98a56a2a4b2",
+            "key": "field_5cde9507ebb51",
             "label": "Feature Info",
             "name": "feature_info",
             "type": "group",
@@ -99,7 +99,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5c98a5af2a4b3",
+                    "key": "field_5cde9517ebb52",
                     "label": "Image",
                     "name": "image",
                     "type": "image",
@@ -123,7 +123,7 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5c98a5df2a4b4",
+                    "key": "field_5cde952eebb53",
                     "label": "Title",
                     "name": "title",
                     "type": "text",
@@ -142,7 +142,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5c98a5e72a4b5",
+                    "key": "field_5cde9537ebb54",
                     "label": "Content",
                     "name": "content",
                     "type": "textarea",
@@ -157,7 +157,7 @@
                     "default_value": "",
                     "placeholder": "",
                     "maxlength": "",
-                    "rows": 5,
+                    "rows": 3,
                     "new_lines": "br"
                 }
             ]
@@ -173,14 +173,12 @@
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
-    "style": "seamless",
+    "position": "normal",
+    "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content"
-    ],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1558089981
+    "modified": 1558091098
 }
