@@ -1,0 +1,31 @@
+.block-map-page {
+  margin-bottom: rem(40px);
+
+  .block-map-list-inner {
+    @include box-shadow(rem(0 0 7px 0) $color-line);
+    min-height: rem(600px);
+  }
+
+  .block-map-item {
+    border-bottom: rem(1px) solid $color-line;
+
+    .accordion-title {
+      cursor: pointer;
+      font-size: rem(14px);
+      font-weight: 400;
+      margin: 0;
+      padding: rem(10px);
+
+      &:hover,
+      &.ui-state-active {
+        background-color: $color-link;
+        color: $white;
+        outline: none;
+      }
+    }
+
+    .accordion-content {
+      display: none;
+    }
+  }
+}

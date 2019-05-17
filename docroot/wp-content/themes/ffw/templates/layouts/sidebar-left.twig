@@ -8,7 +8,8 @@
 <div class="block-categories">
   {% if term.parent == 0 %}
     <ul class="term-list term-parent-list">
-      {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'depth': 2, 'exclude': [1, 7]}) }}
+      <li class="cat-item cat-item-{{ term.ID }} current-cat"><a href="{{ term.link }}">{{ term.name }}</a></li>
+      {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'depth': 2, 'child_of': term.ID,'exclude': [1, 7]}) }}
     </ul>    
   {% else %}
     <ul class="term-list">

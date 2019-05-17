@@ -47,12 +47,12 @@
   color: $color-base;
   font-size: rem(16px);
   font-weight: 700;
-  line-height: rem(18px);
+  line-height: 1.4;
   margin: rem(0 0 20px);
 }
 
 .feature-info-content {
-  line-height: rem(18px);
+  line-height: 1.4;
 }
 
 .feature-info-image {
@@ -60,6 +60,10 @@
     margin-bottom: rem(20px);
     text-align: center;
   }
+}
+
+.feature-info-body {
+  text-align: justify;
 }
 
 .feature-navigation {

@@ -63,11 +63,15 @@
       text-align: center;
 
       a {
-        background-color: $color-second;
+        background-color: $color-link;
         border-radius: rem(4px);
         color: $white;
         display: inline-block;
         padding: rem(10px 40px);
+
+        &:hover {
+          background-color: $color-second;
+        }
       }
     }
   }
