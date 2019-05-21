@@ -55,6 +55,9 @@ if(!is_admin()) {
     
     wp_register_script('lib-counterup', get_stylesheet_directory_uri() . '/dist/js/libs/jquery.counterup.min.js', array('jquery'), '1.0', TRUE);
     wp_enqueue_script('lib-counterup');
+    
+    wp_register_script('lib-crs', get_stylesheet_directory_uri() . '/dist/js/libs/crs.min.js', array('jquery'), '0.5.0', TRUE);
+    wp_enqueue_script('lib-crs');
 
     wp_register_script('script', get_stylesheet_directory_uri() . '/dist/js/script.js', array('jquery'), '1.0.0', TRUE);
     wp_localize_script( 'script', 'customAjax', array( 'ajaxurl' => admin_url('admin-ajax.php' )));

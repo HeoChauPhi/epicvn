@@ -556,6 +556,55 @@ function get_id_youtube($url) {
 }
 
 /**
+* Function Name: getAddress()
+* $latitude => Latitude.
+* $longitude => Longitude.
+* Return =>  Address of the given Latitude and longitude.
+**/
+function getAddress($latitude,$longitude){
+  // Theme option
+  $theme_options                = get_option('ffw_board_settings');
+  $google_api_key               = $theme_options['ffw_google_api_key'];
+
+  if(!empty($latitude) && !empty($longitude)){
+    //Send request and receive json data by address
+    $geocodeFromLatLong = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($latitude).','.trim($longitude).'&sensor=false&key='.$google_api_key);
+    $output = json_decode($geocodeFromLatLong);
+    $status = $output->status;
+    //Get address from json data
+    $address_arr = ($status=="OK")?$output->results[0]->address_components:'';
+    //Return address of the given latitude and longitude
+    $address = array();
+    $city = null;
+    $country = null;
+    if(!empty($address_arr)){
+      foreach ($address_arr as $key) {
+        if ($key->types[0] == 'administrative_area_level_1') {
+          if ($key->long_name == 'Hồ Chí Minh') {
+            $city = 'Hồ Chí Minh (Sài Gòn)';
+          } else {
+            $city = $key->long_name;
+          }
+        }
+        if ($key->types[0] == 'country') {
+          $country = $key->short_name;
+        }
+      }
+      $address = array(
+        'city'    => $city,
+        'country' => $country,
+      );
+
+      return $address;
+    } else {
+      return false;
+    }
+  } else {
+    return false;   
+  }
+}
+
+/**
  *
  * Remove value from array by key.
  * @param type $arr Array need remove value.

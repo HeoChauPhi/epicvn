@@ -14,11 +14,24 @@
   function new_map( $el ) {
     // var
     var $markers = $el.find('.marker');
+
+    var $fullscreenControl = true;
+    var $mapTypeControl = true;
+    if ($el.data('fullscreen-control') == false) {
+      $fullscreenControl = false;
+    }
+
+    if ($el.data('maptype-control') == false) {
+      $mapTypeControl = false;
+    }
+    
     // vars
     var args = {
       zoom    : 18,
       center    : new google.maps.LatLng(0, 0),
       scrollwheel : false,
+      fullscreenControl: $fullscreenControl,
+      mapTypeControl: $mapTypeControl,
       mapTypeId : google.maps.MapTypeId.ROADMAP
     };
     // create map
@@ -124,7 +137,7 @@
       map = new_map( $(this) );
     });
 
-    $('.block-map-page').each(function(){
+    $('.block-map-page').each(function() {
       var $this = $(this);
       $(this).find('.js_showmap').on('click', function(){
         var lat = $(this).data('lat');
@@ -135,6 +148,24 @@
         $this.find('.google-build-map').empty();
         $this.find('.google-build-map').append('<div class="marker" data-lat="' + lat + '" data-lng="' + lng + '" data-icon="' + icon + '"><div class="address">' + address + '</div></div>');
         map = new_map( $this.find('.google-build-map') );
+      });
+    });
+
+    $('.google-search-region').each(function() {
+      var $this = $(this);
+
+      $this.find('.crs-country-blank').change(function() {
+        var current_location = $(this).val();
+
+        $this.next('.google-build-map').empty();        
+
+        $this.prev('.google-search-location').find('.google-map-info').each(function(index) {
+          if ($(this).data('city') == current_location) {
+            $this.next('.google-build-map').append('<div class="marker" data-lat="' + $(this).data('lat') + '" data-lng="' + $(this).data('lng') + '"><div class="address">' + $(this).data('localtion') + '</div></div>');
+          }
+        });
+
+        map = new_map( $this.next('.google-build-map') );
       });
     });
   });

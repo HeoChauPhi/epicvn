@@ -73,13 +73,13 @@
       heightStyle: "content",
       header: '> .accordion-item > .accordion-title'
     });
-    $('.woocommerce-product-gallery__image > a').on('click', function() {
+    /*$('.woocommerce-product-gallery__image > a').on('click', function() {
       $.fancybox.open( $('.woocommerce-product-gallery__image > a'), {
         touch: false,
         infobar: false
       });
       return false;
-    });
+    });*/
   });
 
   $(window).scroll(function() {

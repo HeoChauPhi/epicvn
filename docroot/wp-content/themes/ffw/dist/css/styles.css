@@ -16951,11 +16951,18 @@ main .block-content__body {
     -webkit-box-shadow: 0rem 0rem 0.5rem 0rem #d3d3d3;
     -moz-box-shadow: 0rem 0rem 0.5rem 0rem #d3d3d3;
     box-shadow: 0rem 0rem 0.5rem 0rem #d3d3d3;
-    min-height: 42.85714rem; }
+    height: 42.85714rem;
+    overflow-y: auto; }
   .block-map-page .block-map-item {
     border-bottom: 0.07143rem solid #d3d3d3; }
     .block-map-page .block-map-item .accordion-title {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
       cursor: pointer;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
       font-size: 1rem;
       font-weight: 400;
       margin: 0;
@@ -16964,8 +16971,81 @@ main .block-content__body {
         background-color: #ed1c24;
         color: #ffffff;
         outline: none; }
+        .block-map-page .block-map-item .accordion-title:hover > i:before, .block-map-page .block-map-item .accordion-title.ui-state-active > i:before {
+          color: #ffffff; }
+        .block-map-page .block-map-item .accordion-title:hover .location-index, .block-map-page .block-map-item .accordion-title.ui-state-active .location-index {
+          color: #ed1c24; }
+      .block-map-page .block-map-item .accordion-title > i {
+        margin-right: 1.78571rem;
+        position: relative; }
+        .block-map-page .block-map-item .accordion-title > i:before {
+          color: #ccc;
+          font-size: 2.28571rem; }
+      .block-map-page .block-map-item .accordion-title .location-index {
+        font-family: 'Open Sans', sans-serif;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        font-weight: 400;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        left: 0;
+        margin-bottom: 5px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0; }
     .block-map-page .block-map-item .accordion-content {
       display: none; }
+      .block-map-page .block-map-item .accordion-content ul {
+        list-style: none;
+        margin: 0;
+        padding: 1.07143rem 2.5rem; }
+        .block-map-page .block-map-item .accordion-content ul li {
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          list-style: none;
+          margin-bottom: 1.07143rem; }
+          .block-map-page .block-map-item .accordion-content ul li:last-of-type {
+            margin-bottom: 0; }
+          .block-map-page .block-map-item .accordion-content ul li > i {
+            margin-right: 1.42857rem; }
+            .block-map-page .block-map-item .accordion-content ul li > i:before {
+              font-size: 1.28571rem; }
+  .block-map-page .block-map-embed-inner {
+    position: relative; }
+  .block-map-page .google-search-region {
+    background-color: rgba(204, 204, 204, 0.9);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    left: 0;
+    padding: 0.71429rem 1.42857rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9; }
+    .block-map-page .google-search-region > select {
+      background-color: #ffffff;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      margin: 0rem 0.35714rem; }
 
 .block-404__content {
   padding-bottom: 2.85714rem; }
@@ -17071,6 +17151,13 @@ main .block-content__body {
 .single-post .block-related-post .block-title {
   margin-bottom: 1.78571rem;
   text-align: center; }
+
+.single-product .zoomWindow {
+  left: auto !important;
+  right: 100% !important; }
+  @media (max-width: 991px) {
+    .single-product .zoomWindow {
+      display: none !important; } }
 
 .single-product .single-product-details .single-product-header {
   margin-bottom: 4.28571rem; }

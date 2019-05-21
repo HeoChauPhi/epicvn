@@ -30,14 +30,14 @@
   {% endif %}
 {% endif %}
 {% if fn('is_singular', 'product') %}
-{% set product_terms_id = [] %}
-{% set product_terms = fn('get_the_terms', post.ID, 'product_cat') %}
-{% for item in product_terms %}
-  {% set product_terms_id = product_terms_id|merge([item.term_id]) %}
-{% endfor %}
-<div class="block-categories">
-  <ul class="term-list">
-  {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [24], 'taxonomy': 'product_cat', 'current_category': product_terms_id}) }}
-  </ul>
-</div>
+  {% set product_terms_id = [] %}
+  {% set product_terms = fn('get_the_terms', post.ID, 'product_cat') %}
+  {% for item in product_terms %}
+    {% set product_terms_id = product_terms_id|merge([item.term_id]) %}
+  {% endfor %}
+  <div class="block-categories">
+    <ul class="term-list">
+    {{ fn('wp_list_categories', {'title_li': '', 'hide_title_if_empty': false, 'hide_empty': 0, 'exclude': [24], 'taxonomy': 'product_cat', 'current_category': product_terms_id}) }}
+    </ul>
+  </div>
 {% endif %}
