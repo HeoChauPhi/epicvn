@@ -82,12 +82,25 @@
     });*/
   });
 
+  $( document ).ajaxComplete(function() {
+    // Call to function
+  });
+
   $(window).scroll(function() {
     backToTopShow();
   });
 
   $(window).load(function() {
     // Call to function
+
+    $('.single-product-details .entry-images .thumbnails').clone().appendTo('.single-product-details .entry-images').addClass('thumbnails-clone');
+
+    $('.single-product-details .entry-images .thumbnails-clone .yith_magnifier_thumbnail a').mouseenter(function() {
+      var index_thumb = $('.thumbnails-clone .yith_magnifier_thumbnail a').index( this );
+
+      $('.single-product-details .entry-images .thumbnails:not(.thumbnails-clone) .yith_magnifier_thumbnail a:eq('+index_thumb+')').trigger('click');
+      return false;
+    });
   });
 
   $(window).resize(function() {

@@ -15,13 +15,13 @@
             <div class="single-product-header">
               <div class="row">
 
-                <div class="entry-images col-md-4 pull-right">
+                <div class="entry-images col-md-5 pull-right">
                   {% do action('woocommerce_before_single_product_summary') %}
 
                   {#<img src="{{ post.thumbnail.src('shop_single') }}" />#}
                 </div>
 
-                <div class="summary entry-summary col-md-8 pull-left">
+                <div class="summary entry-summary col-md-7 pull-left">
 
                   {% do action('woocommerce_single_product_summary') %}
 
