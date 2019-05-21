@@ -7,7 +7,7 @@
       <div class="container">
         <div class="feature-content-header">
           {% if post.get_field('feature_title') %}
-          <h2 class="feature-big-title">{{ post.get_field('feature_title') }}</h2>
+          <h2 class="feature-big-title">{{ post.get_field('feature_title') }} {% if post.get_field('feature_end_title') %}<span class="feature-big-title-color">{{ post.get_field('feature_end_title') }}</span>{% endif %}</h2>
           {% endif %}
           {% if post.get_field('feature_small_title') %}
           <h3 class="feature-small-title">{{ post.get_field('feature_small_title') }}</h3>

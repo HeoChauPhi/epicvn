@@ -2,14 +2,15 @@
   font-size: rem(16px);
 
   > .main-menu {
-    > ul {
-      align-items: center;
-      display: flex;
-      justify-content: flex-end;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .mega-menu {
+      color: $color-font-light;
+      font-size: rem(14px);
+      text-align: left;
+      white-space: normal;
+    }
 
+    > ul {
+      // Default items
       .menu-item {
         position: relative;
 
@@ -32,137 +33,249 @@
       }
 
       > .menu-item {
-        list-style: none;
-        margin-left: rem(70px);
-        white-space: nowrap;
-
-        > a {
-          text-transform: uppercase;
-          padding: rem(19px 0);
-        }
-
         &.menu-link-button {
           > a {
-            background-color: $color-second;
+            background-color: $color-link;
             border-radius: rem(4px);
             color: $white;
             padding: rem(8px 45px);
+            text-align: center;
             text-transform: capitalize;
 
             &:hover {
               background-color: darken($color-second, 7%);
-            }
-          }
-        }
-
-        &:hover {
-          > ul.nav-drop {
-            opacity: 1;
-            top: 100%;
-            visibility: visible;
-            z-index: 10;
-          }
-        }
-
-        &.nav-drop-left {
-          ul.nav-drop {
-            > .menu-item {
-              .nav-drop {
-                left: auto;
-                right: 80%;
-                top: 0;
-              }
-
-              &:hover {
-                > .nav-drop{
-                  left: auto;
-                  opacity: 1;
-                  right: 100%;
-                  visibility: visible;
-                  z-index: 10;
-                }
-              }
-            }
-          }
-        }
-
-        &.mega-menu-item {
-          position: static;
-
-          > .mega-menu {
-            @include box-shadow(rem(0px 3px 5px 0px) $color-line);
-            @include transition(all 0.5s ease);
-            background-color: $white;
-            border-top: rem(1px) solid $color-second;
-            color: $color-font-light;
-            font-size: rem(14px);
-            left: 0;
-            opacity: 0;
-            padding: rem(30px 15px);
-            position: absolute;
-            right: 0;
-            text-align: left;
-            top: 80%;
-            visibility: hidden;
-            white-space: normal;
-            z-index: 9;
-          }
-
-          &:hover {
-            > .mega-menu {
-              opacity: 1;
-              top: 100%;
-              visibility: visible;
-              z-index: 10;
+              color: $white;
             }
           }
         }
       }
     }
 
-    ul {
-      &.nav-drop {
-        @include box-shadow(rem(0px 3px 5px 0px) $color-line);
-        @include transition(all 0.5s ease);
-        background: $white;
-        border-top: rem(1px) solid $color-second;
+    @include breakpoint(laptop) {
+      display: block !important;
+
+      > ul {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
         list-style: none;
         margin: 0;
-        min-width: rem(156px);
-        opacity: 0;
-        padding: rem(0 5px);
-        position: absolute;
-        text-align: left;
-        top: 80%;
-        visibility: hidden;
-        z-index: -99;
+        padding: 0;
 
-        .menu-item {
-          border-top: rem(1px) solid $color-line;
-
-          &:first-of-type {
-            border: none;
-          }
-
-          a {
-            padding: rem(15px 10px);
-          }
-        }
-
+        // Menu items lvl 1
         > .menu-item {
-          .nav-drop {
-            left: 80%;
-            top: 0;
+          list-style: none;
+          margin-left: rem(70px);
+          white-space: nowrap;
+
+          > a {
+            text-transform: uppercase;
+            padding: rem(19px 0);
           }
 
+          // Sub-menu action
           &:hover {
-            > .nav-drop{
-              left: 100%;
+            > ul.nav-drop {
+              display: block !important;
               opacity: 1;
+              top: 100%;
               visibility: visible;
               z-index: 10;
             }
           }
+
+          &.nav-drop-left {
+            ul.nav-drop {
+              > .menu-item {
+                .nav-drop {
+                  left: auto;
+                  right: 80%;
+                  top: 0;
+                }
+
+                &:hover {
+                  > .nav-drop{
+                    display: block !important;
+                    left: auto;
+                    opacity: 1;
+                    right: 100%;
+                    visibility: visible;
+                    z-index: 10;
+                  }
+                }
+              }
+            }
+          }
+
+          // Mega menu action
+          &.mega-menu-item {
+            position: static;
+
+            > .mega-menu {
+              @include box-shadow(rem(0px 3px 5px 0px) $color-line);
+              @include transition(all 0.5s ease);
+              background-color: $white;
+              border-top: rem(1px) solid $color-second;
+              left: 0;
+              opacity: 0;
+              padding: rem(30px 15px);
+              position: absolute;
+              right: 0;
+              top: 80%;
+              visibility: hidden;
+              z-index: 9;
+            }
+
+            &:hover {
+              > .mega-menu {
+                opacity: 1;
+                top: 100%;
+                visibility: visible;
+                z-index: 10;
+              }
+            }
+          }
+        }
+      }
+
+      // Sub-menu
+      ul {
+        &.nav-drop {
+          @include box-shadow(rem(0px 3px 5px 0px) $color-line);
+          @include transition(all 0.5s ease);
+          background: $white;
+          border-top: rem(1px) solid $color-second;
+          list-style: none;
+          margin: 0;
+          min-width: rem(156px);
+          opacity: 0;
+          padding: rem(0 5px);
+          position: absolute;
+          text-align: left;
+          top: 80%;
+          visibility: hidden;
+          z-index: -99;
+
+          .menu-item {
+            border-top: rem(1px) solid $color-line;
+
+            &:first-of-type {
+              border: none;
+            }
+
+            a {
+              padding: rem(15px 10px);
+            }
+          }
+
+          > .menu-item {
+            .nav-drop {
+              left: 80%;
+              top: 0;
+            }
+
+            &:hover {
+              > .nav-drop{
+                left: 100%;
+                opacity: 1;
+                visibility: visible;
+                z-index: 10;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Menu mobile */
+    @include breakpoint(laptopDown) {
+      @include box-shadow(rem(0px 3px 5px 0px) $color-line);
+      background: $white;
+      border-top: rem(1px) solid $color-second;
+      display: none;
+      padding: rem(10px 15px);
+      position: absolute;
+      text-align: left;
+      width: 100%;
+      z-index: 9;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .menu-item {
+          a {
+            display: block;
+          }
+        }
+
+        .mega-menu,
+        &.nav-drop {
+          display: none;
+        }
+      }
+
+      > ul {
+        > .menu-item {
+          > a {
+            text-transform: uppercase;
+            padding: rem(19px 0);
+          }
+
+          .expanded-menu__button {
+            align-items: center;
+            bottom: 0;
+            cursor: pointer;
+            display: flex;
+            font-size: 20px;
+            height: rem(62px);
+            justify-content: flex-end;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: rem(50px);
+            z-index: 9;
+          }
+        }
+      }
+
+      .mega-menu-products {
+        .product-code-list {
+          margin: rem(0 0 30px);
+          padding: rem(0 0 10px);
+        }
+      }
+    }
+  }
+
+  @include breakpoint(laptopDown) {
+    .block-nav-mobile {
+      align-items: center;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      .block-user-menu,
+      .menu-responsive {
+        @include transition(all 0.3s ease);
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        font-size: rem(25px);
+        height: 100%;
+        justify-content: center;
+        text-align: center;
+        width: rem(50px);
+
+        &.active,
+        &:hover {
+          background-color: $color-link;
+          color: $white;
         }
       }
     }

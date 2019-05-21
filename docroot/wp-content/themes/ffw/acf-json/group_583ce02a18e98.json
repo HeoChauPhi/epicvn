@@ -284,6 +284,21 @@
                                     "prepend": "",
                                     "append": "",
                                     "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccd1735b19cf",
+                                    "label": "Service URL",
+                                    "name": "service_url",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array"
                                 }
                             ]
                         },
@@ -382,12 +397,264 @@
                 },
                 "layout_5ca2d63fa0abd": {
                     "key": "layout_5ca2d63fa0abd",
+                    "name": "block_documents",
+                    "label": "Block Documents",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ccae0c8e724a",
+                            "label": "List Documents",
+                            "name": "list_documents",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Document",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ccae139e724b",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccae19ce724f",
+                                    "label": "File Attachment",
+                                    "name": "file_attachment",
+                                    "type": "file",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": "pdf, doc, docs, xls, xlsx, ppt, pptx, txt"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5ca2d63fa0ac1",
+                            "label": "Component Class",
+                            "name": "component_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ccd54ca422a2": {
+                    "key": "layout_5ccd54ca422a2",
+                    "name": "map_page",
+                    "label": "Map Page",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ccd54ca422a3",
+                            "label": "List Address",
+                            "name": "list_address",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Address",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ccd54ca422a4",
+                                    "label": "Address Title",
+                                    "name": "address_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccd54ca422a5",
+                                    "label": "Latitude",
+                                    "name": "latitude",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccd54ca422a6",
+                                    "label": "Longitude",
+                                    "name": "longitude",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccd54ca422a7",
+                                    "label": "Location",
+                                    "name": "location",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccd54ca422a8",
+                                    "label": "Phone",
+                                    "name": "phone",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ccd54ca422a9",
+                                    "label": "Time",
+                                    "name": "time",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 3,
+                                    "new_lines": "br"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5ccd54ca422aa",
+                            "label": "Component Class",
+                            "name": "component_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ccae08de7244": {
+                    "key": "layout_5ccae08de7244",
                     "name": "map_block",
                     "label": "Map Block",
                     "display": "row",
                     "sub_fields": [
                         {
-                            "key": "field_5ca2d63fa0abe",
+                            "key": "field_5ccae08de7245",
                             "label": "Map Title",
                             "name": "map_title",
                             "type": "text",
@@ -406,7 +673,7 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5ca2d63fa0abf",
+                            "key": "field_5ccae08de7246",
                             "label": "Map Description",
                             "name": "map_description",
                             "type": "textarea",
@@ -425,7 +692,7 @@
                             "new_lines": ""
                         },
                         {
-                            "key": "field_5ca2d63fa0ac0",
+                            "key": "field_5ccae08de7247",
                             "label": "Map Embed",
                             "name": "map_embed",
                             "type": "google_map",
@@ -443,7 +710,7 @@
                             "height": 300
                         },
                         {
-                            "key": "field_5ca2d63fa0ac1",
+                            "key": "field_5ccae08de7248",
                             "label": "Component Class",
                             "name": "component_class",
                             "type": "text",
@@ -488,5 +755,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554654037
+    "modified": 1557804877
 }

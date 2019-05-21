@@ -27,11 +27,14 @@
   }
 
   &-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include breakpoint(tablet) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .service-item {
+      @include transition(box-shadow 0.3s ease);
       align-items: center;
       background-color: $white;
       border-radius: rem(500px);
@@ -39,14 +42,34 @@
       display: flex;
       height: rem(150px);
       justify-content: center;
-      margin: rem(0 30px);
+      margin: 0 auto rem(30px) auto;
       overflow: hidden;
+      position: relative;
       width: rem(150px);
+
+      @include breakpoint(tablet) {
+        margin: rem(0 30px);
+      }
+
+      &:hover {
+        @extend .animated;
+        @extend .pulse;
+      }
 
       &-inner {
         text-align: center;
         width: 100%;
       }
+    }
+
+    .service-link {
+      border-radius: rem(500px);
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
     }
 
     .service-icon {

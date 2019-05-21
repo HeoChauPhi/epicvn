@@ -33,15 +33,17 @@
 
 .footer-menu-inner,
 .footer-text-inner {
-  align-items: flex-start;
-  display: flex;
-  justify-content: space-between;
-  margin: rem(0 -15px);
+  @include breakpoint(phablet) {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin: rem(0 -15px);
 
-  .block-footer-menu,
-  .block-footer-text {
-    flex: 1;
-    padding: rem(0 15px);
+    .block-footer-menu,
+    .block-footer-text {
+      flex: 1;
+      padding: rem(0 15px);
+    }
   }
 }
 
@@ -69,8 +71,18 @@
 .block-footer-social {
   .block-facebook-fanpage {
     max-width: 100%;
-    //min-height: rem(230px);
     margin-bottom: rem(30px);
+    text-align: center;
+
+    @include breakpoint(colmdDown) {
+      margin-top: rem(30px);
+    }
+
+    .fb_iframe_widget,
+    .fb_iframe_widget span,
+    iframe {
+      max-width: 100%;
+    }
   }
 
   .social-list {
@@ -80,6 +92,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @include breakpoint(colmdDown) {
+      justify-content: center;
+    }
 
     .social-item {
       margin-right: rem(20px);
@@ -129,7 +145,11 @@
   height: rem(50px);
   text-indent: -999em;
   cursor: pointer;
-  opacity: .4;
+  opacity: 0;
+
+  &.btn-show {
+    opacity: .4;
+  }
 
   &:hover {
     opacity: 1;

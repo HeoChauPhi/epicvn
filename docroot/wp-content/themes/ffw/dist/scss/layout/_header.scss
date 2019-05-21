@@ -1,4 +1,8 @@
 .header {
+  &-wrapper {
+    position: relative;
+  }
+
   &-top {
     background-color: $bg-header;
     border-bottom: rem(1px) solid $bg-feature;
@@ -8,9 +12,12 @@
     border-bottom: rem(1px) solid $color-line;
 
     &-inner {
-      align-items: center;
-      display: flex;
       position: relative;
+
+      @include breakpoint(laptop) {
+        align-items: center;
+        display: flex;
+      }
     }
 
     .block-navigation {
@@ -22,9 +29,16 @@
   &-logo {
     min-width: 15%;
 
+    @include breakpoint(laptopDown) {
+      padding: rem(0 50px);
+      text-align: center;
+    }
+
     .logo {
       display: block;
       padding: rem(10px 0 5px);
+      position: relative;
+      z-index: 9;
     }
   }
 }

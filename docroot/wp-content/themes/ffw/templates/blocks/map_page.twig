@@ -1,0 +1,48 @@
+<div class="block-map-page {{ component_class }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 block-map-list-location">
+        <div class="block-map-list-inner js-accordion">
+        {% for item in list_address %}
+          <div class="block-map-item accordion-item">
+            <h3 class="accordion-title js_showmap" data-lat="{{ item.latitude }}" data-lng="{{ item.longitude }}" data-icon="{{ google_icon }}" data-address="{{ item.location }}"><i class="fas fa-map-marker"><span class="location-index">{{ loop.index }}</span></i> {{ item.address_title }}</h3>
+            <div class="accordion-content">
+              <ul>
+                <li class="content-location"><i class="fas fa-map-marker-alt"></i> {{ item.location }}</li>
+                <li class="content-phone"><i class="fas fa-phone"></i> {{ item.phone }}</li>
+                <li class="content-time"><i class="far fa-clock"></i> {{ item.time }}</li>
+              </ul>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-md-7 block-map-embed">
+        <div class="block-map-embed-inner">
+          <div class="google-search-location hidden">
+          {% set countries = [] %}
+          {% for item in list_address %}
+            {% set city = fn('getAddress', item.latitude, item.longitude).city %}
+            {% set country = fn('getAddress', item.latitude, item.longitude).country %}
+            {% set countries = countries|merge([ fn('getAddress', item.latitude, item.longitude).country ]) %}
+            <input class="google-map-info" type="hidden" name="google-map-info" data-city="{{ city }}" data-country="{{ country }}" data-lat="{{ item.latitude }}" data-lng="{{ item.longitude }}" data-localtion="{{ item.location }}">
+          {% endfor %}
+          {% set countries = fn('array_unique', countries) %}
+          </div>
+          <form name="google-search-region" class="google-search-region" method="GET">
+            <select class="crs-country" data-whitelist="{{ countries|join(',') }}" data-region-id="region-component-{{ component_id }}"></select>
+            <select class="crs-country-blank" id="region-component-{{ component_id }}"></select>
+          </form>
+          <div class="google-build-map" style="width: 100%; height: 600px;" data-fullscreen-control="false" data-maptype-control="false">
+            {% for item in list_address %}
+              <div class="marker" data-lat="{{ item.latitude }}" data-lng="{{ item.longitude }}" data-icon="{{ google_icon }}">
+                <div class="address">{{ item.location }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

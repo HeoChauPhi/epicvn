@@ -1,0 +1,11 @@
+<div class="block-map__detail">
+  <div class="google-build-map" style="width: 100%; height: 431px;">
+    <div class="marker" data-lat="{{ map_embed.lat }}" data-lng="{{ map_embed.lng }}" data-icon="{{ marker }}">
+      {#<p class="address">{{ address }}</p>#}
+      <div class="address">{{ map_html }}</div>
+    </div>
+  </div>
+</div>
+
+{#<script async defer src="http://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&#38;libraries=places" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&#38;key={{ google_api_key }}&#38;libraries=places" type="text/javascript"></script>#}

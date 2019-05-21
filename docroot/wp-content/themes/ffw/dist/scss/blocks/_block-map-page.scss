@@ -1,0 +1,117 @@
+.block-map-page {
+  margin-bottom: rem(40px);
+
+  .block-map-list-inner {
+    @include box-shadow(rem(0 0 7px 0) $color-line);
+    height: rem(600px);
+    overflow-y: auto;
+  }
+
+  .block-map-item {
+    border-bottom: rem(1px) solid $color-line;
+
+    .accordion-title {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      font-size: rem(14px);
+      font-weight: 400;
+      margin: 0;
+      padding: rem(10px);
+
+      &:hover,
+      &.ui-state-active {
+        background-color: $color-link;
+        color: $white;
+        outline: none;
+
+        > i {
+          &:before {
+            color: $white;
+          }
+        }
+
+        .location-index {
+          color: $color-link;
+        }
+      }
+
+      > i {
+        margin-right: rem(25px);
+        position: relative;
+
+        &:before {
+          color: $color-footer;
+          font-size: rem(32px);
+        }
+      }
+
+      .location-index {
+        @include opensans;
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        font-weight: 400;
+        justify-content: center;
+        left: 0;
+        margin-bottom: 5px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+      }
+    }
+
+    .accordion-content {
+      display: none;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: rem(15px 35px);
+
+        li {
+          align-items: center;
+          display: flex;
+          list-style: none;
+          margin-bottom: rem(15px);
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          > i {
+            margin-right: rem(20px);
+
+            &:before {
+              font-size: rem(18px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .block-map-embed-inner {
+    position: relative;
+  }
+
+  .google-search-region {
+    background-color: rgba($color-footer, 0.9);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    padding: rem(10px 20px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9;
+
+    > select {
+      background-color: $white;
+      flex: 1;
+      margin: rem(0 5px);
+    }
+  }
+}

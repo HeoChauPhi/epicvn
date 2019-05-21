@@ -87,7 +87,7 @@
   .post-media {
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: rem(170px);
 
     img {
@@ -98,6 +98,7 @@
   .post-body {
     color: $color-font-light;
     padding: rem(20px);
+    text-align: justify;
   }
 
   .post-title {
@@ -105,6 +106,7 @@
     color: $color-base;
     font-size: rem(16px);
     font-weight: 700;
+    line-height: 1.4;
     margin: rem(0 0 15px);
     text-transform: capitalize;
 
@@ -118,15 +120,18 @@
   }
 
   .post-summary {
+    align-item: center;
     display: flex;
-    justify-content: center;
     margin-bottom: rem(15px);
     text-align: left;
 
     .post-date,
     .post-author {
-      flex: 1;
       text-transform: capitalize;
+    }
+
+    .post-date {
+      margin-right: rem(15px);
     }
   }
 }

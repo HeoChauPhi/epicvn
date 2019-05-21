@@ -20,6 +20,10 @@
   .product-item {
     padding: rem(0 7px);
 
+    @include breakpoint(colmdDown) {
+      margin-bottom: rem(20px);
+    }
+
     &-inner {
       border: rem(1px) solid transparent;
       cursor: pointer;
@@ -47,6 +51,11 @@
     img {
       height: auto;
       width: 100%;
+
+      @include breakpoint(colmdDown) {
+        height: 100%;
+        width: auto;
+      }
     }
   }
 
@@ -57,8 +66,8 @@
   }
 
   .product-title {
-    margin: rem(0 0 15px);
     font-size: rem(16px);
+    margin: rem(0 0 15px);
     text-transform: uppercase;
 
     a {
@@ -72,6 +81,7 @@
 
   .product-short-desc {
     margin-bottom: rem(15px);
+    text-align: justify;
   }
 
   .product-price {

@@ -1,6 +1,7 @@
+{% block user %}
 {% set current_link = fn('get_permalink') %}
 
-<div class="block-user-login">
+<div class="block-user-login {% if block_class %}{{ block_class }}{% endif %}">
   <ul>
     {% if fn('is_user_logged_in') %}
       {% set current_user = fn('wp_get_current_user') %}
@@ -11,11 +12,12 @@
       {% else %}
         {% set user_name = current_user.data.user_login %}
       {% endif %}
-      <li><a href="{{ fn('wp_logout_url', current_link) }}">{{ pll_e('logout') }}</a></li>
-      <li>{{ pll_e('hello') }} <a href="{{ fn('get_edit_profile_url') }}">{{ user_name }}</a>!</li>
+      <li class="user-logout"><a href="{{ fn('wp_logout_url', current_link) }}">{{ pll_e('logout') }}</a></li>
+      <li class="user-data"><span class="hidden-on-desktop user-avatar"><img src="{{ fn('get_avatar_url', current_user.data.ID) }}"></span><span class="hidden-on-mobile user-say-hello">{{ pll_e('hello') }}</span><a href="{{ fn('get_edit_profile_url') }}" class="user-name">{{ user_name }}</a>!</li>
     {% else %}
       <li><a href="{{ fn('wp_login_url', current_link) }}">{{ pll_e('login') }}</a></li>
       <li><a href="{{ fn('wp_registration_url') }}&#38;redirect_to={{ current_link }}">{{ pll_e('register') }}</a></li>
     {% endif %}
   </ul>
 </div>
+{% endblock %}

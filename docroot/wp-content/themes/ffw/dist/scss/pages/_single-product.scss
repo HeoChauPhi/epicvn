@@ -1,4 +1,13 @@
 .single-product {
+  .zoomWindow {
+    left: auto !important;
+    right: 100% !important;
+
+    @include breakpoint(colmdDown) {
+      display: none !important;
+    }
+  }
+
   .single-product-details {
     .single-product-header {
       margin-bottom: rem(60px);
@@ -87,7 +96,7 @@
           a {
             background-position: center center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
             display: block;
             height: rem(168px);
 

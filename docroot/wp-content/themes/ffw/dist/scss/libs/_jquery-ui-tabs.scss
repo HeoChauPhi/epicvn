@@ -1,16 +1,18 @@
 .js-quicktab {
   .js-tabs-list {
-    align-items: center;
-    border-bottom: rem(1px) solid $color-second;
+    /* align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
+    border-bottom: rem(1px) solid $color-second;
     list-style: none;
     margin: rem(0 0 30px);
-    padding: rem(0 0 10px);
+    padding: 0;
+    text-align: center;
 
     li {
-      margin: rem(0 5px);
+      display: inline-block;
       list-style: none;
+      margin: rem(0 5px 10px 5px);
 
       a {
         background-color: $bg-feature;
@@ -37,48 +39,52 @@
   }
 
   &.tab-verticle {
-    align-items: flex-start;
-    display: flex;
+    @include breakpoint(laptop) {
+      align-items: flex-start;
+      display: flex;
 
-    .js-tabs-list {
-      align-items: unset;
-      border: none;
-      display: block;
-      justify-content: unset;
-      margin: rem(0 50px 0 0);
-      padding: 0;
-      width: rem(255px);
+      .js-tabs-list {
+        align-items: unset;
+        border: none;
+        display: block;
+        justify-content: unset;
+        margin: rem(0 50px 0 0);
+        padding: 0;
+        width: rem(255px);
 
-      li {
-        margin: 0;
+        li {
+          display: block;
+          margin: 0;
+          text-align: left;
 
-        a {
-          background-color: transparent;
-          border-color: $color-line;
-          border-style: solid;
-          border-width: rem(1px 0 0 0);
-          padding: rem(15px 20px);
-
-          &:hover {
-            background-color: $color-link;
-            border-color: $color-link;
-            color: $white;
-          }
-        }
-
-        &.ui-tabs-active {
           a {
-            @extend .fa-chevron-right;
-            background-color: $color-link;
-            border-color: $color-link;
+            background-color: transparent;
+            border-color: $color-line;
             border-style: solid;
             border-width: rem(1px 0 0 0);
-            color: $white;
+            padding: rem(15px 20px);
 
-            &:before {
-              float: right;
-              font-family: 'Font Awesome 5 Free';
-              font-weight: 900;
+            &:hover {
+              background-color: $color-link;
+              border-color: $color-link;
+              color: $white;
+            }
+          }
+
+          &.ui-tabs-active {
+            a {
+              background-color: $color-link;
+              border-color: $color-link;
+              border-style: solid;
+              border-width: rem(1px 0 0 0);
+              color: $white;
+
+              &:before {
+                content: "\f054";
+                float: right;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+              }
             }
           }
         }
