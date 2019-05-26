@@ -1558,7 +1558,7 @@ pre {
   .row:after, .mega-menu-products .product-content-list .product-item:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .single-product .single-product-details .entry-images .thumbnails, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .mega-menu-products .product-content-list .product-image, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .mega-menu-products .product-content-list .product-content, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .mega-menu-products .product-content-list .product-image, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .mega-menu-products .product-content-list .product-content, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -1827,11 +1827,11 @@ pre {
     margin-left: 100%; } }
 
 @media (min-width: 992px) {
-  .col-md-1, .col-md-2, .single-product .single-product-details .entry-images .thumbnails, .col-md-3, .col-md-4, .mega-menu-products .product-content-list .product-image, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .mega-menu-products .product-content-list .product-content, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .mega-menu-products .product-content-list .product-image, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .mega-menu-products .product-content-list .product-content, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left; }
   .col-md-1 {
     width: 8.33333%; }
-  .col-md-2, .single-product .single-product-details .entry-images .thumbnails {
+  .col-md-2 {
     width: 16.66667%; }
   .col-md-3 {
     width: 25%; }
@@ -16387,13 +16387,14 @@ select {
   border-bottom: 0.07143rem solid #d3d3d3;
   margin-bottom: 2.14286rem;
   padding: 1.07143rem 0rem 1.42857rem; }
-  .feature-navigation-inner {
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: flex-end;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
+  @media (min-width: 992px) {
+    .feature-navigation-inner {
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
 
 #page-title {
   color: #ed1c24;
@@ -16404,6 +16405,9 @@ select {
   font-weight: 300;
   margin: 0;
   text-transform: uppercase; }
+  @media (max-width: 991px) {
+    #page-title {
+      margin-bottom: 1.42857rem; } }
 
 .breadcrumb {
   background: transparent;
@@ -17180,18 +17184,20 @@ main .block-content__body {
       .single-product .single-product-details .entry-images img {
         margin: 0 auto; } }
   .single-product .single-product-details .entry-images > .images {
-    padding-right: 5.14286rem;
+    padding-right: 17%;
     position: relative; }
     .single-product .single-product-details .entry-images > .images .yith_magnifier_zoom_wrap {
       position: relative; }
   .single-product .single-product-details .entry-images .thumbnails {
     padding: 0;
     position: absolute;
-    right: 0;
-    top: 0; }
+    right: 1.07143rem;
+    top: 0;
+    width: 15%; }
     .single-product .single-product-details .entry-images .thumbnails:not(.thumbnails-clone) {
       display: none; }
     .single-product .single-product-details .entry-images .thumbnails ul li {
+      float: none;
       margin-bottom: 0.35714rem; }
       .single-product .single-product-details .entry-images .thumbnails ul li > a {
         -webkit-border-radius: 0.21429rem;

@@ -36,7 +36,7 @@
       }
 
       > .images {
-        padding-right: rem(72px);
+        padding-right: 17%;
         position: relative;
 
         .yith_magnifier_zoom_wrap {
@@ -45,11 +45,11 @@
       }
 
       .thumbnails {
-        @extend .col-md-2;
         padding: 0;
         position: absolute;
-        right: 0;
+        right: rem(15px);
         top: 0;
+        width: 15%;
 
         &:not(.thumbnails-clone) {
           display: none;
@@ -57,6 +57,7 @@
 
         ul {
           li {
+            float: none;
             margin-bottom: rem(5px);
 
             > a {
