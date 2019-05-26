@@ -1,5 +1,5 @@
 .single-product {
-  .zoomWindow {
+  .yith_magnifier_zoom_magnifier {
     left: auto !important;
     right: 100% !important;
 
@@ -28,6 +28,57 @@
 
       @include breakpoint(colmdDown) {
         float: none !important;
+        margin-bottom: rem(30px);
+
+        img {
+          margin: 0 auto;
+        }
+      }
+
+      > .images {
+        padding-right: 17%;
+        position: relative;
+
+        .yith_magnifier_zoom_wrap {
+          position: relative;
+        }
+      }
+
+      .thumbnails {
+        padding: 0;
+        position: absolute;
+        right: rem(15px);
+        top: 0;
+        width: 15%;
+
+        &:not(.thumbnails-clone) {
+          display: none;
+        }
+
+        ul {
+          li {
+            float: none;
+            margin-bottom: rem(5px);
+
+            > a {
+              @include border-radius(rem(3px));
+              border: rem(1px) solid $color-line;
+              display: block;
+              margin: 0;
+              overflow: hidden;
+              text-align: center;
+
+              &:hover {
+                border-color: $color-link;
+              }
+
+              img {
+                height: auto;
+                width: 100%;
+              }
+            }
+          }
+        }
       }
     }
 

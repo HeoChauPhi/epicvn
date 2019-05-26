@@ -72,8 +72,10 @@
   padding: rem(15px 0 20px);
 
   &-inner {
-    align-items: flex-end;
-    display: flex;
+    @include breakpoint(colmd) {
+      align-items: flex-end;
+      display: flex;
+    }
   }
 }
 
@@ -84,6 +86,10 @@
   font-weight: 300;
   margin: 0;
   text-transform: uppercase;
+
+  @include breakpoint(colmdDown) {
+    margin-bottom: rem(20px);
+  }
 }
 
 .breadcrumb {
