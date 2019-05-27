@@ -141,7 +141,7 @@ class FFWSettingsPage {
 
   public function ffw_form_filefield($name) {
     $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : '';
-    printf('<div class="banner-wrapper %s"><img class="upload_media_thumb" src="%s" /><button class="remove_media_button" type="button" value="Remove Image"><i class="fa fa-times-circle" aria-hidden="true"></i></button></div>', empty($value) ? 'hidden' : '', $value);
+    printf('<div class="banner-wrapper %s"><img class="upload_media_thumb" src="%s" alt="Default banner"/><button class="remove_media_button" type="button" value="Remove Image"><i class="fa fa-times-circle" aria-hidden="true"></i></button></div>', empty($value) ? 'hidden' : '', $value);
     printf('<input class="upload_media_url" type="hidden" size=60 id="form-id-%s" name="ffw_board_settings[%s]" value="%s" />', $name, $name, $value);
     echo '<button class="upload_media_button" type="button" value="Upload Image"><i class="fa fa-upload" aria-hidden="true"></i> Upload Banner</button>';
   }

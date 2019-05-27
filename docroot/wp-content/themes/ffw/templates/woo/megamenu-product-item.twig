@@ -33,9 +33,9 @@
           <div class="product-image">
             <div class="product-image-thumb">
               {% if fn('get_the_post_thumbnail_url', post.ID) %}
-              <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}">
+              <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}" alt="{{ fn('get_the_title', post.ID) }}">
               {% else %}
-              <img src="{{ fn('wc_placeholder_img_src') }}">
+              <img src="{{ fn('wc_placeholder_img_src') }}" alt="{{ pll_e('No image') }}">
               {% endif %}
             </div>
             <div class="post-link"><a href="{{ fn('get_permalink', post.ID) }}">{{ pll_e('Read more') }}</a></div>

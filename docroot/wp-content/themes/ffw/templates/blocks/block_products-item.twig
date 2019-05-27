@@ -2,9 +2,9 @@
   <div class="product-item-inner">
     <div class="product-image">
       {% if product.thumbnail.src('shop_single') %}
-      <img src="{{ product.thumbnail.src('shop_single') }}">
+      <img src="{{ product.thumbnail.src('shop_single') }}" alt="{{ product.thumbnail.post_name }}">
       {% else %}
-      <img src="{{ fn('wc_placeholder_img_src') }}">
+      <img src="{{ fn('wc_placeholder_img_src') }}" alt="{{ pll_e('No image') }}">
       {% endif %}
     </div>
     <div class="product-info">

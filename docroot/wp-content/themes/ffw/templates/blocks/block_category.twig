@@ -36,12 +36,12 @@
                     {# Check category is Image #}
                     {% if term.slug == 'images' or term.slug == 'images-vi' %}
                       <div class="post-item-inner">
-                        <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ post.get_field('post_gallery')[0].url }}" style="background-image: url({{ post.get_field('post_gallery')[0].url }});"><img src="{{ post.get_field('post_gallery')[0].url }}"></a>
+                        <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ post.get_field('post_gallery')[0].url }}" style="background-image: url({{ post.get_field('post_gallery')[0].url }});"><img src="{{ post.get_field('post_gallery')[0].url }}" alt="{{ post.get_field('post_gallery')[0].name }}"></a>
                         
                         <div class="media-hidden">
                         {% for item in post.get_field('post_gallery') %}
                           {% if loop.first != true %}
-                          <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ item.url }}"><img src="{{ item.url }}"></a>
+                          <a class="js-fancybox" data-fancybox="post-gallery-{{ post.ID }}" href="{{ item.url }}"><img src="{{ item.url }}" alt="{{ item.name }}"></a>
                           {% endif %}
                         {% endfor %}
                         </div>
@@ -59,7 +59,7 @@
                       {% endif %}
                       
                       <div class="post-item-inner">
-                        <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_url }}" style="background-image: url({{ video_arr.video_thumb }});"><img src="{{ video_arr.video_thumb }}"></a>
+                        <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_url }}" style="background-image: url({{ video_arr.video_thumb }});"><img src="{{ video_arr.video_thumb }}" alt="{{ video_arr.video_type ~ video_arr.video_id }}"></a>
 
                         <div class="media-hidden">
                         {% for item in post.get_field('post_videos') %}
@@ -72,7 +72,7 @@
                             {% set video_item_url = '//player.vimeo.com/video/' ~ video_item_arr.video_id ~ '?autoplay=1' %}
                           {% endif %}
 
-                          <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_item_url }}"><img src="{{ video_item_arr.video_thumb }}"></a>
+                          <a class="js-fancybox" data-fancybox="post-video-gallery-{{ post.ID }}" href="{{ video_item_url }}"><img src="{{ video_item_arr.video_thumb }}" alt="{{ video_item_arr.video_type ~ video_item_arr.video_id }}"></a>
                           {% endif %}
                         {% endfor %}
                         </div>

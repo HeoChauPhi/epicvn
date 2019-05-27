@@ -1,6 +1,6 @@
 <div class="post-item-inner">
   <div class="post-media" style="background-image: url({{ fn('get_the_post_thumbnail_url', post.ID) }});">
-    <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}">
+    <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}" alt="{{ post.title }}">
   </div>
   <div class="post-body">
     <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
