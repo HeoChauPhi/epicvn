@@ -20,6 +20,12 @@
 
   .product-list {
     clear: both;
+
+    .post-item-inner {
+      .post-media {
+        background-size: contain;
+      }
+    }
   }
 
   .post-item {

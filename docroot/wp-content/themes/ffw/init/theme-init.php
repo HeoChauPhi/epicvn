@@ -688,10 +688,21 @@ function ffw_twig_data($data){
 
   // Theme option
   $theme_options                = get_option('ffw_board_settings');
-  $google_api_key               = $theme_options['ffw_google_api_key'];
-  $post_banner_default          = $theme_options['ffw_post_banner_image'];
+  $google_api_key               = null;
+  $meta_keyword                 = null;
+  $post_banner_default          = null;
+  if (!empty($theme_options['ffw_google_api_key'])) {
+    $google_api_key               = $theme_options['ffw_google_api_key'];
+  }
+  if (!empty($theme_options['ffw_meta_keyword_key'])) {
+    $meta_keyword                 = $theme_options['ffw_meta_keyword_key'];
+  }
+  if (!empty($theme_options['ffw_post_banner_image'])) {
+    $post_banner_default          = $theme_options['ffw_post_banner_image'];
+  }
 
   $data['google_api_key']       = $google_api_key;
+  $data['meta_keyword']         = $meta_keyword;
   $data['post_banner_default']  = $post_banner_default;
 
   // Get PPL Plugin

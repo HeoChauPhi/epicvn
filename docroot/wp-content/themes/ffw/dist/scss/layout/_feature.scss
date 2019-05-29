@@ -4,12 +4,20 @@
   &.front-banner {
     .feature-media {
       min-height: rem(670px);
+
+      @include breakpoint(laptopDown) {
+        min-height: rem(400px);
+      }
+
+      @include breakpoint(mobileonly) {
+        min-height: rem(310px);
+      }
     }
   }
 }
 
 .feature-media {
-  height: rem(310px);
+  min-height: rem(310px);
   position: relative;
 }
 

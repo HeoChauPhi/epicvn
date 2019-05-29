@@ -68,6 +68,8 @@
     $('.js-back-top').on('click', backToTop);
     $('.js-scroll-down').on('click', scrollDown);
     $('.block-products .product-item-inner').matchHeight();
+    $('.term-posts-inner .post-item .post-item-inner').matchHeight();
+    $('.post-related .post-item .post-item-inner').matchHeight();
     $('.js-quicktab').tabs();
     $( ".js-accordion" ).accordion({
       heightStyle: "content",
@@ -100,6 +102,14 @@
 
       $('.single-product-details .entry-images .thumbnails:not(.thumbnails-clone) .yith_magnifier_thumbnail a:eq('+index_thumb+')').trigger('click');
       return false;
+    });
+
+    // Custom for parallax lib
+    $('.parallax-window').each(function() {
+      var data_img = $(this).data('image-src');
+      var data_alt = $(this).data('alt');
+
+      $('.parallax-slider[src="' + data_img + '"]').attr('alt', data_alt);
     });
   });
 

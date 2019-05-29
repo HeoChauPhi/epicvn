@@ -34,17 +34,6 @@ if ( ! class_exists( 'WooCommerce' ) ) {
     global $woocommerce, $post; 
     echo '<div class="options_group">';
      
-    // Product code
-    woocommerce_wp_text_input( 
-      array( 
-        'id'          => '_product_code', 
-        'label'       => __( 'Product code', 'woocommerce' ), 
-        'placeholder' => '',
-        'desc_tip'    => 'true',
-        'description' => __( 'Enter the product code here.', 'woocommerce' ) 
-      )
-    );
-     
     // Product Branch
     woocommerce_wp_text_input( 
       array( 
@@ -84,11 +73,6 @@ if ( ! class_exists( 'WooCommerce' ) ) {
   // Save Fields
   add_action( 'woocommerce_process_product_meta', 'woo_add_custom_general_fields_save' );
   function woo_add_custom_general_fields_save( $post_id ){
-
-    // Product code
-    $woocommerce_product_code = $_POST['_product_code'];
-    if( !empty( $woocommerce_product_code ) )
-        update_post_meta( $post_id, '_product_code', esc_attr( $woocommerce_product_code ) );
 
     // Product branch
     $woocommerce_product_branch = $_POST['_product_branch'];
@@ -143,7 +127,7 @@ if ( ! class_exists( 'WooCommerce' ) ) {
     <div class="product-information">
       <div class="product-information-item product-code">
         <label><?php echo pll_e('product code'); ?>:</label>
-        <?php echo get_post_meta(get_the_ID(), "_product_code", true); ?>
+        <?php echo get_post_meta(get_the_ID(), "_sku", true); ?>
       </div>
       <div class="product-information-item product-branch">
         <label><?php echo pll_e('product branch'); ?>:</label>

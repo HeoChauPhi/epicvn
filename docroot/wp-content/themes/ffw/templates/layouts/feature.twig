@@ -1,7 +1,7 @@
 {% if fn('is_front_page') %}
   <div id="feature" class="feature front-banner">
     <div class="feature-media">
-      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
+      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}" data-alt="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
     </div>
     <div class="feature-content">
       <div class="container">
@@ -42,12 +42,12 @@
     {% set feature_media_title = post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) %}
   {% else %}
     {% set feature_media = post_banner_default %}
-    {% set feature_media_title = '' %}
+    {% set feature_media_title = 'Feature banner' %}
   {% endif %}
 
   <div id="feature" class="feature">
     <div class="feature-media">
-      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ feature_media }}" title="{{ feature_media_title }}"></div>
+      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ feature_media }}" title="{{ feature_media_title }}" data-alt="{{ feature_media_title }}"></div>
     </div>
     <div class="feature-navigation">
       <div class="container">

@@ -80,6 +80,23 @@ class FFWSettingsPage {
       'ffw_google_api_key'
     );
 
+    // Setting ID
+    add_settings_section(
+      'ffw_meta_keyword', // ID
+      __('Meta Keyword', 'ffw_theme'), // Title
+      array( $this, 'ffw_google_print_section_info' ), // Callback
+      'ffw-setting-admin' // Page
+    );
+
+    add_settings_field(
+      'ffw_meta_keyword_key',
+      __('Meta Keyword', 'ffw_theme'),
+      array( $this, 'ffw_form_textfield' ), // Callback
+      'ffw-setting-admin', // Page
+      'ffw_meta_keyword',
+      'ffw_meta_keyword_key'
+    );
+
     // Post banner
     add_settings_section(
       'ffw_post_banner', // ID
@@ -108,6 +125,9 @@ class FFWSettingsPage {
 
     if( isset( $input['ffw_google_api_key'] ) )
       $new_input['ffw_google_api_key'] = sanitize_text_field( $input['ffw_google_api_key'] );
+
+    if( isset( $input['ffw_meta_keyword_key'] ) )
+      $new_input['ffw_meta_keyword_key'] = sanitize_text_field( $input['ffw_meta_keyword_key'] );
 
     if( isset( $input['ffw_post_banner_image'] ) )
       $new_input['ffw_post_banner_image'] = sanitize_text_field( $input['ffw_post_banner_image'] );
