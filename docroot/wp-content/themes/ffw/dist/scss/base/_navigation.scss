@@ -278,6 +278,11 @@
           color: $white;
         }
       }
+
+      .menu-responsive {
+        padding: rem(0 10px);
+        width: auto;
+      }
     }
   }
 }

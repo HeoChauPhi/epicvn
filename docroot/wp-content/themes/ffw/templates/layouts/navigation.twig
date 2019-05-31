@@ -1,5 +1,5 @@
 <div class="block-nav-mobile hidden-on-desktop">
-  <div class="js-toogle--menu menu-responsive" data-target="main-menu"><i class="fas fa-ellipsis-v"></i></div>
+  <div class="js-toogle--menu menu-responsive" data-target="main-menu">{{ pll_e('Menu') }}</div>
   {% if block("user", "header.twig") is defined or block("user_mobile", "header.twig") is defined %}
   <div class="js-toogle--menu block-user-menu" data-target="block-user-login"><i class="fas fa-user"></i></div>
   {% endif %}

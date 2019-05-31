@@ -24,6 +24,10 @@
     .post-item-inner {
       .post-media {
         background-size: contain;
+
+        > a {
+          display: block;
+        }
       }
     }
   }

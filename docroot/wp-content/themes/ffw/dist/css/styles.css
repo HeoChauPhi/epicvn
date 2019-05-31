@@ -16293,7 +16293,10 @@ select {
         .block-navigation .block-nav-mobile .menu-responsive.active,
         .block-navigation .block-nav-mobile .menu-responsive:hover {
           background-color: #ed1c24;
-          color: #ffffff; } }
+          color: #ffffff; }
+      .block-navigation .block-nav-mobile .menu-responsive {
+        padding: 0rem 0.71429rem;
+        width: auto; } }
 
 .header-wrapper {
   position: relative; }
@@ -17081,6 +17084,8 @@ main .block-content__body {
   clear: both; }
   .page-product-list .product-list .post-item-inner .post-media {
     background-size: contain; }
+    .page-product-list .product-list .post-item-inner .post-media > a {
+      display: block; }
 
 .page-product-list .post-item .post-body .price {
   color: #ed1c24; }
