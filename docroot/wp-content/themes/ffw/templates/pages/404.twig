@@ -8,11 +8,13 @@
   {% endif %}
 
   <div class="block-404">
-    <div class="block-404__content">
-      <a href="{{ site.url }}" class="block-404__logo" style="background-image: url({{ logo_url }});"></a>
-      <h2 class="block-404__title">{{ __('Page not found', 'ffw_theme') }}</h2>
-      <div class="block-404__text">{{ __("The page you are looking for doesn't exist or has been moved.
-      ", 'ffw_theme' ) }}</div>
+    <div class="container">
+      <div class="block-404__content">
+        <a href="{{ site.url }}" class="block-404__logo" style="background-image: url({{ logo_url }});"></a>
+        <h2 class="block-404__title">{{ pll_e('Page not found') }}</h2>
+        <div class="block-404__text">{{ pll_e("The page you are looking for doesn't exist or has been moved.
+        ") }}</div>
+      </div>
     </div>
   </div>
 {% endblock %}

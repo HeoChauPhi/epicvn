@@ -1,11 +1,11 @@
 html {
-  @include lato;
+  @include opensans;
   font-size: $base-font-size;
   line-height: 1.5;
 }
 
 body {
-  @include lato;
+  @include opensans;
   color: $color-base;
   font-size: inherit;
   line-height: inherit;
@@ -19,9 +19,21 @@ a {
     cursor: pointer;
     text-decoration: none;
   }
+
+  &:focus,
+  &:active,
+  &:visited {
+    outline: none !important;
+    text-decoration: none;
+  }
 }
 
 img {
   height: auto;
   max-width: 100%;
+}
+
+select {
+  cursor: pointer;
+  padding: rem(5px 7px);
 }

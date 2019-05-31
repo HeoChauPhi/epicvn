@@ -33,7 +33,7 @@ if (!isset($paged) || !$paged){
 }
 
 $context = Timber::get_context();
-$count = 16;
+$count = 12;
 $context['count'] = $count;
 $context['paged'] = $paged;
 $taxonomy = new TimberTerm();

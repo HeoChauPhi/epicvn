@@ -8,7 +8,7 @@
 		$time = 12;
 	} else {
 		$ajax_action = 'dismiss_eum_notice_until';
-		$time = 3;
+		$time = 6;
 	}
 	?>
 	<div style="float:right;"><a href="#" onclick="jQuery('#easy-updates-manager-dashnotice').slideUp(); jQuery.post(ajaxurl, {action: 'easy_updates_manager_ajax', subaction: '<?php echo esc_js($ajax_action); ?>', nonce: '<?php echo wp_create_nonce('easy-updates-manager-ajax-nonce'); ?>' });"><?php printf(__('Dismiss (for %s months)', 'stops-core-theme-and-plugin-updates'), absint($time)); ?></a></div>

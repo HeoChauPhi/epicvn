@@ -127,8 +127,8 @@ class MPSUM_Logs {
 			$continue_cache = true;
 		}
 
-		// Return non-empty log messages if WP_DEBUG is false and transient is populated
-		if (defined('WP_DEBUG') && !WP_DEBUG && false === $continue_cache && !empty($this->log_messages)) {
+		// Return non-empty log messages if EASY_UPDATES_MANAGER_DEBUG is false and transient was populated
+		if ((!defined('EASY_UPDATES_MANAGER_DEBUG') || !EASY_UPDATES_MANAGER_DEBUG) && !$continue_cache) {
 			return $this->log_messages;
 		}
 

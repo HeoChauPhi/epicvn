@@ -1,6 +1,8 @@
-<div class="block-footer-social col-md-4">
+<div class="block-footer-social">
   {% if facebook_fanpage %}
-  {{ facebook_fanpage }}
+  <div class="block block-facebook-fanpage {{ component_class }}">
+    <div class="fb-page" data-href="{{ facebook_fanpage }}" data-height="230" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="{{ facebook_fanpage }}" class="fb-xfbml-parse-ignore"></blockquote></div>
+  </div>
   {% endif %}
   <ul class="social-list">
   {% for item in social_list %}

@@ -10,5 +10,6 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
+$context['title_option'] = framework_page('title');
 
 Timber::render( 'template-landing-page.twig', $context );

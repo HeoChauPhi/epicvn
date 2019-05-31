@@ -130,18 +130,20 @@ function acfwidget($name, $widgetid) {
     //print_r($acffield);
 
     if ( !empty( $acffield ) ) {
-      $index = 1;
+
+      $grouped_types = array();
       foreach ($acffield as $field) {
-        $layout = $field['acf_fc_layout'];
-        
+        $grouped_types[$field['acf_fc_layout']][] = $field;
+      }
+
+      foreach ($grouped_types as $key => $field) {
+        $layout = $key;
+
         switch ($layout) {
           default:
-            $field['index'] = $index;
 
-            if ( strpos($field['component_class'], 'col-') === false ) {
-              $field['layout'] = 12 / $acffield_count;
-            }
-            //print_r($field);
+            $field[$key] = $field;
+
             try {
               Timber::render($layout . '.twig', $field);
             } catch (Exception $e) {
@@ -149,7 +151,6 @@ function acfwidget($name, $widgetid) {
             }
             break;
         }
-        $index++;
       }
     }
   }
@@ -366,8 +367,43 @@ function flexible_content($name) {
       $field['component_id'] = $key + 1;
 
       switch ($layout) {
-        case 'test':
-          print_r($field);
+        case 'map_page':
+          $google_icon = get_template_directory_uri().'/dist/images/icons/google-map-icon.png';
+          $field['google_icon'] = new TimberImage($google_icon);
+
+          try {
+            Timber::render($layout . '.twig', $field);
+          } catch (Exception $e) {
+            echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+          }
+          break;
+
+        case 'block_category':
+          $args = array(
+            'parent' => $field['category_select'],
+            'hide_empty' => false
+          );
+          $child_terms = Timber::get_terms($args);
+
+          $field['terms'] = $child_terms;
+          $field['term_parent'] = new TimberTerm($field['category_select']);
+
+          try {
+            Timber::render($layout . '.twig', $field);
+          } catch (Exception $e) {
+            echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+          }
+          break;
+
+        case 'block_products':
+
+          $args_products = array(
+            'post_type' => 'product',
+            'post__in'  => $field['products_select'],
+            'orderby' => 'post__in'
+          );
+          query_posts($args_products);
+          $field['products'] = Timber::get_posts($args_products);
 
           try {
             Timber::render($layout . '.twig', $field);
@@ -520,6 +556,55 @@ function get_id_youtube($url) {
 }
 
 /**
+* Function Name: getAddress()
+* $latitude => Latitude.
+* $longitude => Longitude.
+* Return =>  Address of the given Latitude and longitude.
+**/
+function getAddress($latitude,$longitude){
+  // Theme option
+  $theme_options                = get_option('ffw_board_settings');
+  $google_api_key               = $theme_options['ffw_google_api_key'];
+
+  if(!empty($latitude) && !empty($longitude)){
+    //Send request and receive json data by address
+    $geocodeFromLatLong = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($latitude).','.trim($longitude).'&sensor=false&key='.$google_api_key);
+    $output = json_decode($geocodeFromLatLong);
+    $status = $output->status;
+    //Get address from json data
+    $address_arr = ($status=="OK")?$output->results[0]->address_components:'';
+    //Return address of the given latitude and longitude
+    $address = array();
+    $city = null;
+    $country = null;
+    if(!empty($address_arr)){
+      foreach ($address_arr as $key) {
+        if ($key->types[0] == 'administrative_area_level_1') {
+          if ($key->long_name == 'Hồ Chí Minh') {
+            $city = 'Hồ Chí Minh (Sài Gòn)';
+          } else {
+            $city = $key->long_name;
+          }
+        }
+        if ($key->types[0] == 'country') {
+          $country = $key->short_name;
+        }
+      }
+      $address = array(
+        'city'    => $city,
+        'country' => $country,
+      );
+
+      return $address;
+    } else {
+      return false;
+    }
+  } else {
+    return false;   
+  }
+}
+
+/**
  *
  * Remove value from array by key.
  * @param type $arr Array need remove value.
@@ -603,9 +688,22 @@ function ffw_twig_data($data){
 
   // Theme option
   $theme_options                = get_option('ffw_board_settings');
-  $google_api_key               = $theme_options['ffw_google_api_key'];
+  $google_api_key               = null;
+  $meta_keyword                 = null;
+  $post_banner_default          = null;
+  if (!empty($theme_options['ffw_google_api_key'])) {
+    $google_api_key               = $theme_options['ffw_google_api_key'];
+  }
+  if (!empty($theme_options['ffw_meta_keyword_key'])) {
+    $meta_keyword                 = $theme_options['ffw_meta_keyword_key'];
+  }
+  if (!empty($theme_options['ffw_post_banner_image'])) {
+    $post_banner_default          = $theme_options['ffw_post_banner_image'];
+  }
 
   $data['google_api_key']       = $google_api_key;
+  $data['meta_keyword']         = $meta_keyword;
+  $data['post_banner_default']  = $post_banner_default;
 
   // Get PPL Plugin
   if ( !empty($GLOBALS["polylang"]) ) {

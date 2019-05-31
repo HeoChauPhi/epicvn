@@ -1,0 +1,91 @@
+.single-post {
+  .block-main-content {
+    border-bottom: rem(1px) solid $color-line;
+    margin-bottom: rem(40px);
+    padding-bottom: rem(40px);
+  }
+
+  .post-title {
+    @include opensansconde;
+    color: $color-link;
+    font-size: rem(18px);
+    font-weight: 700;
+    margin: rem(0 0 20px);
+  }
+
+  .post-summary {
+    color: $color-font-light;
+    margin-bottom: rem(30px);
+  }
+
+  .post-date {
+    margin-right: rem(35px);
+  }
+
+  .post-author {
+    text-transform: capitalize;
+  }
+
+  .social-wrapper {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+
+    .social-icons {
+      &__label {
+        font-weight: 700;
+        margin-bottom: rem(5px);
+      }
+
+      &__list {
+        align-items: center;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      &__item {
+        background-color: $black;
+        margin-right: rem(5px);
+
+        a {
+          @include transition(transform 0.5s ease);
+          color: $white;
+          display: block;
+          padding: rem(3px 5px);
+          text-transform: capitalize;
+
+          &:hover {
+            @include transform(translate(3px, -3px));
+          }
+
+          &.icon-linkedin {
+            background-color: #2A78B9;
+          }
+
+          &.icon-facebook {
+            background-color: #395AA1;
+          }
+
+          &.icon-twitter {
+            background-color: #3C9CD8;
+          }
+        }
+      }
+    }
+  }
+
+  .block-related-post {
+    .block-title {
+      margin-bottom: rem(25px);
+      text-align: center;
+    }
+
+    .post-related {
+      .post-item {
+        @extend %post-item;
+      }
+    }
+  }
+}

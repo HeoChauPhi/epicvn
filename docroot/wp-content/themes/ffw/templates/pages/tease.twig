@@ -1,29 +1,39 @@
-<div class="block-content top-translation">
-  <div class="container-wide">
-    <div class="block-content__wrappre">
-      <div class="block-main-content">
-        <div class="date align--center">{{ post.date }}</div>
-        {% if post.get_field('summary') %}
-        <div class="sub-page-title">{{ post.get_field('summary') }}</div>
+<div class="sidebar-content">
+  <div class="container">
+    <div class="row layout-mobile">
+      <div class="col-md-3 sidebar-left">
+        {% include 'sidebar-left.twig' %}
+      </div>
+
+      <div class="col-md-9 main-content">
+        <div class="block-main-content">
+          <h3 class="post-title">{{ post.title }}</h3>
+          <div class="post-summary">
+            <span class="post-date">{{ post.date|date('d-m-Y') }}</span>
+            <span class="post-author">{{ post.author }}</span>
+          </div>
+          <div class="block-content__body">{{ post.content|shortcodes }}</div>
+          {{ fn('shortcode', '[share_buttons]') }}
+        </div>
+
+        {% if fn('related', 'category') %}
+          <div class="block-related-post">
+            <h3 class="related-title block-title">{{ pll_e('Related post') }}</h3>
+            <div class="row post-related">
+              {% for post in fn('related', 'category') %}
+              <div class="post-item col-md-4">
+                {% include 'post-item.twig' with {'post': post} only %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
         {% endif %}
-        {{ function('shortcode', '[share_buttons]') }}
-        <div class="block-content__body">{{ post.content|shortcodes }}</div>
+
+        {#% if function('comments_open') %}
+        {% include 'comments.twig' %}
+        {{ function('comment_form') }}
+        {% endif %#}
       </div>
     </div>
   </div>
 </div>
-
-{#% if related('category') %}
-  <h3 class="related-title block-title">Related post</h3>
-  <ul class="post-related">
-    {% for post in function('related', 'category') %}
-      <li><a href="{{post.link}}">{{post.title}}</a></li>
-    {% endfor %}
-  </ul>
-{% endif %#}
-
-{#% if function('comments_open') %}
-{% include 'comments.twig' %}
-{{ function('comment_form') }}
-{% endif %#}
-

@@ -1,0 +1,7 @@
+.archive {
+  .main-content {
+    .post-item {
+      @extend %post-item;
+    }
+  }
+}

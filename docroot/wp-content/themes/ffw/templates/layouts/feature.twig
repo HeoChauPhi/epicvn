@@ -1,31 +1,79 @@
 {% if fn('is_front_page') %}
   <div id="feature" class="feature front-banner">
-    <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
-    <div class="container">
-      <div class="feature-content">
-        {% if post.get_field('feature_small_title') %}
-        <h3 class="feature-small-title">{{ post.get_field('feature_small_title') }}</h3>
-        {% endif %}
-        {% if post.get_field('feature_title') %}
-        <h2 class="feature-big-title">{{ post.get_field('feature_title') }}</h2>
-        {% endif %}
+    <div class="feature-media">
+      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}" data-alt="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
+    </div>
+    <div class="feature-content">
+      <div class="container">
+        <div class="feature-content-header">
+          {% if post.get_field('feature_title') %}
+          <h2 class="feature-big-title">{{ post.get_field('feature_title') }} {% if post.get_field('feature_end_title') %}<span class="feature-big-title-color">{{ post.get_field('feature_end_title') }}</span>{% endif %}</h2>
+          {% endif %}
+          {% if post.get_field('feature_small_title') %}
+          <h3 class="feature-small-title">{{ post.get_field('feature_small_title') }}</h3>
+          {% endif %}
+        </div>
+        <div class="feature-content-info">
+
+          <div class="row">
+            <div class="col-md-6 feature-info-image"><img src="{{ post.get_field('feature_info').image.url }}" alt="{{ post.get_field('feature_info').image.name }}"></div>
+            <div class="col-md-6 feature-info-body">
+              <h4 class="feature-info-title">{{ post.get_field('feature_info').title }}</h4>
+              <div class="feature-info-content">{{ post.get_field('feature_info').content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if title_option == "on" %}
+      {% set feature_nav_class = 'hidden' %}
+    {% endif %}
+    <div class="feature-navigation {{ feature_nav_class }}">
+      <div class="container">
+        <div class="feature-navigation-inner">
+          <h1 id="page-title">{{ post.title }}</h1>
+        </div>
       </div>
     </div>
   </div>
 {% else %}
-    <div id="feature" class="feature">
-      <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
-      <div class="container">
+  {% if post.get_field('feature_banner') %}
+    {% set feature_media = post.get_field('feature_banner').url %}
+    {% set feature_media_title = post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) %}
+  {% else %}
+    {% set feature_media = post_banner_default %}
+    {% set feature_media_title = 'Feature banner' %}
+  {% endif %}
 
-      {% if fn('is_page') %}
-        {% if title_option != "on" %}
+  <div id="feature" class="feature">
+    <div class="feature-media">
+      <div class="parallax-window" data-parallax="scroll" data-image-src="{{ feature_media }}" title="{{ feature_media_title }}" data-alt="{{ feature_media_title }}"></div>
+    </div>
+    <div class="feature-navigation">
+      <div class="container">
+        <div class="feature-navigation-inner">
+        {% if fn('is_page') %}
+          {% if title_option != "on" %}
+            <h1 id="page-title">{{ post.title }}</h1>
+          {% else %}
+            <h1 id="page-title" class="hidden">{{ post.title }}</h1>
+          {% endif %}
+        {% elseif fn('is_archive') %}
+          {% if title is defined %}
+            <h1 id="page-title">{{title}}</h1>
+          {% endif %}
+        {% elseif fn('is_singular', 'post') %}
+          <h1 id="page-title">{{ parent_cat_name }}</h1>
+        {% elseif fn('is_singular', 'product') %}
+        {% set shop_id = fn('get_option', 'woocommerce_shop_page_id') %}
+          <h1 id="page-title">{{ fn('get_the_title', shop_id) }}</h1>
+        {% else %}
           <h1 id="page-title">{{ post.title }}</h1>
         {% endif %}
-      {% else %}
-        <h1 id="page-title">{{ post.title }}</h1>
-      {% endif %}
-      
-      {% include 'breadcrumb.twig' %}
+        
+        {% include 'breadcrumb.twig' %}
+        </div>
       </div>
     </div>
+  </div>
 {% endif %}

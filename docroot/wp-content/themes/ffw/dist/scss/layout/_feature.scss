@@ -1,0 +1,132 @@
+.feature {
+  color: $color-font-light;
+
+  &.front-banner {
+    .feature-media {
+      min-height: rem(670px);
+
+      @include breakpoint(laptopDown) {
+        min-height: rem(400px);
+      }
+
+      @include breakpoint(mobileonly) {
+        min-height: rem(310px);
+      }
+    }
+  }
+}
+
+.feature-media {
+  min-height: rem(310px);
+  position: relative;
+}
+
+.feature-content {
+  background-color: $bg-feature;
+  padding: rem(45px 0 40px);
+}
+
+.feature-content-header {
+  border-bottom: rem(1px) solid $color-footer;
+  margin: 0 20% rem(40px) 20%;
+  text-align: center;
+}
+
+.feature-big-title {
+  color: $color-title-main;
+  font-size: rem(36px);
+  font-weight: 300;
+  margin: rem(0 0 15px);
+  text-transform: uppercase;
+
+  &-color {
+    color: $color-title;
+  }
+}
+
+.feature-small-title {
+  color: $color-font-light;
+  font-size: rem(18px);
+  margin: rem(0 0 10px);
+}
+
+.feature-info-title {
+  @include opensansconde;
+  color: $color-base;
+  font-size: rem(16px);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: rem(0 0 20px);
+}
+
+.feature-info-content {
+  line-height: 1.4;
+}
+
+.feature-info-image {
+  @include breakpoint(colmdDown) {
+    margin-bottom: rem(20px);
+    text-align: center;
+  }
+}
+
+.feature-info-body {
+  text-align: justify;
+}
+
+.feature-navigation {
+  border-bottom: rem(1px) solid $color-line;
+  margin-bottom: rem(30px);
+  padding: rem(15px 0 20px);
+
+  &-inner {
+    @include breakpoint(colmd) {
+      align-items: flex-end;
+      display: flex;
+    }
+  }
+}
+
+#page-title {
+  color: $color-link;
+  flex: 1;
+  font-size: rem(30px);
+  font-weight: 300;
+  margin: 0;
+  text-transform: uppercase;
+
+  @include breakpoint(colmdDown) {
+    margin-bottom: rem(20px);
+  }
+}
+
+.breadcrumb {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+
+  .breadcrumb-connor {
+    margin: rem(0 20px);
+  }
+
+  .breadcrumb-item {
+    text-transform: capitalize;
+
+    &:before {
+      content: '';
+      display: none;
+    }
+
+    a {
+      color: $color-font-light;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+
+    &.active {
+      color: $color-font-light;
+    }
+  }
+}

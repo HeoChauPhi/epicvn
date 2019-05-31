@@ -3,9 +3,17 @@ $context            = Timber::context();
 $context['sidebar'] = Timber::get_widgets( 'shop-sidebar' );
 
 if ( is_singular( 'product' ) ) {
+  remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+  remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+  remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+  remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
+  add_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 11);
+
   $context['post']    = Timber::get_post();
   $product            = wc_get_product( $context['post']->ID );
   $context['product'] = $product;
+  $context['product_gallery'] = $product->get_gallery_attachment_ids();
+  $context['product_attributes'] = $product->get_attributes();
 
   // Get related products
   $related_limit               = wc_get_loop_prop( 'columns' );
@@ -17,8 +25,14 @@ if ( is_singular( 'product' ) ) {
 
   Timber::render( 'templates/woo/single-product.twig', $context );
 } else {
+  remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+  remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+  remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
+  $page = new TimberPost(get_option( 'woocommerce_shop_page_id' ));
   $posts = Timber::get_posts();
+  $context['post'] = $page;
   $context['products'] = $posts;
+  $context['title'] = $page->title;
 
   if ( is_product_category() ) {
       $queried_object = get_queried_object();

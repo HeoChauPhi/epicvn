@@ -43,6 +43,9 @@ class MPSUM_Admin_Advanced {
 		MPSUM_Force_Updates::get_instance();
 		MPSUM_Admin_Bar::get_instance();
 		MPSUM_Reset_Options::get_instance();
+		if (!Easy_Updates_Manager()->is_premium()) {
+			MPSUM_Admin_Advanced_Preview::get_instance();
+		}
 		add_action('mpsum_admin_tab_advanced', array( $this, 'tab_output' ));
 	}
 

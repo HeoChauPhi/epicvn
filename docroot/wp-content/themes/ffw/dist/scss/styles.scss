@@ -9,7 +9,8 @@
 
 // Child-theme custom.
 @import 'libs/sass-compass/compass';
-@import 'libs/fontawesome/font-awesome';
+@import 'libs/fontawesome/fontawesome';
+//@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
 @import 'libs/slick';
 @import 'libs/jquer-fancybox';
 @import 'libs/parallax';
@@ -20,9 +21,13 @@
 @import 'base/fonts';
 @import 'base/typography';
 @import 'base/helper';
+
+// Base style and base libs
+@import 'libs/jquery-ui-tabs';
 @import 'base/navigation';
 
 @import 'layout/header';
+@import 'layout/feature';
 @import 'layout/footer';
 @import 'layout/main-content';
 @import 'layout/sidebar';

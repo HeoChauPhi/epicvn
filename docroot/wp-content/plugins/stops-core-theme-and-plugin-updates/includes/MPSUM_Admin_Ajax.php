@@ -46,6 +46,7 @@ class MPSUM_Admin_Ajax {
 	 * Updates plugins tab
 	 */
 	public function update_plugins_tab() {
+		if (!current_user_can('manage_options')) return;
 		$this->render_plugins_tab();
 	}
 
@@ -53,6 +54,7 @@ class MPSUM_Admin_Ajax {
 	 * Updates themes tab
 	 */
 	public function update_themes_tab() {
+		if (!current_user_can('manage_options')) return;
 		$this->render_themes_tab();
 	}
 
@@ -60,6 +62,7 @@ class MPSUM_Admin_Ajax {
 	 * Updates logs tab
 	 */
 	public function update_logs_tab() {
+		if (!current_user_can('manage_options')) return;
 		$this->render_logs_tab();
 	}
 
@@ -68,6 +71,7 @@ class MPSUM_Admin_Ajax {
 	 * Prepares and return content to render plugins tab via ajax call
 	 */
 	private function render_plugins_tab() {
+		if (!current_user_can('manage_options')) return;
 		$plugins_table = new MPSUM_Plugins_List_Table();
 		$plugins_table->ajax_response();
 	}
@@ -76,6 +80,7 @@ class MPSUM_Admin_Ajax {
 	 * Prepares and return content to render themes tab via ajax call
 	 */
 	private function render_themes_tab() {
+		if (!current_user_can('manage_options')) return;
 		$themes_table = new MPSUM_Themes_List_Table();
 		$themes_table->ajax_response();
 	}
@@ -84,6 +89,7 @@ class MPSUM_Admin_Ajax {
 	 * Prepares and return content to render logs tab via ajax call
 	 */
 	private function render_logs_tab() {
+		if (!current_user_can('manage_options')) return;
 		$logs_table = new MPSUM_Logs_List_Table();
 		$logs_table->ajax_response();
 	}
@@ -125,7 +131,7 @@ class MPSUM_Admin_Ajax {
 
 		extract($_REQUEST);
 
-		if (!wp_verify_nonce($nonce, $nonce_key) || empty($subaction)) die('Security check');
+		if (!wp_verify_nonce($nonce, 'eum_nonce') || empty($subaction) || 'axios_ajax_handler' == $subaction) die('Security check');
 
 		$results = array();
 		$data = isset($data) ? $data : array();
@@ -185,6 +191,9 @@ class MPSUM_Admin_Ajax {
 	 * @return array An array of core options
 	 */
 	public function save_core_options($data) {
+	
+		if (!current_user_can('manage_options')) return;
+
 		$id = $data['id'];
 		$value = $data['value'];
 
@@ -449,6 +458,7 @@ class MPSUM_Admin_Ajax {
 	 * @return array - An array of core options
 	 */
 	public function get_core_options($data) {
+		if (!current_user_can('manage_options')) return array();
 		// Get options
 		$options = MPSUM_Updates_Manager::get_options('core', true);
 		if (empty($options)) {
@@ -493,7 +503,7 @@ class MPSUM_Admin_Ajax {
 	 * @param string $data Action to take action on
 	 */
 	public function save_plugins_update_options_and_render($data) {
-		if (!current_user_can('update_plugins')) return;
+		if (!current_user_can('update_plugins')) return '';
 		parse_str($data, $updated_options);
 		$this->save_plugins_update_options($updated_options);
 		$this->render_plugins_tab();
@@ -505,6 +515,7 @@ class MPSUM_Admin_Ajax {
 	 * @param array $updated_options - Updated options from the remote call
 	 */
 	public function save_plugins_update_options($updated_options) {
+		if (!current_user_can('manage_options')) return array();
 		$plugins = isset($updated_options['plugins']) ? (array) $updated_options['plugins'] : array();
 		$plugins_automatic = isset($updated_options['plugins_automatic']) ? (array) $updated_options['plugins_automatic'] : array();
 		$plugin_options = MPSUM_Updates_Manager::get_options('plugins');
@@ -546,7 +557,7 @@ class MPSUM_Admin_Ajax {
 	 * @param string $data Data from ajax call
 	 */
 	public function bulk_action_plugins_update_options_and_render($data) {
-		if (!current_user_can('update_plugins')) return;
+		if (!current_user_can('update_plugins')) return '';
 		parse_str($data, $updated_options);
 		$this->bulk_action_plugins_update_options($updated_options);
 		$this->render_plugins_tab();
@@ -558,6 +569,8 @@ class MPSUM_Admin_Ajax {
 	 * @param array $updated_options - Updated options from the remote call
 	 */
 	public function bulk_action_plugins_update_options($updated_options) {
+		if (!current_user_can('update_plugins')) return array();
+
 		if (isset($updated_options['action']) && -1 != $updated_options['action']) {
 			$action = $updated_options['action'];
 		}
@@ -616,6 +629,7 @@ class MPSUM_Admin_Ajax {
 	 * @return array
 	 */
 	private function plugins_update_all_options($plugin_options, $plugin_automatic_options) {
+		if (!current_user_can('update_plugins')) return array();
 		$plugin_options = array_values(array_unique($plugin_options));
 		$plugin_automatic_options = array_values(array_unique($plugin_automatic_options));
 		$options = MPSUM_Updates_Manager::get_options();
@@ -631,7 +645,7 @@ class MPSUM_Admin_Ajax {
 	 * @param string $data Action to take action on
 	 */
 	public function save_themes_update_options_and_render($data) {
-		if (!current_user_can('update_themes')) return;
+		if (!current_user_can('update_themes')) return '';
 		parse_str($data, $updated_options);
 		$this->save_themes_update_options($updated_options);
 		$this->render_themes_tab();
@@ -643,6 +657,7 @@ class MPSUM_Admin_Ajax {
 	 * @param array $updated_options - Updated options from the remote call
 	 */
 	public function save_themes_update_options($updated_options) {
+		if (!current_user_can('update_themes')) return array();
 		$themes = isset($updated_options['themes']) ? (array) $updated_options['themes'] : array();
 		$themes_automatic = isset($updated_options['themes_automatic']) ? (array) $updated_options['themes_automatic'] : array();
 		$theme_options = MPSUM_Updates_Manager::get_options('themes');
@@ -683,7 +698,7 @@ class MPSUM_Admin_Ajax {
 	 * @param string $data Data from ajax call
 	 */
 	public function bulk_action_themes_update_options_and_render($data) {
-		if (!current_user_can('update_themes')) return;
+		if (!current_user_can('update_themes')) return '';
 		parse_str($data, $updated_options);
 		$this->bulk_action_themes_update_options($updated_options);
 		$this->render_themes_tab();
@@ -695,6 +710,8 @@ class MPSUM_Admin_Ajax {
 	 * @param array $updated_options - Updated options from the remote call
 	 */
 	public function bulk_action_themes_update_options($updated_options) {
+		if (!current_user_can('update_themes')) return array();
+
 		if (isset($updated_options['action']) && -1 != $updated_options['action']) {
 			$action = $updated_options['action'];
 		}
@@ -753,6 +770,7 @@ class MPSUM_Admin_Ajax {
 	 * @return array
 	 */
 	private function themes_update_all_options($theme_options, $theme_automatic_options) {
+		if (!current_user_can('update_themes')) return array();
 		$theme_options = array_values(array_unique($theme_options));
 		$theme_automatic_options = array_values(array_unique($theme_automatic_options));
 		$options = MPSUM_Updates_Manager::get_options();
@@ -770,7 +788,7 @@ class MPSUM_Admin_Ajax {
 	 * @return mixed|string Returns update message if successful
 	 */
 	public function save_excluded_users($data) {
-		if (!current_user_can('promote_users')) return;
+		if (!current_user_can('promote_users')) return '';
 		parse_str($data, $updated_options);
 		$users = $updated_options['mpsum_excluded_users'];
 		$advanced_options = MPSUM_Updates_Manager::get_options('advanced');
@@ -788,11 +806,13 @@ class MPSUM_Admin_Ajax {
 	}
 
 	/**
-	 * Checks what sites a plugin is isntalled for on multisite
+	 * Checks what sites a plugin is installed for on multisite
 	 *
 	 * @param array $data An array with the filename of the plugin
 	 */
 	public function get_multisite_installs_from_plugin($data) {
+
+		if (!current_user_can('manage_options')) return array();
 
 		$plugin_file = $data['plugin_file'];
 
@@ -855,6 +875,8 @@ class MPSUM_Admin_Ajax {
 	 * @param array $data An array with the filename of the plugin
 	 */
 	public function get_multisite_installs_from_theme($data) {
+
+		if (!current_user_can('manage_options')) return array();
 
 		$stylesheet = $data['stylesheet'];
 
@@ -919,6 +941,7 @@ class MPSUM_Admin_Ajax {
 	 * @return json array with message.
 	 */
 	public function disable_admin_bar() {
+		if (!current_user_can('manage_options')) return array();
 		$options = MPSUM_Updates_Manager::get_options('options');
 		$options['enable_admin_bar'] = 'off';
 		MPSUM_Updates_Manager::update_options($options, 'core');
@@ -931,6 +954,7 @@ class MPSUM_Admin_Ajax {
 	 * @return json array with message.
 	 */
 	public function enable_admin_bar() {
+		if (!current_user_can('manage_options')) return array();
 		$options = MPSUM_Updates_Manager::get_options('options');
 		$options['enable_admin_bar'] = 'on';
 		MPSUM_Updates_Manager::update_options($options, 'core');
@@ -1060,6 +1084,7 @@ class MPSUM_Admin_Ajax {
 	 * @return array An array of update data
 	 */
 	private function wp_get_update_data() {
+
 		$update_data = wp_get_update_data();
 		if ($update_data['counts']['total'] > 0) {
 			$update_data['admin_bar_link'] = sprintf('<a class="ab-item" href="%1$s" title="%2$s"><span class="ab-icon"></span><span class="ab-label">%3$s</span><span class="screen-reader-text">%2$s</span></a>', esc_url(self_admin_url('update-core.php')), $this->get_admin_bar_title($update_data), $update_data['counts']['total']);

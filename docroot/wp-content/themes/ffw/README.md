@@ -4,10 +4,10 @@
 
 ### Important first setup
 
-Require Timber plugin
+Get lib plugins
 
     ```
-    composer require timber/timber
+    composer install
     ```
 ### Compile sass compass
 

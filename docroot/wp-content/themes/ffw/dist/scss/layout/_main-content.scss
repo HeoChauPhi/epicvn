@@ -1,0 +1,38 @@
+main {
+  .block-title {
+    color: $color-title-main;
+    font-size: rem(36px);
+    font-weight: 300;
+    margin: rem(0 0 15px);
+    text-transform: uppercase;
+  }
+
+  .sidebar-content {
+    padding-bottom: rem(60px);
+
+    @include breakpoint(colmdDown) {
+      .layout-mobile {
+        display: flex;
+        flex-direction: column;
+
+        > .main-content {
+          margin-bottom: rem(40px);
+          order: 1;
+        }
+
+        > .sidebar-left {
+          order: 2;
+        }
+
+        > .sidebar-right {
+          margin-top: rem(40px);
+          order: 3;
+        }
+      }
+    }
+  }
+
+  .block-content__body {
+    margin-bottom: rem(40px);
+  }
+}

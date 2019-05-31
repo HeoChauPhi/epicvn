@@ -23,10 +23,6 @@
     @media (max-width: 480px)  { @content ; }
   }
 
-  @else if $point == smalldevice {
-    @media (max-width: 1023px)  { @content ; }
-  }
-
   @else if $point == colmd {
     @media (min-width: 992px)  { @content ; }
   }
@@ -37,6 +33,10 @@
 
   @else if $point == wpdevice {
     @media (min-width: 783px)  { @content ; }
+  }
+
+  @else if $point == laptopDown {
+    @media (max-width: 1023px)  { @content ; }
   }
 
   @else {

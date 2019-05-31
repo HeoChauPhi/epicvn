@@ -5,8 +5,8 @@ Plugin Name: Easy Updates Manager
 Plugin URI: https://easyupdatesmanager.com
 Description: Manage and disable WordPress updates, including core, plugin, theme, and automatic updates - Works with Multisite and has built-in logging features.
 Author: Easy Updates Manager Team
-Version: 8.0.3
-Requires at least: 4.5
+Version: 8.0.5
+Requires at least: 4.6
 Author URI: https://easyupdatesmanager.com
 Contributors: kidsguide, ronalfy
 Text Domain: stops-core-theme-and-plugin-updates
@@ -18,7 +18,7 @@ Network: true
 
 if (!defined('ABSPATH')) die('No direct access allowed');
 if (!defined('EASY_UPDATES_MANAGER_MAIN_PATH')) define('EASY_UPDATES_MANAGER_MAIN_PATH', plugin_dir_path(__FILE__));
-if (!defined('EASY_UPDATES_MANAGER_VERSION')) define('EASY_UPDATES_MANAGER_VERSION', '8.0.3');
+if (!defined('EASY_UPDATES_MANAGER_VERSION')) define('EASY_UPDATES_MANAGER_VERSION', '8.0.4');
 if (!defined('EASY_UPDATES_MANAGER_URL')) define('EASY_UPDATES_MANAGER_URL', plugin_dir_url(__FILE__));
 if (!defined('EASY_UPDATES_MANAGER_SITE_URL')) define('EASY_UPDATES_MANAGER_SITE_URL', 'https://easyupdatesmanager.com/');
 if (!defined('EASY_UPDATES_MANAGER_SLUG')) define('EASY_UPDATES_MANAGER_SLUG', plugin_basename(__FILE__));
@@ -659,7 +659,7 @@ if (!class_exists('MPSUM_Updates_Manager')) {
 
 			// Some commands that are available via AJAX only.
 			if ('dismiss_eum_notice_until' == $subaction) {
-				update_site_option('easy_updates_manager_dismiss_eum_notice_until', (time() + 90 * 86400));
+				update_site_option('easy_updates_manager_dismiss_eum_notice_until', (time() + 183 * 86400));
 			} elseif ('dismiss_dash_notice_until' == $subaction) {
 				update_site_option('easy_updates_manager_dismiss_dash_notice_until', (time() + 366 * 86400));
 			} elseif ('dismiss_page_notice_until' == $subaction) {

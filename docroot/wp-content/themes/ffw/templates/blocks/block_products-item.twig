@@ -1,0 +1,17 @@
+<div class="product-item col-md-3">
+  <div class="product-item-inner">
+    <div class="product-image">
+      {% if product.thumbnail.src('shop_single') %}
+      <img src="{{ product.thumbnail.src('shop_single') }}" alt="{{ product.thumbnail.post_name }}">
+      {% else %}
+      <img src="{{ fn('wc_placeholder_img_src') }}" alt="{{ pll_e('No image') }}">
+      {% endif %}
+    </div>
+    <div class="product-info">
+      <h3 class="product-title"><a href="{{ product.link }}">{{ product.title }}</a></h3>
+      <div class="product-short-desc">{{ fn('wc_get_product', product.ID).get_short_description }}</div>
+      {#<div class="product-price">{{ fn('wc_get_product', product.ID).get_price ~ fn('get_woocommerce_currency_symbol') }}</div>#}
+      <div class="product-price">{{ pll_e('Price') }}: {{ pll_e('Contact') }}</div>
+    </div>
+  </div>
+</div>

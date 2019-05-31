@@ -79,6 +79,40 @@ class FFWSettingsPage {
       'ffw_google_api',
       'ffw_google_api_key'
     );
+
+    // Setting ID
+    add_settings_section(
+      'ffw_meta_keyword', // ID
+      __('Meta Keyword', 'ffw_theme'), // Title
+      array( $this, 'ffw_google_print_section_info' ), // Callback
+      'ffw-setting-admin' // Page
+    );
+
+    add_settings_field(
+      'ffw_meta_keyword_key',
+      __('Meta Keyword', 'ffw_theme'),
+      array( $this, 'ffw_form_textfield' ), // Callback
+      'ffw-setting-admin', // Page
+      'ffw_meta_keyword',
+      'ffw_meta_keyword_key'
+    );
+
+    // Post banner
+    add_settings_section(
+      'ffw_post_banner', // ID
+      __('Post banner', 'ffw_theme'), // Title
+      array( $this, 'ffw_google_print_section_info' ), // Callback
+      'ffw-setting-admin' // Page
+    );
+
+    add_settings_field(
+      'ffw_post_banner_image',
+      __('Upload Post Banner', 'ffw_theme'),
+      array( $this, 'ffw_form_filefield' ), // Callback
+      'ffw-setting-admin', // Page
+      'ffw_post_banner',
+      'ffw_post_banner_image'
+    );   
   }
 
   /**
@@ -91,6 +125,12 @@ class FFWSettingsPage {
 
     if( isset( $input['ffw_google_api_key'] ) )
       $new_input['ffw_google_api_key'] = sanitize_text_field( $input['ffw_google_api_key'] );
+
+    if( isset( $input['ffw_meta_keyword_key'] ) )
+      $new_input['ffw_meta_keyword_key'] = sanitize_text_field( $input['ffw_meta_keyword_key'] );
+
+    if( isset( $input['ffw_post_banner_image'] ) )
+      $new_input['ffw_post_banner_image'] = sanitize_text_field( $input['ffw_post_banner_image'] );
 
     return $new_input;
   }
@@ -117,6 +157,13 @@ class FFWSettingsPage {
   public function ffw_form_textfield($name) {
     $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : '';
     printf('<input type="text" size=60 id="form-id-%s" name="ffw_board_settings[%s]" value="%s" />', $name, $name, $value);
+  }
+
+  public function ffw_form_filefield($name) {
+    $value = isset($this->options[$name]) ? esc_attr($this->options[$name]) : '';
+    printf('<div class="banner-wrapper %s"><img class="upload_media_thumb" src="%s" alt="Default banner"/><button class="remove_media_button" type="button" value="Remove Image"><i class="fa fa-times-circle" aria-hidden="true"></i></button></div>', empty($value) ? 'hidden' : '', $value);
+    printf('<input class="upload_media_url" type="hidden" size=60 id="form-id-%s" name="ffw_board_settings[%s]" value="%s" />', $name, $name, $value);
+    echo '<button class="upload_media_button" type="button" value="Upload Image"><i class="fa fa-upload" aria-hidden="true"></i> Upload Banner</button>';
   }
 
   public function ffw_form_textarea($name) {

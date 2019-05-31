@@ -1,0 +1,11 @@
+{
+    "active_plugins": "a:15:{i:0;s:21:\"polylang\/polylang.php\";i:1;s:27:\"acf-country\/acf-country.php\";i:2;s:35:\"advanced-cf7-db\/advanced-cf7-db.php\";i:3;s:56:\"advanced-custom-fields-font-awesome\/acf-font-awesome.php\";i:4;s:57:\"advanced-custom-fields-nav-menu-field\/fz-acf-nav-menu.php\";i:5;s:51:\"codepress-admin-columns\/codepress-admin-columns.php\";i:6;s:36:\"contact-form-7\/wp-contact-form-7.php\";i:7;s:57:\"epic-custom-producl-fields\/epic-custom-product-fields.php\";i:8;s:19:\"jetpack\/jetpack.php\";i:9;s:67:\"post-type-select-for-advanced-custom-fields\/acf-posttype-select.php\";i:10;s:45:\"taxonomy-terms-order\/taxonomy-terms-order.php\";i:11;s:61:\"theme-translation-for-polylang\/polylang-theme-translation.php\";i:12;s:37:\"tinymce-advanced\/tinymce-advanced.php\";i:13;s:27:\"woocommerce\/woocommerce.php\";i:14;s:17:\"wp-cfm\/wp-cfm.php\";}",
+    "current_theme": "FFW Theme",
+    "page_on_front": "2",
+    "permalink_structure": "\/%postname%\/",
+    "polylang": "a:15:{s:7:\"browser\";b:0;s:7:\"rewrite\";i:1;s:12:\"hide_default\";i:1;s:10:\"force_lang\";i:1;s:13:\"redirect_lang\";i:1;s:13:\"media_support\";i:1;s:9:\"uninstall\";i:0;s:4:\"sync\";a:0:{}s:10:\"post_types\";a:0:{}s:10:\"taxonomies\";a:0:{}s:7:\"domains\";a:0:{}s:7:\"version\";s:5:\"2.5.2\";s:16:\"first_activation\";i:1553317794;s:12:\"default_lang\";s:2:\"en\";s:9:\"nav_menus\";a:1:{s:3:\"ffw\";a:2:{s:4:\"main\";a:2:{s:2:\"en\";i:9;s:2:\"vi\";i:10;}s:6:\"footer\";a:2:{s:2:\"en\";i:0;s:2:\"vi\";i:0;}}}}",
+    "polylang_wpml_strings": "a:0:{}",
+    "widget_polylang": "a:1:{s:12:\"_multiwidget\";i:1;}",
+    "tax\/language": "[{\"term_id\":2,\"name\":\"English\",\"slug\":\"en\",\"description\":\"a:3:{s:6:\\\"locale\\\";s:5:\\\"en_US\\\";s:3:\\\"rtl\\\";i:0;s:9:\\\"flag_code\\\";s:2:\\\"us\\\";}\",\"parent\":0},{\"term_id\":5,\"name\":\"Ti\\u1ebfng Vi\\u1ec7t\",\"slug\":\"vi\",\"description\":\"a:3:{s:6:\\\"locale\\\";s:2:\\\"vi\\\";s:3:\\\"rtl\\\";i:0;s:9:\\\"flag_code\\\";s:2:\\\"vn\\\";}\",\"parent\":0}]",
+    ".label": "Plugin config"
+}

@@ -3,26 +3,34 @@
     <div class="header-wrapper">
       <div class="header-top">
         <div class="container">
-          {% include 'block-user.twig' %}
+          {% block user %}
+          {% include 'block-user.twig' with {'block_class': 'hidden-on-mobile'} %}
+          {% endblock %}
         </div>
       </div>
 
-      <div id="header-navigation" class="header--navigation">
+      <div id="header-navigation" class="header-navigation">
         <div class="container">
-          <div class="header-logo">
-            <a href="{{ site.url }}" class="logo">
-              <img alt="{{ site.name }}" src="{{ site_logo }}" alt="{{ site.name }}">
-            </a>
+          <div class="header-navigation-inner">
+            <div class="header-logo">
+              <a href="{{ site.url }}" class="logo">
+                <img src="{{ site_logo }}" alt="{{ site.name }}">
+              </a>
+            </div>
+
+            {% block navigation %}
+              <div class="block-navigation">{% include 'navigation.twig' %}</div>
+            {% endblock %}
+
+            {% block user_mobile %}
+            {% include 'block-user.twig' with {'block_class': 'hidden-on-desktop block-user-login-mobile'} %}
+            {% endblock %}
+
+            {#% if global_ppl %}
+            {% include 'custom-ppl.twig' %}
+            {% endif %#}
           </div>
-
-          {% block navigation %}
-            <div class="block-navigation">{% include 'navigation.twig' %}</div>
-          {% endblock %}
         </div>
-
-        {#% if global_ppl %}
-        {% include 'custom-ppl.twig' %}
-        {% endif %#}
       </div>
     </div>
   </header>

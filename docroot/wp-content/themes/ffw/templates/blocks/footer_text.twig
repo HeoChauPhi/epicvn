@@ -1,6 +1,7 @@
-<div class="block-footer-text {{ component_class }} {% if layout %}col-md-{{ layout }}{% endif %}">
-  <div class="block--inner">
-    <h2 class="block-title">{{ footer_title }}</h2>
-    <div class="block--content">{{ footer_text_body }}</div>
+<div class="footer-text-wrapper">
+  <div class="footer-text-inner">
+  {% for field in footer_text %}
+    {% include 'footer_text-item.twig' with {'field': field} only %}
+  {% endfor %}
   </div>
 </div>
