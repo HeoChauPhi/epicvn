@@ -16268,7 +16268,8 @@ select {
       left: 0;
       position: absolute;
       right: 0;
-      top: 0; }
+      top: 0;
+      z-index: 9; }
       .block-navigation .block-nav-mobile .block-user-menu,
       .block-navigation .block-nav-mobile .menu-responsive {
         -webkit-transition: all 0.3s ease;
@@ -16295,8 +16296,13 @@ select {
           background-color: #ed1c24;
           color: #ffffff; }
       .block-navigation .block-nav-mobile .menu-responsive {
+        background-color: #ed1c24;
+        color: #ffffff;
         padding: 0rem 0.71429rem;
-        width: auto; } }
+        width: auto; }
+        .block-navigation .block-nav-mobile .menu-responsive.active, .block-navigation .block-nav-mobile .menu-responsive:hover {
+          background-color: #c61017;
+          color: #ffffff; } }
 
 .header-wrapper {
   position: relative; }
