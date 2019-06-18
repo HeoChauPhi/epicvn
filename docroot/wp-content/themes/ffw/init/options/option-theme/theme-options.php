@@ -106,6 +106,15 @@ class FFWSettingsPage {
     );
 
     add_settings_field(
+      'ffw_post_banner_url',
+      __('Post Banner URL', 'ffw_theme'),
+      array( $this, 'ffw_form_textfield' ), // Callback
+      'ffw-setting-admin', // Page
+      'ffw_post_banner',
+      'ffw_post_banner_url'
+    );
+
+    add_settings_field(
       'ffw_post_banner_image',
       __('Upload Post Banner', 'ffw_theme'),
       array( $this, 'ffw_form_filefield' ), // Callback
@@ -128,6 +137,9 @@ class FFWSettingsPage {
 
     if( isset( $input['ffw_meta_keyword_key'] ) )
       $new_input['ffw_meta_keyword_key'] = sanitize_text_field( $input['ffw_meta_keyword_key'] );
+
+    if( isset( $input['ffw_post_banner_url'] ) )
+      $new_input['ffw_post_banner_url'] = sanitize_text_field( $input['ffw_post_banner_url'] );
 
     if( isset( $input['ffw_post_banner_image'] ) )
       $new_input['ffw_post_banner_image'] = sanitize_text_field( $input['ffw_post_banner_image'] );

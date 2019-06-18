@@ -94,9 +94,11 @@ if( !ampforwp_levelup_compatibility('hf_builder_head') ){
         <label for="offcanvas-menu" class="fsc"></label>
         <div class="cntr">
             <div class="head h_m_w">
+                <?php  if(ampforwp_get_setting('ampforwp-amp-menu-swift') == true) {?>
                 <div class="h-nav">
                     <label for="offcanvas-menu" class="t-btn"></label>
                 </div><!--end menu-->
+                <?php } ?>
                 <div class="logo">
                     <?php amp_logo(); ?>
                 </div><!-- /.logo -->
@@ -137,6 +139,7 @@ if( !ampforwp_levelup_compatibility('hf_builder_head') ){
     <div class="hamb-mnu">
         <aside class="m-ctr">
             <div class="m-scrl">
+
                 <div class="menu-heading clearfix">
                     <label for="offcanvas-menu" class="c-btn"></label>
                 </div><!--end menu-heading-->
@@ -218,16 +221,18 @@ if( !ampforwp_levelup_compatibility('hf_builder_head') ){
         <label for="offcanvas-menu" class="fsc"></label>
         <div class="cntr">
             <div class="head-2 h_m_w">
+                <?php  if(ampforwp_get_setting('ampforwp-amp-menu-swift') == true) {?>
                 <div class="h-nav">
                    <label for="offcanvas-menu" class="t-btn"></label>
                 </div><!-- /.left-nav -->
+                <?php } ?>
                 <div class="h-logo">
                     <?php amp_logo(); ?>
                 </div>
                 <div class="h-2">
-                    <?php if($redux_builder_amp['signin-button-text'] && $redux_builder_amp['signin-button-link']){?>
+                   <?php if( ampforwp_get_setting('signin-button-text') && ampforwp_get_setting('signin-button-link') ){?>
                     <div class="h-sing">
-                        <a target="_blank" href="<?php echo esc_url($redux_builder_amp['signin-button-link'])?>"><?php echo esc_attr($redux_builder_amp['signin-button-text']) ?></a>
+                        <a target="_blank" href="<?php echo ampforwp_get_setting('signin-button-link')?>"><?php echo __(ampforwp_get_setting('signin-button-text'), 'accelerated-mobile-pages'); ?></a>
                     </div>
                     <?php } ?>
                     <?php if( isset( $redux_builder_amp['amp-swift-cart-btn'] ) && true == $redux_builder_amp['amp-swift-cart-btn'] ) { ?>
@@ -360,9 +365,11 @@ if( !ampforwp_levelup_compatibility('hf_builder_head') ){
                             <a href="tel:<?php echo esc_attr($redux_builder_amp['enable-amp-call-numberfield']);?>"></a>
                         </div>
                     <?php } ?>
+                    <?php  if(ampforwp_get_setting('ampforwp-amp-menu-swift') == true) {?>
                     <div class="h-nav">
                        <label for="offcanvas-menu" class="t-btn"></label>
                     </div><!-- /.left-nav --> 
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -378,9 +385,9 @@ do_action("ampforwp_advance_header_layout_options");
 if(!ampforwp_levelup_compatibility('hf_builder_head') ){
  if($redux_builder_amp['primary-menu']){?>
 <div class="p-m-fl">
-<?php if ( amp_menu(false) ) : ?>
+<?php if ( amp_alter_menu(false) ) : ?>
   <div class="p-menu">
-    <?php amp_menu(); ?>
+    <?php amp_alter_menu(true); ?>
   </div>
   <?php endif; ?>
  <?php do_action('ampforwp_after_primary_menu');  ?>

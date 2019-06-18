@@ -16,7 +16,7 @@ if( ! class_exists('AMPforWP_Infinite_Scroll') ) {
 			$this->is_single = true == $this->is_single() ? $this->is_single() : $this->is_single;
 			$this->is_loop = true == $this->is_loop() ? $this->is_loop() : $this->is_loop;
 			$this->paged = $this->paged();
-			if ( $this->is_single ){
+			if ( $this->is_single && 'post' === get_post_type(ampforwp_get_the_ID()) ){
 				// amp-next-page experiment meta tag
 				add_action('amp_experiment_meta', array( $this, 'amp_experiment_meta') );
 				// amp-next-page script
@@ -148,7 +148,7 @@ if( ! class_exists('AMPforWP_Infinite_Scroll') ) {
 			if ( 4 == $design ) {
 				$classes = array(".p-m-fl",".loop-pagination",".footer",".r-pf",".srp ul",".srp h3","#pagination",".h_m_w", ".f-w");
 			}
-
+			$classes = (array) apply_filters('ampforwp_infinite_scroll_exclude_items', $classes);
 			return json_encode($classes);
 		}
 		public function next_posts_link( $next_link , $paged ) {

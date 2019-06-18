@@ -16398,6 +16398,14 @@ select {
 .feature-info-body {
   text-align: justify; }
 
+.feature-media-url {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1; }
+
 .feature-navigation {
   border-bottom: 0.07143rem solid #d3d3d3;
   margin-bottom: 2.14286rem;

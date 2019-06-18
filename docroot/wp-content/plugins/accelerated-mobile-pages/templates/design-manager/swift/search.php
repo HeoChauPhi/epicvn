@@ -1,4 +1,4 @@
-<?php global $redux_builder_amp;
+<?php global $redux_builder_amp, $search_found;
 amp_header() ?>
 <div class="cntr archive">
 	<div class="arch-tlt">
@@ -8,7 +8,7 @@ amp_header() ?>
 		<div class="arch-psts">
 			<?php amp_loop_template(); ?>
 			<?php 
-			if (empty(amp_loop_template())){ ?>
+			if ( false == $search_found ){ ?>
 				<div class="cntn-wrp srch ">
 					<p><?php
 						$message = '';
@@ -28,8 +28,8 @@ amp_header() ?>
 			if ( $sanitized_sidebar) {
 				$sidebar_output = $sanitized_sidebar->get_amp_content();
 				$sidebar_output = apply_filters('ampforwp_modify_sidebars_content',$sidebar_output);
+            	echo $sidebar_output; // amphtml content, no kses
 			}
-            echo $sidebar_output; // amphtml content, no kses
 			?>
 		</div>
 		<?php } ?>
