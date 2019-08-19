@@ -210,6 +210,9 @@ function amp_loop($selection,$data=array()){
 		call_loops_standard($data);
         echo "<div class='loop-wrapper'>";
 	}
+	if ( false == $amp_q->have_posts() ) {
+		return;
+	}
 	if ( !isset($ampLoopData['no_data']) ) :
 		switch($selection){
 			case 'start':
@@ -379,9 +382,11 @@ function amp_loop_image( $data=array() ) {
 			$tag = $data['tag'];
 		}
 
-		if ( isset($data['responsive']) && $data['responsive'] != "" ) {
+		if ( isset($data['responsive']) && ( $data['responsive'] == "responsive" || $data['responsive'] == 'true' ) ) {
 			$layout_responsive = 'layout=responsive';
-			}
+		}elseif (isset($data['responsive']) && $data['responsive'] == "fill" ) {
+			$layout_responsive = 'layout=fill';
+		}
 
 		if ( isset($data['tag_class']) && $data['tag_class'] != "" ) {
 			$tag_class = $data['tag_class'];

@@ -74,6 +74,15 @@
   text-align: justify;
 }
 
+.feature-media-url {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
 .feature-navigation {
   border-bottom: rem(1px) solid $color-line;
   margin-bottom: rem(30px);

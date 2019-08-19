@@ -38,16 +38,19 @@
   </div>
 {% else %}
   {% if post.get_field('feature_banner') %}
-    {% set feature_media = post.get_field('feature_banner').url %}
-    {% set feature_media_title = post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) %}
+    {% set feature_media_url    = post.get_field('feature_banner_url') %}
+    {% set feature_media        = post.get_field('feature_banner').url %}
+    {% set feature_media_title  = post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) %}
   {% else %}
-    {% set feature_media = post_banner_default %}
-    {% set feature_media_title = 'Feature banner' %}
+    {% set feature_media_url    = post_banner_url %}
+    {% set feature_media        = post_banner_default %}
+    {% set feature_media_title  = 'Feature banner' %}
   {% endif %}
 
   <div id="feature" class="feature">
     <div class="feature-media">
       <div class="parallax-window" data-parallax="scroll" data-image-src="{{ feature_media }}" title="{{ feature_media_title }}" data-alt="{{ feature_media_title }}"></div>
+      <a href="{{ feature_media_url }}" class="feature-media-url"></a>
     </div>
     <div class="feature-navigation">
       <div class="container">

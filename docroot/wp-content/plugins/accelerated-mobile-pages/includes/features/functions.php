@@ -108,6 +108,22 @@ function ampforwp_get_the_ID($post_id=''){
     }
     return $post_id;
 }
+
+// Backward Compatibility
+function ampforwp_correct_frontpage() {
+    return ampforwp_get_frontpage_id();
+}
+
+//Common function to get frontpageID
+function ampforwp_get_frontpage_id() {
+    $post_id = '';
+    if ( ampforwp_is_front_page() ) { 
+        $post_id = ampforwp_get_setting('amp-frontpage-select-option-pages');
+    }
+    $post_id = apply_filters('ampforwp_modify_frontpage_id', $post_id);
+    return $post_id;
+}
+
 // 27. Clean the Defer issue
 // TODO : Get back to this issue. #407
 function ampforwp_the_content_filter_full( $content_buffer ) {
@@ -163,15 +179,7 @@ function ampforwp_is_custom_field_featured_image(){
 function ampforwp_generate_meta_desc($json=""){
     global $post, $redux_builder_amp;
     $desc = $post_id = '';
-    if ( ampforwp_is_front_page() ) {
-        $post_id = ampforwp_get_frontpage_id();
-        $post = get_post($post_id);
-    }
-    if ( ampforwp_is_blog() ) {
-        $post_id = ampforwp_get_blog_details('id');
-        $post = get_post($post_id);
-    }
-    $post_id = $post->ID;
+    $post_id = ampforwp_get_the_ID();
     if ( true == ampforwp_get_setting('ampforwp-seo-meta-description') || !empty($json) ) {
         if ( ampforwp_is_home() || ampforwp_is_blog() ) {
             $desc = addslashes( strip_tags( get_bloginfo( 'description' ) ) );
@@ -183,8 +191,7 @@ function ampforwp_generate_meta_desc($json=""){
             if ( has_excerpt() ) {
                 $desc = get_the_excerpt();
             } else {
-                global $post;
-                $id = $post->ID;
+                $id = ampforwp_get_the_ID();
                 $desc = $post->post_content;
             }
             $desc = preg_replace('/\[(.*?)\]/',' ', $desc);
@@ -194,7 +201,6 @@ function ampforwp_generate_meta_desc($json=""){
             $desc = addslashes( ampforwp_translation($redux_builder_amp['amp-translator-search-text'], 'You searched for:') . ' ' . get_search_query() );
         }
         if ( ampforwp_is_front_page() ) {
-            $post_id = ampforwp_get_frontpage_id();
             $desc = addslashes( wp_trim_words(  strip_tags( get_post_field('post_content', $post_id) ) , 15 ) );
         }
 
@@ -301,11 +307,8 @@ function ampforwp_generate_meta_desc($json=""){
         }
         // Rank Math SEO #2701
         if ( defined( 'RANK_MATH_FILE' ) && 'rank_math' == ampforwp_get_setting('ampforwp-seo-selection') ) {
-            $rank_math_desc = '';
             $rank_math_desc = RankMath\Post::get_meta( 'description', $post_id );
-            if ( $rank_math_desc ) {
-                $desc = $rank_math_desc;
-            }
+            $desc           = $rank_math_desc ? $rank_math_desc : $desc;
         }
         //Bridge Qode SEO Compatibility #2538 
         if ( function_exists('qode_header_meta') && 'bridge' == ampforwp_get_setting('ampforwp-seo-selection')){
@@ -367,12 +370,14 @@ if( !function_exists('ampforwp_get_blog_details') ) {
 
     // 56. Multi Translation Feature #540
 function ampforwp_translation( $redux_style_translation , $pot_style_translation ) {
- global $redux_builder_amp;
- $single_translation_enabled = $redux_builder_amp['amp-use-pot'];
+ $single_translation_enabled = ampforwp_get_setting('amp-use-pot');
    if ( !$single_translation_enabled ) {
      return $redux_style_translation;
    } else {
-     return __($pot_style_translation,'accelerated-mobile-pages');
+        if(!empty($redux_style_translation)){
+            $pot_style_translation = $redux_style_translation;
+        }
+        return __($pot_style_translation,'accelerated-mobile-pages');
    }
 }
 
@@ -580,8 +585,14 @@ function ampforwp_url_purifier($url){
                 if ( true == $checker && false == strpos($url, $endpointq) )
                     $url =  trailingslashit($url) . $endpointq;
                 else {
-                    if ( false == strpos($url, '/'.$endpoint) )
-                        $url = user_trailingslashit( trailingslashit($url) . $endpoint );
+                    $checker =  explode('/', $url);
+                    $amp_check = in_array($endpoint, $checker); 
+                    if ( false == $amp_check ) {
+                        $url = user_trailingslashit( trailingslashit($url) . $endpoint ); 
+                    }
+                    if ( true == $amp_check ) {
+                        $url =  user_trailingslashit( trailingslashit($url) . $endpoint);
+                    }  
                 }   
             }
         }
@@ -800,3 +811,87 @@ function checkAMPforPageBuilderStatus($postId){
     }
     return $response;
 }
+
+// Gallery Code #3296   
+function ampforwp_new_gallery_images($images_markup, $image, $markup_arr){
+    add_action('amp_post_template_css', 'ampforwp_additional_gallery_style');
+    add_filter('amp_post_template_data','ampforwp_carousel_bind_script');
+    add_action('amp_post_template_css', 'ampforwp_additional_style_carousel_caption');
+    return $images_markup;
+}
+if( ! function_exists( 'ampforwp_additional_gallery_style' ) ){
+    function ampforwp_additional_gallery_style(){
+        global $redux_builder_amp,$carousel_markup_all;
+        $design_type = '';
+        $design_type = $redux_builder_amp['ampforwp-gallery-design-type'];
+        
+        if(isset($design_type) && $design_type!==''){
+            echo $carousel_markup_all[$design_type]['gallery_css'];
+        }
+    }
+}
+// amp-bind for carousel with captions
+function ampforwp_carousel_bind_script($data){
+    if( 1 == ampforwp_get_setting('ampforwp-gallery-design-type') || 2 == ampforwp_get_setting('ampforwp-gallery-design-type') ){
+        if ( empty( $data['amp_component_scripts']['amp-bind'] ) ) {
+            $data['amp_component_scripts']['amp-bind'] = 'https://cdn.ampproject.org/v0/amp-bind-0.1.js';
+        }   
+    }
+    if( 3 == ampforwp_get_setting('ampforwp-gallery-design-type') || true == ampforwp_get_setting('ampforwp-gallery-lightbox') ){
+        if ( empty( $data['amp_component_scripts']['amp-image-lightbox'] ) ) {
+            $data['amp_component_scripts']['amp-image-lightbox'] = 'https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js';
+        }
+    }
+    return $data;
+}
+function ampforwp_new_thumbnail_images($amp_images, $uniqueid, $markup_arr){
+    if(!isset($markup_arr['carousel_with_thumbnail_html'])){return '';}
+    $amp_thumb_image_buttons = '';
+    foreach ($amp_images as $key => $value) {
+        $returnHtml = $markup_arr['carousel_with_thumbnail_html'];
+        $returnHtml = str_replace('{{thumbnail}}', $value , $returnHtml);
+        $returnHtml = str_replace('{{unique_id}}', $uniqueid , $returnHtml);
+        $returnHtml = str_replace('{{unique_index}}', $key , $returnHtml);
+        $amp_thumb_image_buttons[$key] = $returnHtml;
+    }
+    return $amp_thumb_image_buttons;
+}
+// Gallery Styling
+if( ! function_exists( 'ampforwp_additional_style_carousel_caption' ) ){
+  function ampforwp_additional_style_carousel_caption(){ ?>
+    .collapsible-captions {--caption-height: 32px; --image-height: 100%; --caption-padding:1rem; --button-size: 28px; --caption-color: #f5f5f5;; --caption-bg-color: #111;}
+    .collapsible-captions * {
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+      box-sizing: border-box;
+    }
+    .collapsible-captions .amp-carousel-container  {position: relative; width: 100%;}
+    .collapsible-captions amp-img img {object-fit: contain; }
+    .collapsible-captions figure { margin: 0; padding: 0; }
+    .collapsible-captions figcaption { position: absolute; bottom: 0;width: 100%;
+      max-height: var(--caption-height);margin-bottom:0;
+      line-height: var(--caption-height);
+      padding: 0 var(--button-size) 0 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: max-height 200ms cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      color: var(--caption-color);
+      background: rgba(0, 0, 0, 0.6);   
+    }
+    .collapsible-captions figcaption.expanded {
+      line-height: inherit;
+      white-space: normal;
+      text-overflow: auto;
+      max-height: 100px;
+      overflow: auto;
+    }
+    .collapsible-captions figcaption:focus { outline: none; border: none; }
+    .collapsible-captions figcaption span { display: block; position: absolute;
+      top: calc((var(--caption-height) - var(--button-size)) / 2);
+      right: 2px; width: var(--button-size); height: var(--button-size);
+      line-height: var(--button-size); text-align: center; font-size: 12px; color: inherit;
+      cursor: pointer; }
+  figcaption{ margin-bottom: 20px; }
+<?php }
+ }

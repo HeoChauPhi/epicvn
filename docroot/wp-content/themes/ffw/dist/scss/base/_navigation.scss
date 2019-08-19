@@ -259,6 +259,7 @@
       position: absolute;
       right: 0;
       top: 0;
+      z-index: 9;
 
       .block-user-menu,
       .menu-responsive {
@@ -280,8 +281,16 @@
       }
 
       .menu-responsive {
+        background-color: $color-link;
+        color: $white;
         padding: rem(0 10px);
         width: auto;
+
+        &.active,
+        &:hover {
+          background-color: darken($color-link, 10%);
+          color: $white;
+        }
       }
     }
   }
